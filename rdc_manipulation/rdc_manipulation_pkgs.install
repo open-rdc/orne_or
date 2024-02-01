@@ -1,0 +1,4 @@
+- git:
+    uri: https://github.com/open-rdc/kondo_driver
+    local-name: kondo_driver
+    version: add_b3m
