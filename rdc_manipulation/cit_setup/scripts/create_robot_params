@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Author : Daiki Maekawa
+
+echo ""
+echo "Create robot parameters for ypspur"
+echo ""
+
+PARAM=${1:-icart-mini.param}
+echo "PARAM_FILE_NAME = $PARAM"
+sudo mkdir /usr/local/share/robot-params
+sudo cp `rospack find orne_setup`/config/$PARAM /usr/local/share/robot-params/$PARAM

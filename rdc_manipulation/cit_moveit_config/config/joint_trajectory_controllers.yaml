@@ -1,0 +1,41 @@
+joint_trajectory_action_node:
+  joints:
+    - l_sholder_pitch_joint
+    - l_sholder_roll_joint
+    - l_elbow_roll_joint
+    - l_wrist_roll_joint
+    - l_wrist_pitch_joint
+    - l_wrist_yaw_joint
+    - r_sholder_pitch_joint
+    - r_sholder_roll_joint
+    - r_elbow_roll_joint
+    - r_wrist_roll_joint
+    - r_wrist_pitch_joint
+    - r_wrist_yaw_joint
+
+  constraints:
+    goal_time: &goal_time_constraints 2.0
+    l_sholder_pitch_joint: 
+      goal: &goal_pos_constraints 0.3
+    l_sholder_roll_joint:
+      goal: *goal_pos_constraints
+    l_elbow_roll_joint:
+      goal: *goal_pos_constraints
+    l_wrist_roll_joint:
+      goal: *goal_pos_constraints
+    l_wrist_pitch_joint:
+      goal: *goal_pos_constraints
+    l_wrist_yaw_joint:
+      goal: *goal_pos_constraints
+    r_sholder_pitch_joint:
+      goal: *goal_pos_constraints
+    r_sholder_roll_joint:
+      goal: *goal_pos_constraints
+    r_elbow_roll_joint:
+      goal: *goal_pos_constraints
+    r_wrist_roll_joint:
+      goal: *goal_pos_constraints
+    r_wrist_pitch_joint:
+      goal: *goal_pos_constraints
+    r_wrist_yaw_joint:
+      goal: *goal_pos_constraints

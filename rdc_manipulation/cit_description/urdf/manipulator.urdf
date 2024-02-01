@@ -1,0 +1,708 @@
+<?xml version="1.0"?>
+<robot name="manipulator">
+  <material name="red">
+    <color rgba="1.0 0.0 0.0 1.0"/>
+  </material>
+  <material name="green">
+    <color rgba="0.0 1.0 0.0 1.0"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.0 0.0 1.0 1.0"/>
+  </material>
+
+  <link name="world"/>
+  <joint name="world2base" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0.044" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.015" length="0.088"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 .8 1"/>
+      </material>
+    </visual>
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+
+  </link>
+  <joint name="spine_joint" type="fixed">
+    <origin xyz="0 0 0.044" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="spine_link"/>
+  </joint>
+
+  <link name="spine_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.55" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0520 1.1"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.55" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0520 1.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="sholder_slider" type="prismatic">
+    <origin xyz="0 0 0.4" rpy="0 0 0"/>
+    <parent link="spine_link"/>
+    <child link="sholder_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000" lower="-0.2" upper="1.4" velocity="1.0"/>
+  </joint>
+
+  <link name="sholder_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.28 0.0320"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 .8 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.28 0.0320"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="sholder_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <transmission name="trans_sholder_slider">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="sholder_slider">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_sholder_slider">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+  <!--left arm-->
+  <joint name="l_sholder_pitch_joint" type="revolute">
+    <origin xyz="0 0.14 0" rpy="0 1.57 0"/>
+    <parent link="sholder_link"/>
+    <child link="l_sholder_pitch_link"/>
+    <axis xyz="0 1 0"/> 
+    <limit lower="-1" upper="1" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="l_sholder_pitch_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://cit_description/meshes/shoulder_pitch.stl" scale="0.01 0.01 0.01"/>
+        <!-- <box size="0.0330 0.050 0.0320"/> -->
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.050 0.05 0.032"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="l_sholder_pitch_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <transmission name="trans_l_sholder_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_sholder_pitch_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_sholder_pitch">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <joint name="l_sholder_roll_joint" type="revolute">
+    <origin xyz="0 0.055 0" rpy="1.57 0 0"/>
+    <parent link="l_sholder_pitch_link"/>
+    <child link="l_sholder_roll_link"/>
+    <axis xyz="1 0 0"/> 
+    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="l_sholder_roll_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://cit_description/meshes/shoulder_roll.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 -0.035" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.042 0.042 0.200"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="l_sholder_roll_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <transmission name="trans_l_sholder_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_sholder_roll_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_sholder_roll">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <joint name="l_elbow_roll_joint" type="revolute">
+    <origin xyz="0 0 -0.271" rpy="0 0 0"/>
+    <parent link="l_sholder_roll_link"/>
+    <child link="l_elbow_roll_link"/>
+    <axis xyz="1 0 0"/> 
+    <limit lower="0.0" upper="3.14" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="l_elbow_roll_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://cit_description/meshes/elbow_roll.stl" scale="0.01 0.01 0.01"/>
+        <!-- <box size="0.0330 0.0320 0.180"/> -->
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0 -0.04 -0.09" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.042 0.042 0.180"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="l_elbow_roll_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <transmission name="trans_l_elbow_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_elbow_roll_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_elbow_roll">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <joint name="l_wrist_roll_joint" type="revolute">
+    <origin xyz="0 -0.042 -0.271" rpy="0 0 0"/>
+    <parent link="l_elbow_roll_link"/>
+    <child link="l_wrist_roll_link"/>
+    <axis xyz="1 0 0"/> 
+    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="l_wrist_roll_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz=" 0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://cit_description/meshes/wrist_roll.stl" scale="0.01 0.01 0.01"/>
+        <!-- <box size="0.0330 0.0320 0.0320"/> -->
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 -0.016" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0320 0.0320"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="l_wrist_roll_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <transmission name="trans_l_wrist_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_wrist_roll_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_wrist_roll">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <joint name="l_wrist_pitch_joint" type="revolute">
+    <origin xyz="0 0 -0.054" rpy="0 0 0"/>
+    <parent link="l_wrist_roll_link"/>
+    <child link="l_wrist_pitch_link"/>
+    <axis xyz="0 -1 0"/> 
+    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="l_wrist_pitch_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://cit_description/meshes/wrist_pitch.stl" scale="0.01 0.01 0.01"/>
+        <!-- <box size="0.0330 0.0320 0.0320"/> -->
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 -0.016" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0320 0.0320"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="l_wrist_pitch_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <transmission name="trans_l_wrist_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_wrist_pitch_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_wrist_pitch">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <joint name="l_wrist_yaw_joint" type="revolute">
+    <origin xyz="0 0 -0.0443" rpy="0 0 0"/>
+    <parent link="l_wrist_pitch_link"/>
+    <child link="l_wrist_yaw_link"/>
+    <axis xyz="0 0 1"/> 
+    <limit lower="-3.14" upper="3.14" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="l_wrist_yaw_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://cit_description/meshes/wrist_yaw.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0320 0.0320"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="l_wrist_yaw_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <transmission name="trans_l_wrist_yaw">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_wrist_yaw_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_wrist_yaw">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <joint name="l_hand_left_joint" type="revolute">
+    <origin xyz="0 0.0225 -0.083" rpy="0 0 0"/>
+    <parent link="l_wrist_yaw_link"/>
+    <child link="l_hand_left_link"/>
+    <axis xyz="1 0 0"/> 
+    <limit lower="0" upper="1.57" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="l_hand_left_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://cit_description/meshes/hand_left.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://cit_description/meshes/hand_left.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="l_hand_left_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <transmission name="trans_l_hand_left">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_hand_left_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_hand_left">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  
+   <joint name="l_hand_right_joint" type="revolute">
+    <origin xyz="0 -0.0225 -0.083" rpy="0 0 0"/>
+    <parent link="l_wrist_yaw_link"/>
+    <child link="l_hand_right_link"/>
+    <axis xyz="-1 0 0"/>
+    <mimic joint="l_hand_left_joint" multiplier="1.0" offset="0.0" /> 
+    <limit lower="-3.14" upper="3.14" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="l_hand_right_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://cit_description/meshes/hand_right.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://cit_description/meshes/hand_right.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="l_hand_right_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <transmission name="trans_l_right_hand">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_hand_right_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_l_hand_right">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!--right arm-->
+
+  <joint name="r_sholder_pitch_joint" type="revolute">
+    <origin xyz="0 -0.14 0" rpy="0 1.57 0"/>
+    <parent link="sholder_link"/>
+    <child link="r_sholder_pitch_link"/>
+    <axis xyz="0 1 0"/> 
+    <limit lower="-1" upper="1" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="r_sholder_pitch_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0330 0.050 0.0320"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.05 0.0320"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="r_sholder_pitch_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <transmission name="trans_r_sholder_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_sholder_pitch_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_sholder_pitch">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <joint name="r_sholder_roll_joint" type="revolute">
+    <origin xyz="0 -0.05 0" rpy="-1.57 0 0"/>
+    <parent link="r_sholder_pitch_link"/>
+    <child link="r_sholder_roll_link"/>
+    <axis xyz="1 0 0"/> 
+    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="r_sholder_roll_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.09" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0320 0.180"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 -0.09" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0320 0.180"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="r_sholder_roll_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <transmission name="trans_r_sholder_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_sholder_roll_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_sholder_roll">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <joint name="r_elbow_roll_joint" type="revolute">
+    <origin xyz="0 0 -0.180" rpy="0 0 0"/>
+    <parent link="r_sholder_roll_link"/>
+    <child link="r_elbow_roll_link"/>
+    <axis xyz="1 0 0"/> 
+    <limit lower="0.0" upper="3.14" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="r_elbow_roll_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0.04 -0.09" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0320 0.180"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.04 -0.09" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0320 0.180"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="r_elbow_roll_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <transmission name="trans_r_elbow_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_elbow_roll_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_elbow_roll">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <joint name="r_wrist_roll_joint" type="revolute">
+    <origin xyz="0 0.04 -0.20" rpy="0 0 0"/>
+    <parent link="r_elbow_roll_link"/>
+    <child link="r_wrist_roll_link"/>
+    <axis xyz="1 0 0"/> 
+    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="r_wrist_roll_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.016" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0320 0.0320"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 -0.016" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0320 0.0320"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="r_wrist_roll_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <transmission name="trans_r_wrist_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_wrist_roll_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_wrist_roll">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <joint name="r_wrist_pitch_joint" type="revolute">
+    <origin xyz="0 0 -0.05" rpy="0 0 0"/>
+    <parent link="r_wrist_roll_link"/>
+    <child link="r_wrist_pitch_link"/>
+    <axis xyz="0 1 0"/> 
+    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="r_wrist_pitch_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.016" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0320 0.0320"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 -0.016" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0320 0.0320"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="r_wrist_pitch_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <transmission name="trans_r_wrist_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_wrist_pitch_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_wrist_pitch">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <joint name="r_wrist_yaw_joint" type="revolute">
+    <origin xyz="0 0 -0.05" rpy="0 0 0"/>
+    <parent link="r_wrist_pitch_link"/>
+    <child link="r_wrist_yaw_link"/>
+    <axis xyz="0 0 1"/> 
+    <limit lower="-3.14" upper="3.14" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="r_wrist_yaw_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.016" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0320 0.0320"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 -0.016" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0330 0.0320 0.0320"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="r_wrist_yaw_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <transmission name="trans_r_wrist_yaw">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_wrist_yaw_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_wrist_yaw">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/manipulator</robotNamespace>
+    </plugin>
+  </gazebo>
+</robot>

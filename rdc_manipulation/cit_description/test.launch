@@ -1,0 +1,13 @@
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find cit_description)/urdf/manipulator.urdf'"/>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="True"/>
+  </node>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+    <param name="publish_frequency" type="double" value="10.0"/>
+  </node>
+
+  <node pkg="rviz" type="rviz" name="rviz"/>
+</launch>

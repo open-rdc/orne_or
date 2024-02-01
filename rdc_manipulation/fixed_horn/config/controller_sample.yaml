@@ -1,0 +1,11 @@
+joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+joint_0_controller:
+    type: position_controllers/JointPositionController
+    publish_rate: 50
+    base_frame_id: base_link
+    joint : joint_0
+
+

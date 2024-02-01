@@ -1,0 +1,22 @@
+product_id: 0x0009 # RS485USB
+
+joint_tilt_driver:
+  joint_name: joint_tilt
+  id: 1
+  min_angle: -90
+  max_angle:  0
+  stretch: 60
+  speed: 127
+  current_limit: 30
+  temperature_limit: 80
+
+joint_pan_driver:
+  joint_name: joint_pan
+  id: 2
+  min_angle: -90
+  max_angle:  90
+  stretch: 60
+  speed: 127
+  current_limit: 30
+  temperature_limit: 80
+

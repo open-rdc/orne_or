@@ -1,0 +1,16 @@
+<launch>
+  <!-- Load Kondo B3M parameters -->
+  <rosparam file="$(find fixed_horn)/config/home_neck_driver.yaml" command="load" ns="kondo_driver"/>
+  <!-- Start ICS driver -->
+  <node name="kondo_driver" pkg="kondo_driver" type="kondo_driver" args="fake:=true joint_tilt_driver joint_pan_driver" output="screen" />
+  <!-- Load URDF model -->
+  <param name="robot_description" command="cat $(find fixed_horn)/urdf/horn.urdf" />
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find fixed_horn)/config/home_neck_controller.yaml" command="load"/>
+  <!-- Load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="--shutdown-timeout 0.1 joint_state_controller joint_tilt_controller joint_pan_controller"/>
+  <!-- Robot state publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen" />
+
+  <node name="fixed_horn" pkg="fixed_horn" type="fixed_horn"/>
+</launch>

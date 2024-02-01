@@ -1,0 +1,15 @@
+joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 20
+
+joint_tilt_controller:
+    type: position_controllers/JointPositionController
+    publish_rate: 20
+    base_frame_id: base_link
+    joint : joint_tilt
+
+joint_pan_controller:
+    type: position_controllers/JointPositionController
+    publish_rate: 20
+    base_frame_id: base_link
+    joint : joint_pan
