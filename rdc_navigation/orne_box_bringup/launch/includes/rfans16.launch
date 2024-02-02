@@ -32,14 +32,5 @@
       <param name="revise_angle_128" value="$(arg revise_angle_128)"/>
       <param name="revise_angle_32" value="$(arg revise_angle_32)"/>
     </node>
-    <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
-       <param name="max_height" value="0.2"/>	    
-       <param name="min_height" value="-0.2"/>
-       <param name="range_max" value="100.0"/>
-       <param name="range_min" value="0.0"/>
-       <param name="angle_increment" value="0.0035"/>
-       <remap from="cloud_in" to="rfans_driver/surestar_points"/>
-       <remap from="/rfans/scan" to="/scan"/>
-    </node>
   </group>
 </launch>

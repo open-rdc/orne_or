@@ -3,12 +3,6 @@
         <arg name="model"    value="$(find xacro)/xacro '$(find cit_description)/urdf/cit.xacro'"/>
         <arg name="use_eth_urg" value="true"/>
     </include>
-
-    <node pkg="cit_adis_imu" type="imu_node" name="imu_node">
-        <remap from="imu"        to="imu_data"/>
-        <param name="port_name"  value="/dev/sensors/ftdi0"/>
-        <param name="z_axis_dir" value="-1"/>
-    </node>
     
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 
