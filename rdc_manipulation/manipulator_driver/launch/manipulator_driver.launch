@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Load Kondo B3M parameters -->
+  <rosparam file="$(find manipulator_driver)/config/manipulator_driver.yaml" command="load" ns="manipulator_driver"/>
+
+  <!-- Start Manipulator driver -->
+  <node name="manipulator_driver" pkg="manipulator_driver" type="manipulator_driver" args="fake:=true wrist_roll1_driver wrist_yaw2_driver wrist_roll3_driver" output="screen" />
+
+  <!-- Load URDF model -->
+  <arg name="model" default="$(find im_description)/robots/manipulator_only.xacro" />
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+
+</launch>
