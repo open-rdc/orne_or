@@ -169,9 +169,30 @@ class KondoMotor {
                 b3m_set_angle(b3m, id, deg100);
                 b3m_get_angle(b3m, id, &deg100);
                 pos = deg100_to_radian(deg100);
-                //pos = radian;
-
             }
+        }
+
+        int get_id(void) {
+            return id;
+        }
+
+        int get_deg100(void) {
+            int deg100 = 0;
+            double radian = cmd;
+            if (radian < min_angle * 3.14 / 180) {
+                radian = min_angle * 3.14 / 180;
+            }
+            if (radian > max_angle * 3.14 / 180) {
+                radian = max_angle * 3.14 / 180;
+            }
+            if (motor_power == true) {
+                deg100 = radian_to_deg100(radian);
+            }
+            return deg100;
+        }
+
+        void set_pos(int deg100) {
+            pos = deg100_to_radian(deg100);
         }
 
         // Set speed parameter
@@ -293,9 +314,25 @@ class IMDriver : public hardware_interface::RobotHW
 
     // Read & write function
     void update () {
+#if 0
         for (int i=0; i<kondo_vector.size(); i++) {
           //ROS_INFO("%s: %d", __func__, i);
             kondo_vector[i]->update();
+        }
+#endif
+	const int max_motor_num = 32;
+	UINT id[max_motor_num];
+        int deg100[max_motor_num];
+        int len = kondo_vector.size();
+	assert(len <= max_motor_num);
+        for (int i=0; i<len; i++) {
+            id[i] = kondo_vector[i]->get_id();
+            deg100[i] = kondo_vector[i]->get_deg100();
+        }
+        b3m_set_angles(&b3m, id, deg100, len);
+        for (int i=0; i<len; i++) {
+            int deg100 = kondo_vector[i]->get_deg100();
+            kondo_vector[i]->set_pos(deg100);
         }
     }
 

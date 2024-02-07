@@ -794,3 +794,28 @@ int b3m_set_id(B3MData * r, UINT id)
 	// return the ID
 	return r->swap[4] & 0x1F;
 }
+
+int b3m_set_angles(B3MData * r, UINT *id, int *deg100, int len)
+{
+	assert(r);
+	UCHAR size = (unsigned char)(6 + len * 3);
+	int i, n = 0, sum = 0;
+
+	// build command
+	r->swap[n++] = size;					// length
+	r->swap[n++] = B3M_CMD_WRITE;			// command
+	r->swap[n++] = B3M_RETURN_ERROR_STATUS;	// option
+	for(i = 0; i < len; i ++){
+		r->swap[n++] = id[i];				// id
+		r->swap[n++] = deg100[i] & 0xff;
+		r->swap[n++] = deg100[i] >> 8;
+	}
+	r->swap[n++] = B3M_SERVO_DESIRED_POSITION;
+	r->swap[n++] = len;				// number of ID
+	for(i = 0; i < n; i ++){
+		sum += r->swap[i];
+	}
+	r->swap[n] = sum & 0xff;
+
+	return b3m_write(r, size);
+}

@@ -230,4 +230,6 @@ int b3m_reset_error(B3MData * r, UINT id);
 int b3m_get_id(B3MData * r);
 int b3m_set_id(B3MData * r, UINT id);
 
+int b3m_set_angles(B3MData * r, UINT *id, int *deg100, int len);
+
 #endif /* B3M_H_ */
