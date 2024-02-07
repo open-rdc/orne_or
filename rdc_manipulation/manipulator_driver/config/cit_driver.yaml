@@ -1,4 +1,4 @@
-product_id: 0x0006
+product_id: 0x0009
 
 l_sholder_pitch_driver:
   joint_name: l_sholder_pitch_joint
