@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <launch>
   <!-- Load Kondo B3M parameters -->
-  <rosparam file="$(find manipulator_driver)/config/manipulator_driver.yaml" command="load" ns="manipulator_driver"/>
+  <rosparam file="$(find manipulator_driver)/config/cit_driver.yaml" command="load" ns="cit_driver"/>
 
   <!-- Start Manipulator driver -->
-  <node name="manipulator_driver" pkg="manipulator_driver" type="manipulator_driver" args="fake:=true wrist_roll1_driver wrist_yaw2_driver wrist_roll3_driver" output="screen" />
+  <node name="manipulator_driver" pkg="manipulator_driver" type="manipulator_driver" args="fake:=true l_sholder_pitch_joint l_sholder_roll_driver l_elbow_roll_driver l_wrist_roll_driver l_wrist_pitch_driver l_wrist_yaw_driver l_hand_driver r_sholder_pitch_driver r_sholder_roll_driver r_elbow_roll_driver r_wrist_roll_driver r_wrsit_pitch_driver r_wrist_yaw_driver r_hand_driver" output="screen" />
 
   <!-- Load URDF model -->
-  <arg name="model" default="$(find im_description)/robots/manipulator_only.xacro" />
-  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+	<arg name="model" default="$(find cit_description)/urdf/manipulator.urdf" />
+	<param name="robot_description" textfile="$(arg model)" />
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
 
