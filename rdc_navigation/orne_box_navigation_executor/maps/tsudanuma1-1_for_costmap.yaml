@@ -1,0 +1,6 @@
+image: /home/officerobot/catkin_ws/src/office_robot/rdc_navigation/orne_box_navigation_executor/maps/tsudanuma1-1_for_costmap.pgm
+resolution: 0.1
+origin: [-9.9, -94.6, 0.0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
