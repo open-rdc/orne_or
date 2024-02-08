@@ -1,0 +1,3 @@
+int64 profile_velocity
+int64 profile_acceleration
+int64 encoder_count
