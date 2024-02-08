@@ -50,7 +50,7 @@ class KondoMotor {
         
         bool set_power (manipulator_driver::setPower::Request &req, manipulator_driver::setPower::Response &res) {
             ROS_INFO("id %d, request: %d", this->id, req.request);
-            b3m_reset_error(b3m, id);
+            //b3m_reset_error(b3m, id);
             b3m_set_torque(b3m, id, 1);
             motor_power = req.request;
             res.result = req.request;
@@ -67,7 +67,7 @@ class KondoMotor {
                 ROS_INFO("id: %d", id);
             }
             ROS_INFO("controller: position");
-            b3m_reset_error(b3m, id);
+            //b3m_reset_error(b3m, id);
             if (!loopback) {
                 // Check motor existence
                 if (b3m_servo_mode(b3m, id, B3M_OPTIONS_RUN_NORMAL))
@@ -117,7 +117,7 @@ class KondoMotor {
                 ROS_INFO("id: %d", id);
             }
             ROS_INFO("controller: velocity");
-            b3m_reset_error(b3m, id);
+            //b3m_reset_error(b3m, id);
             if (!loopback) {
                 // Check motor existence
                 if (b3m_servo_mode(b3m, id, B3M_OPTIONS_RUN_NORMAL | B3M_OPTIONS_CONTROL_VELOCITY))
