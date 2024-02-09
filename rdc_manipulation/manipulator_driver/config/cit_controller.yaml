@@ -119,7 +119,6 @@ manipulator:
         trajectory: 1.0
         goal: 1.0
 
-manipulator:
   right_arm_controller:
     type: position_controllers/JointTrajectoryController
     joints:

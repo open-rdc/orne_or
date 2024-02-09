@@ -70,11 +70,12 @@ class KondoMotor {
             //b3m_reset_error(b3m, id);
             if (!loopback) {
                 // Check motor existence
-                if (b3m_servo_mode(b3m, id, B3M_OPTIONS_RUN_NORMAL))
+                if (b3m_servo_mode(b3m, id, B3M_OPTIONS_RUN_NORMAL)) {
                     ROS_WARN("Cannot connect to servo ID: %d", id);
-            }
-            if (b3m_set_trajectory_mode(b3m, id, B3M_OPTIONS_TRAJECTORY_4)) {
-                ROS_WARN("Cannot set trajectory mode to servo ID: %d", id);
+                }
+                if (b3m_set_trajectory_mode(b3m, id, B3M_OPTIONS_TRAJECTORY_4)) {
+                    ROS_WARN("Cannot set trajectory mode to servo ID: %d", id);
+                }
             }
             if (nh.getParam("joint_name", joint_name)) {
                 ROS_INFO("joint_name: %s", joint_name.c_str());
@@ -144,9 +145,11 @@ class KondoMotor {
 
         bool initialize() {
             int deg100 = 0;
-            b3m_set_angle_velocity(b3m, id, &deg100, 2000);
-            b3m_get_angle(b3m, id, &deg100);
-            return deg100 = (abs(deg100) < 100) ? true : false;
+            if (!loopback) {
+                b3m_set_angle_velocity(b3m, id, &deg100, 2000);
+                b3m_get_angle(b3m, id, &deg100);
+            }
+            return abs(deg100) < 100 ? true : false;
         }
 
         void update (void) {
@@ -320,20 +323,18 @@ class IMDriver : public hardware_interface::RobotHW
             kondo_vector[i]->update();
         }
 #endif
-	const int max_motor_num = 32;
-	UINT id[max_motor_num];
+        const int max_motor_num = 32;
+        UINT id[max_motor_num];
         int deg100[max_motor_num];
         int len = kondo_vector.size();
-	assert(len <= max_motor_num);
+        assert(len <= max_motor_num);
         for (int i=0; i<len; i++) {
             id[i] = kondo_vector[i]->get_id();
             deg100[i] = kondo_vector[i]->get_deg100();
+            kondo_vector[i]->set_pos(deg100[i]);
         }
-        b3m_set_angles(&b3m, id, deg100, len);
-        for (int i=0; i<len; i++) {
-            int deg100 = kondo_vector[i]->get_deg100();
-            kondo_vector[i]->set_pos(deg100);
-        }
+        if (!loopback)
+            b3m_set_angles(&b3m, id, deg100, len);
     }
 
     //soft initialization
@@ -341,8 +342,9 @@ class IMDriver : public hardware_interface::RobotHW
         time_t t1 = time(0);
         int check = 0;
         while((check < kondo_vector.size()) && (float(time(0) - t1) < 5)){
+            check = 0;
             for (int i=0; i<kondo_vector.size(); i++) {
-                if(!kondo_vector[i]->initialize())
+                if(kondo_vector[i]->initialize())
                     check++;
             }
         }
