@@ -1,8 +1,0 @@
-moveit_setup_assistant_config:
-  URDF:
-    package: cit_description
-    relative_path: urdf/manipulator.urdf
-  SRDF:
-    relative_path: config/manipulator.srdf
-  CONFIG:
-    generated_timestamp: 1459848571

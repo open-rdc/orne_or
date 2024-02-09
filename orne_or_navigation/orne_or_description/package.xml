@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>orne_or_description</name>
+  <version>0.0.0</version>
+  <description>3D models of the orne-box for simulation and visualization</description>
+  <maintainer email="yasuo.hayashibara@it-chiba.ac.jp">yasuohayashibara</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>icart_mini_description</build_depend>
+  <build_depend>xacro</build_depend>
+  <exec_depend>icart_mini_description</exec_depend>
+  <exec_depend>xacro</exec_depend>
+</package>
