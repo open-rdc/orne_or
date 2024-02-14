@@ -14,9 +14,9 @@
 #include <std_srvs/Trigger.h>
 #include <std_msgs/Float32MultiArray.h>
 extern "C" {
-#include "manipulator_driver/b3m.h"
+#include "orne_or_manipulator_driver/b3m.h"
 }
-#include "manipulator_driver/setPower.h"
+#include "orne_or_manipulator_driver/setPower.h"
 
 const double RAD_TO_DEG = 180.0/M_PI*100;
 
@@ -48,7 +48,7 @@ class KondoMotor {
         double cmd, pos, vel, eff;
         std::string joint_name;
         
-        bool set_power (manipulator_driver::setPower::Request &req, manipulator_driver::setPower::Response &res) {
+        bool set_power (orne_or_manipulator_driver::setPower::Request &req, orne_or_manipulator_driver::setPower::Response &res) {
             ROS_INFO("id %d, request: %d", this->id, req.request);
             //b3m_reset_error(b3m, id);
             b3m_set_torque(b3m, id, 1);
@@ -362,7 +362,7 @@ class IMDriver : public hardware_interface::RobotHW
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "manipulator_driver");
+    ros::init(argc, argv, "orne_or_manipulator_driver");
     ros::NodeHandle nh;
 
     // Create hardware interface 

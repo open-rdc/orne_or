@@ -25,7 +25,7 @@
 #include <unistd.h>
 #include <linux/serial.h>
 
-#include "manipulator_driver/b3m.h"
+#include "orne_or_manipulator_driver/b3m.h"
 
 int target_deg100[256];
 

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(manipulator_driver)
+project(orne_or_manipulator_driver)
 
 add_compile_options(-std=c++11)
 
@@ -39,6 +39,6 @@ include_directories(
   include ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(manipulator_driver src/manipulator_driver.cpp src/b3m.c)
-add_dependencies(manipulator_driver ${PROJECT_NAME}_generate_messages_cpp)
-target_link_libraries(manipulator_driver ${catkin_LIBRARIES} usb ftdi)
+add_executable(orne_or_manipulator_driver src/orne_or_manipulator_driver.cpp src/b3m.c)
+add_dependencies(orne_or_manipulator_driver ${PROJECT_NAME}_generate_messages_cpp)
+target_link_libraries(orne_or_manipulator_driver ${catkin_LIBRARIES} usb ftdi)
