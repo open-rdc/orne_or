@@ -9,7 +9,6 @@
   <buildtool_depend>catkin</buildtool_depend>
   <exec_depend>orne_or_description</exec_depend>
   <exec_depend>orne_or_bringup</exec_depend>
-  <exec_depend>orne_or_simulations</exec_depend>
   <exec_depend>orne_or_navigation_executor</exec_depend>
   <exec_depend>orne_or_recovery_behavior</exec_depend>
   <exec_depend>orne_or_strategy</exec_depend>
