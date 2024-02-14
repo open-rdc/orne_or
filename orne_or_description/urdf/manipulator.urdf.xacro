@@ -98,7 +98,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://cit_description/meshes/shoulder_pitch.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/shoulder_pitch.stl" scale="0.01 0.01 0.01"/>
         <!-- <box size="0.0330 0.050 0.0320"/> -->
       </geometry>
       <material name="red"/>
@@ -141,7 +141,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://cit_description/meshes/shoulder_roll.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/shoulder_roll.stl" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="blue"/>
     </visual>
@@ -183,7 +183,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://cit_description/meshes/elbow_roll.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/elbow_roll.stl" scale="0.01 0.01 0.01"/>
         <!-- <box size="0.0330 0.0320 0.180"/> -->
       </geometry>
       <material name="red"/>
@@ -226,7 +226,7 @@
     <visual>
       <origin xyz=" 0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://cit_description/meshes/wrist_roll.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/wrist_roll.stl" scale="0.01 0.01 0.01"/>
         <!-- <box size="0.0330 0.0320 0.0320"/> -->
       </geometry>
       <material name="blue"/>
@@ -269,7 +269,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://cit_description/meshes/wrist_pitch.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/wrist_pitch.stl" scale="0.01 0.01 0.01"/>
         <!-- <box size="0.0330 0.0320 0.0320"/> -->
       </geometry>
       <material name="red"/>
@@ -312,7 +312,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://cit_description/meshes/wrist_yaw.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/wrist_yaw.stl" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="blue"/>
     </visual>
@@ -354,14 +354,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://cit_description/meshes/hand_left.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/hand_left.stl" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://cit_description/meshes/hand_left.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/hand_left.stl" scale="0.01 0.01 0.01"/>
       </geometry>
     </collision>
   </link>
@@ -397,14 +397,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://cit_description/meshes/hand_right.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/hand_right.stl" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://cit_description/meshes/hand_right.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/hand_right.stl" scale="0.01 0.01 0.01"/>
       </geometry>
     </collision>
   </link>

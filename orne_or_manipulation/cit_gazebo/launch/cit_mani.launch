@@ -5,7 +5,7 @@
     <arg name="world_name" value="$(find cit_gazebo)/worlds/cit.world"/>
   </include>
 
-	<arg name="model" default="$(find cit_description)/urdf/manipulator.urdf" />
+	<arg name="model" default="$(find orne_or_description)/urdf/manipulator.urdf" />
 	<param name="robot_description" textfile="$(arg model)" />
 
 	<include file="$(find cit_manipulator_control)/launch/manipulator_control.launch" />
