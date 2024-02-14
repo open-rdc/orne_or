@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+	<!-- Start move_group -->
+ 	<include file="$(find orne_or_moveit_config)/launch/move_group.launch">
+ 		<arg name="publish_monitored_planning_scene" value="true" />
+	</include>
+
+	<!-- Start Rviz -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find orne_or_moveit_config)/config/orne_or_moveit_config.rviz" />
+	
+</launch>
