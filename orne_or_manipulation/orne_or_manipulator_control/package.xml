@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>cit_manipulator_control</name>
+  <name>orne_or_manipulator_control</name>
   <version>0.0.0</version>
-  <description>The cit_manipulator_control package</description>
+  <description>The orne_or_manipulator_control package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
@@ -19,7 +19,7 @@
   <!-- Url tags are optional, but mutiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/cit_manipulator_control</url> -->
+  <!-- <url type="website">http://wiki.ros.org/orne_or_manipulator_control</url> -->
 
 
   <!-- Author tags are optional, mutiple are allowed, one per tag -->
