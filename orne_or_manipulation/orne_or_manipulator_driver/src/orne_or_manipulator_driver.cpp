@@ -214,6 +214,7 @@ class KondoMotor {
 
         // Set strech parameter
         void set_stretch (int stretch) {
+            /*
             if (loopback) {
                 this->stretch = stretch;
             }else {
@@ -224,10 +225,12 @@ class KondoMotor {
                 }
                 ROS_INFO("%s: %d", __func__, this->stretch);
             }
+            */
         }
 
         // Set current limit 
         void set_current_limit (int curr) {
+            /*
             if (loopback) {
                 curr_limit = curr;
             }else {
@@ -238,10 +241,12 @@ class KondoMotor {
                 }
                 ROS_INFO("%s: %d", __func__, this->curr_limit);
             }
+            */
         }
 
         // Set temperature limit
         void set_temperature_limit (int temp) {
+            /*
             if (loopback) {
                 temp_limit = temp;
             }else {
@@ -252,6 +257,7 @@ class KondoMotor {
                 }
                 ROS_INFO("%s: %d", __func__, this->temp_limit);
             }
+            */
         }
 };
 
