@@ -27,7 +27,7 @@ source ~/.bashrc
 
 ### Execute
 
-Navigation
+Navigation  
 Simulator (gazebo)  
 ```
 roslaunch orne_or_bringup orne_or_sim.launch
@@ -40,7 +40,7 @@ roslaunch orne_or_bringup orne_or.launch
 roslaunch orne_or_navigation_executor nav_static_map.launch
 ```
 
-Manipulation
+Manipulation  
 Simulator (gazebo)  
 ```
 roslaunch orne_or_bringup orne_or_manipulator_sim.launch
