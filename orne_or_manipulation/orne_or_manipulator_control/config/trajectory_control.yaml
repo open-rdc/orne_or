@@ -1,7 +1,7 @@
 manipulator:
   joint_state_controller:
     type: joint_state_controller/JointStateController
-    publish_rate: 50
+    publish_rate: 10
   
   sholder_slider_controller:
     type: position_controllers/JointTrajectoryController
@@ -41,4 +41,3 @@ manipulator:
       r_wrist_roll_joint: {p: 100.0, i: 0.01, d: 100.0}
       r_wrist_pitch_joint: {p: 100.0, i: 0.01, d: 100.0}
       r_wrist_yaw_joint: {p: 100.0, i: 0.01, d: 100.0}
-
