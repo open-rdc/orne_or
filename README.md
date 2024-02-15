@@ -1,6 +1,7 @@
-# office_robot
+# orne_or
+office robot control software in Robot Design and Control Lab. 
 
-### Install
+## Install
 
 Precondition:  
 1) Install ROS noetic (Ubuntu20.04/docker)  
