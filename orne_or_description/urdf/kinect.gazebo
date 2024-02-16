@@ -1,13 +1,6 @@
 <?xml version="1.0"?>
 <robot>
 
-    <!-- ros_control plugin -->
-<!--   <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/sensor_kinect</robotNamespace>
-    </plugin>
-  </gazebo>
- -->
 <!-- camera_link -->
 <gazebo reference="kinect_link">
     <mu1>0.2</mu1>

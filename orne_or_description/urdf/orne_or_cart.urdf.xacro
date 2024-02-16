@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<robot name="orne_or" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="orne_or_cart" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:property name="PI" value="3.1415926535897931"/>
   <xacro:include filename="$(find icart_mini_description)/urdf/materials.xacro" />
-  <xacro:include filename="$(find orne_or_description)/urdf/orne_or.gazebo.xacro"/>
+  <xacro:include filename="$(find orne_or_description)/urdf/orne_or_cart.gazebo.xacro"/>
 
   <link name="base_link">
     <visual>
