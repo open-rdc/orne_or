@@ -33,7 +33,6 @@
 
   </link>
   <joint name="spine_joint" type="fixed">
-    <origin xyz="0 0 0.044" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="spine_link"/>
   </joint>
@@ -45,9 +44,8 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 0.55" rpy="0 0 0"/>
       <geometry>
-        <box size="0.0330 0.0520 1.1"/>
+        <mesh filename="package://orne_or_description/meshes/body_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
@@ -76,7 +74,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.0330 0.28 0.0320"/>
+        <mesh filename="package://orne_or_description/meshes/shoulder_link.stl"/>
       </geometry>
       <material name="blue">
         <color rgba="0 0 .8 1"/>
@@ -122,7 +120,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/l_sholder_pitch_link.stl"/>
+        <mesh filename="package://orne_or_description/meshes/sholder_pitch_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
@@ -163,7 +161,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/l_sholder_roll_link.stl"/>
+        <mesh filename="package://orne_or_description/meshes/sholder_roll_link.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
@@ -204,7 +202,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/l_elbow_roll_link.stl"/>
+        <mesh filename="package://orne_or_description/meshes/elbow_roll_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
@@ -245,7 +243,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/l_wrist_roll_link.stl"/>
+        <mesh filename="package://orne_or_description/meshes/wrist_roll_link.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
@@ -271,7 +269,7 @@
   </transmission>
 
   <joint name="l_wrist_pitch_joint" type="revolute">
-    <origin xyz="0.000 0.054 0.000" rpy="0 0 0"/>
+    <origin xyz="0.000 0.054 0.000"/>
     <parent link="l_wrist_roll_link"/>
     <child link="l_wrist_pitch_link"/>
     <axis xyz="1 0 0"/> 
@@ -312,7 +310,7 @@
   </transmission>
 
   <joint name="l_wrist_yaw_joint" type="revolute">
-    <origin xyz="0.000 0.0483 0.000" rpy="0 0 0"/>
+    <origin xyz="0.000 0.0443 0.000"/>
     <parent link="l_wrist_pitch_link"/>
     <child link="l_wrist_yaw_link"/>
     <axis xyz="0 1 0"/> 
@@ -353,7 +351,7 @@
   </transmission>
 
   <joint name="l_hand_left_joint" type="revolute">
-    <origin xyz="-0.0226 0.079 0.000" rpy="0 0 0"/>
+    <origin xyz="-0.0226 0.083 0.000" rpy="0 0 0"/>
     <parent link="l_wrist_yaw_link"/>
     <child link="l_hand_left_link"/>
     <axis xyz="0 0 1"/> 
@@ -394,7 +392,7 @@
   </transmission>
   
    <joint name="l_hand_right_joint" type="revolute">
-    <origin xyz="0.0225 0.079 0.000" rpy="0 0 0"/>
+    <origin xyz="0.0225 0.083 0.000" rpy="0 0 0"/>
     <parent link="l_wrist_yaw_link"/>
     <child link="l_hand_right_link"/>
     <axis xyz="0 0 -1"/>
@@ -438,10 +436,10 @@
   <!--right arm-->
 
   <joint name="r_sholder_pitch_joint" type="revolute">
-    <origin xyz="0 -0.14 0" rpy="0 1.57 0"/>
+    <origin xyz="0.000 -0.100 0.000"/>
     <parent link="sholder_link"/>
     <child link="r_sholder_pitch_link"/>
-    <axis xyz="0 1 0"/> 
+    <axis xyz="0 1 0"/>
     <limit lower="-1" upper="1" effort="30" velocity="1.571"/>
   </joint>
 
@@ -452,14 +450,14 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin rpy="0 0 3.14159"/>
       <geometry>
-        <box size="0.0330 0.050 0.0320"/>
+        <mesh filename="package://orne_or_description/meshes/sholder_pitch_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision>
-      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <origin xyz="0.0 -0.025 0.0" rpy="0 0 0"/>
       <geometry>
         <box size="0.0330 0.05 0.0320"/>
       </geometry>
@@ -480,10 +478,10 @@
   </transmission>
 
   <joint name="r_sholder_roll_joint" type="revolute">
-    <origin xyz="0 -0.05 0" rpy="-1.57 0 0"/>
+    <origin xyz="0.000 -0.0563 0.000"/>
     <parent link="r_sholder_pitch_link"/>
     <child link="r_sholder_roll_link"/>
-    <axis xyz="1 0 0"/> 
+    <axis xyz="0 0 1"/> 
     <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
   </joint>
 
@@ -494,9 +492,9 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
     </inertial>
     <visual>
-      <origin xyz="0 0 -0.09" rpy="0 0 0"/>
+      <origin rpy="0 0 3.14159"/>
       <geometry>
-        <box size="0.0330 0.0320 0.180"/>
+        <mesh filename="package://orne_or_description/meshes/sholder_roll_link.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
@@ -522,10 +520,10 @@
   </transmission>
 
   <joint name="r_elbow_roll_joint" type="revolute">
-    <origin xyz="0 0 -0.180" rpy="0 0 0"/>
+    <origin xyz="0.000 -0.2713 0.000"/>
     <parent link="r_sholder_roll_link"/>
     <child link="r_elbow_roll_link"/>
-    <axis xyz="1 0 0"/> 
+    <axis xyz="0 0 1"/> 
     <limit lower="0.0" upper="3.14" effort="30" velocity="1.571"/>
   </joint>
 
@@ -536,9 +534,9 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
     <visual>
-      <origin xyz="0 0.04 -0.09" rpy="0 0 0"/>
+      <origin rpy="0 3.14159 3.14159"/>
       <geometry>
-        <box size="0.0330 0.0320 0.180"/>
+        <mesh filename="package://orne_or_description/meshes/elbow_roll_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
@@ -564,10 +562,10 @@
   </transmission>
 
   <joint name="r_wrist_roll_joint" type="revolute">
-    <origin xyz="0 0.04 -0.20" rpy="0 0 0"/>
+    <origin xyz="-0.042 -0.2713 0.000"/>
     <parent link="r_elbow_roll_link"/>
     <child link="r_wrist_roll_link"/>
-    <axis xyz="1 0 0"/> 
+    <axis xyz="0 0 1"/> 
     <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
   </joint>
 
@@ -578,9 +576,9 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 -0.016" rpy="0 0 0"/>
+      <origin rpy="0 0 3.14159"/>
       <geometry>
-        <box size="0.0330 0.0320 0.0320"/>
+        <mesh filename="package://orne_or_description/meshes/wrist_roll_link.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
@@ -606,10 +604,10 @@
   </transmission>
 
   <joint name="r_wrist_pitch_joint" type="revolute">
-    <origin xyz="0 0 -0.05" rpy="0 0 0"/>
+    <origin xyz="0.000 -0.054 0.000"/>
     <parent link="r_wrist_roll_link"/>
     <child link="r_wrist_pitch_link"/>
-    <axis xyz="0 1 0"/> 
+    <axis xyz="1 0 0"/> 
     <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
   </joint>
 
@@ -620,9 +618,8 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 -0.016" rpy="0 0 0"/>
       <geometry>
-        <box size="0.0330 0.0320 0.0320"/>
+        <mesh filename="package://orne_or_description/meshes/r_wrist_pitch_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
@@ -648,10 +645,10 @@
   </transmission>
 
   <joint name="r_wrist_yaw_joint" type="revolute">
-    <origin xyz="0 0 -0.05" rpy="0 0 0"/>
+    <origin xyz="0.000 -0.0443 0.000"/>
     <parent link="r_wrist_pitch_link"/>
     <child link="r_wrist_yaw_link"/>
-    <axis xyz="0 0 1"/> 
+    <axis xyz="0 1 0"/> 
     <limit lower="-3.14" upper="3.14" effort="30" velocity="1.571"/>
   </joint>
 
@@ -662,14 +659,13 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 -0.016" rpy="0 0 0"/>
       <geometry>
-        <box size="0.0330 0.0320 0.0320"/>
+        <mesh filename="package://orne_or_description/meshes/r_wrist_yaw_link.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
     <collision>
-      <origin xyz="0.0 0.0 -0.016" rpy="0 0 0"/>
+      <origin xyz="0.0 0.0 -0.016"/>
       <geometry>
         <box size="0.0330 0.0320 0.0320"/>
       </geometry>
@@ -688,6 +684,47 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+
+  <joint name="r_hand_joint" type="revolute">
+    <origin xyz="0.000 -0.119 0.0295"/>
+    <parent link="r_wrist_yaw_link"/>
+    <child link="r_hand_link"/>
+    <axis xyz="1 0 0"/> 
+    <limit lower="0" upper="1.57" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="r_hand_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orne_or_description/meshes/r_hand_link.stl"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orne_or_description/meshes/r_hand_link.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="r_hand_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <transmission name="trans_r_hand">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_hand_link">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_hand">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/manipulator</robotNamespace>
