@@ -20,9 +20,9 @@
 
   <link name="spine_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="1.73"/>
+      <origin xyz="-0.006 0.004 0.625"/>
+      <inertia ixx="0.904597" ixy="0.0" ixz="0.0" iyy="0.904502" iyz="0.0" izz="0.001093"/>
     </inertial>
     <visual>
       <geometry>
@@ -48,9 +48,9 @@
 
   <link name="sholder_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.488"/>
+      <origin xyz="0.014 0.000 -0.014"/>
+      <inertia ixx="0.002721" ixy="0.0" ixz="0.0" iyy="0.000784" iyz="0.0" izz="0.002332"/>
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -95,9 +95,9 @@
 
   <link name="l_sholder_pitch_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.206"/>
+      <origin xyz="0.000 0.022 -0.007"/>
+      <inertia ixx="0.000262" ixy="0.0" ixz="0.0" iyy="0.000117" iyz="0.0" izz="0.000252"/>
     </inertial>
     <visual>
       <geometry>
@@ -136,9 +136,9 @@
 
   <link name="l_sholder_roll_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.207"/>
+      <origin xyz="0.000 0.180 0.000"/>
+      <inertia ixx="0.008446" ixy="0.0" ixz="0.0" iyy="0.000073" iyz="0.0" izz="0.008435"/>
     </inertial>
     <visual>
       <geometry>
@@ -177,9 +177,9 @@
 
   <link name="l_elbow_roll_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.220"/>
+      <origin xyz="-0.040 0.170 0.000"/>
+      <inertia ixx="0.008452" ixy="0.0" ixz="0.0" iyy="0.000448" iyz="0.0" izz="0.008807"/>
     </inertial>
     <visual>
       <geometry>
@@ -218,9 +218,9 @@
 
   <link name="l_wrist_roll_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.022"/>
+      <origin xyz="0.000 0.027 0.000"/>
+      <inertia ixx="0.000023" ixy="0.0" ixz="0.0" iyy="0.000009" iyz="0.0" izz="0.000023"/>
     </inertial>
     <visual>
       <geometry>
@@ -259,9 +259,9 @@
 
   <link name="l_wrist_pitch_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.096"/>
+      <origin xyz="0.001 0.014 0.000"/>
+      <inertia ixx="0.000049" ixy="0.0" ixz="0.0" iyy="0.000019" iyz="0.0" izz="0.000053"/>
     </inertial>
     <visual>
       <geometry>
@@ -300,9 +300,9 @@
 
   <link name="l_wrist_yaw_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.219"/>
+      <origin xyz="0.013 0.049 -0.001"/>
+      <inertia ixx="0.000743" ixy="0.0" ixz="0.0" iyy="0.000113" iyz="0.0" izz="0.000802"/>
     </inertial>
     <visual>
       <geometry>
@@ -341,9 +341,9 @@
 
   <link name="l_hand_left_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.059"/>
+      <origin xyz="-0.001 0.046 0.007"/>
+      <inertia ixx="0.000263" ixy="0.0" ixz="0.0" iyy="0.000041" iyz="0.0" izz="0.000236"/>
     </inertial>
     <visual>
       <geometry>
@@ -383,9 +383,9 @@
 
   <link name="l_hand_right_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.058"/>
+      <origin xyz="0.001 0.047 0.007"/>
+      <inertia ixx="0.000259" ixy="0.0" ixz="0.0" iyy="0.000039" iyz="0.0" izz="0.000234"/>
     </inertial>
     <visual>
       <geometry>
@@ -426,9 +426,9 @@
 
   <link name="r_sholder_pitch_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.206"/>
+      <origin xyz="0.000 -0.022 -0.007"/>
+      <inertia ixx="0.000262" ixy="0.0" ixz="0.0" iyy="0.000117" iyz="0.0" izz="0.000252"/>
     </inertial>
     <visual>
       <origin rpy="0 0 3.14159"/>
@@ -468,9 +468,9 @@
 
   <link name="r_sholder_roll_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+      <mass value="0.207"/>
+      <origin xyz="0.000 -0.180 0.000"/>
+      <inertia ixx="0.008446" ixy="0.0" ixz="0.0" iyy="0.000074" iyz="0.0" izz="0.008435" />
     </inertial>
     <visual>
       <origin rpy="0 0 3.14159"/>
@@ -510,9 +510,9 @@
 
   <link name="r_elbow_roll_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.220"/>
+      <origin xyz="-0.040 -0.170 0.000"/>
+      <inertia ixx="0.008452" ixy="0.0" ixz="0.0" iyy="0.000448" iyz="0.0" izz="0.008807"/>
     </inertial>
     <visual>
       <origin rpy="0 3.14159 3.14159"/>
@@ -552,9 +552,9 @@
 
   <link name="r_wrist_roll_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.022"/>
+      <origin xyz="0.000 -0.027 0.000"/>
+      <inertia ixx="0.000023" ixy="0.0" ixz="0.0" iyy="0.000009" iyz="0.0" izz="0.000023"/>
     </inertial>
     <visual>
       <origin rpy="0 0 3.14159"/>
@@ -594,9 +594,9 @@
 
   <link name="r_wrist_pitch_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.096"/>
+      <origin xyz="-0.001 -0.014 0.000"/>
+      <inertia ixx="0.000049" ixy="0.0" ixz="0.0" iyy="0.000019" iyz="0.0" izz="0.000053"/>
     </inertial>
     <visual>
       <geometry>
@@ -635,9 +635,9 @@
 
   <link name="r_wrist_yaw_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.262"/>
+      <origin xyz="-0.008 -0.075 0.012"/>
+      <inertia ixx="0.002194" ixy="0.0" ixz="0.0" iyy="0.000352" iyz="0.0" izz="0.002089"/>
     </inertial>
     <visual>
       <geometry>
@@ -646,9 +646,8 @@
       <material name="blue"/>
     </visual>
     <collision>
-      <origin xyz="0.0 0.0 -0.016"/>
       <geometry>
-        <box size="0.0330 0.0320 0.0320"/>
+        <mesh filename="package://orne_or_description/meshes/r_wrist_yaw_link.stl"/>
       </geometry>
     </collision>
   </link>
@@ -673,9 +672,9 @@
 
   <link name="r_hand_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.059"/>
+      <origin xyz="-0.001 -0.008 -0.056"/>
+      <inertia ixx="0.000234" ixy="0.0" ixz="0.0" iyy="0.000300" iyz="0.0" izz="0.000082"/>
     </inertial>
     <visual>
       <geometry>
