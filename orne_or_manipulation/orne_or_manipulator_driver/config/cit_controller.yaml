@@ -128,6 +128,7 @@ manipulator:
       - r_wrist_roll_joint
       - r_wrist_pitch_joint
       - r_wrist_yaw_joint
+      - r_hand_joint
     action_monitor_rate: 10
     constraints:
       goal_time: 1.0
@@ -148,5 +149,8 @@ manipulator:
         trajectory: 1.0
         goal: 1.0
       r_wrist_yaw_joint:
+        trajectory: 1.0
+        goal: 1.0
+      r_hand_joint:
         trajectory: 1.0
         goal: 1.0

@@ -665,7 +665,7 @@
   </link>
   <transmission name="trans_r_hand">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="r_hand_link">
+    <joint name="r_hand_joint">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_r_hand">
@@ -673,11 +673,5 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-
-  <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/manipulator</robotNamespace>
-    </plugin>
-  </gazebo>
   </xacro:macro>
 </robot>
