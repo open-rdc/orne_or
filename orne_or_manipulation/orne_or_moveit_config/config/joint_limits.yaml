@@ -62,3 +62,8 @@ joint_limits:
     max_velocity: 1.571
     has_acceleration_limits: false
     max_acceleration: 0
+  r_hand_joint:
+    has_velocity_limits: true
+    max_velocity: 1.571
+    has_acceleration_limits: false
+    max_acceleration: 0

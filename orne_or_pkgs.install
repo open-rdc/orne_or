@@ -22,4 +22,7 @@
     uri: https://github.com/open-rdc/emcl.git
     local-name: emcl
     version: sensor_upside_down
-
+- git:
+    uri: https://github.com/open-rdc/timed_roslaunch
+    local-name: timed_roslaunch
+    version: melodic-devel

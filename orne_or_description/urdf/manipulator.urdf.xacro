@@ -4,38 +4,42 @@
     xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller" 
     xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" 
     xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor">
-    
+
+  <xacro:include filename="$(find orne_or_description)/urdf/kinect.urdf.xacro"/>
+  <xacro:include filename="$(find orne_or_description)/urdf/manipulator.gazebo" />
   <xacro:macro name="manipulator" params="name parent *origin">
-  
   <joint name="spine_joint" type="fixed">
-    <insert_block  name="origin"/>
+    <xacro:insert_block  name="origin"/>
     <parent link="${parent}"/>
     <child link="spine_link"/>
   </joint>
 
+  <xacro:sensor_kinect name="kinect" parent="spine_link">
+    <origin xyz="0.028 0 1.223" rpy="0 0 0"/>
+  </xacro:sensor_kinect>
+
   <link name="spine_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="1.73"/>
+      <origin xyz="-0.006 0.004 0.625"/>
+      <inertia ixx="0.904597" ixy="0.0" ixz="0.0" iyy="0.904502" iyz="0.0" izz="0.001093"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 0.55" rpy="0 0 0"/>
       <geometry>
-        <box size="0.0330 0.0520 1.1"/>
+        <mesh filename="package://orne_or_description/meshes/body_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0.55" rpy="0 0 0"/>
+      <origin xyz="0 0 0.622" rpy="0 0 0"/>
       <geometry>
-        <box size="0.0330 0.0520 1.1"/>
+        <box size="0.020 0.040 1.244"/>d
       </geometry>
     </collision>
   </link>
 
   <joint name="sholder_slider" type="prismatic">
-    <origin xyz="0 0 0.4" rpy="0 0 0"/>
+    <origin xyz="0 0 0.4"/>
     <parent link="spine_link"/>
     <child link="sholder_link"/>
     <axis xyz="0 0 1"/>
@@ -44,23 +48,22 @@
 
   <link name="sholder_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.488"/>
+      <origin xyz="0.014 0.000 -0.014"/>
+      <inertia ixx="0.002721" ixy="0.0" ixz="0.0" iyy="0.000784" iyz="0.0" izz="0.002332"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.0330 0.28 0.0320"/>
+        <mesh filename="package://orne_or_description/meshes/shoulder_link.stl"/>
       </geometry>
       <material name="blue">
         <color rgba="0 0 .8 1"/>
       </material>
     </visual>
     <collision>
-      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <origin xyz="0.023 0.000 0.010"/>
       <geometry>
-        <box size="0.0330 0.28 0.0320"/>
+        <box size="0.020 0.200 0.040"/>
       </geometry>
     </collision>
   </link>
@@ -82,7 +85,7 @@
 
   <!--left arm-->
   <joint name="l_sholder_pitch_joint" type="revolute">
-    <origin xyz="0 0.14 0" rpy="0 1.57 0"/>
+    <origin xyz="0.000 0.100 0.000"/>
     <parent link="sholder_link"/>
     <child link="l_sholder_pitch_link"/>
     <axis xyz="0 1 0"/> 
@@ -91,24 +94,16 @@
 
   <link name="l_sholder_pitch_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.206"/>
+      <origin xyz="0.000 0.022 -0.007"/>
+      <inertia ixx="0.000262" ixy="0.0" ixz="0.0" iyy="0.000117" iyz="0.0" izz="0.000252"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/shoulder_pitch.stl" scale="0.01 0.01 0.01"/>
-        <!-- <box size="0.0330 0.050 0.0320"/> -->
+        <mesh filename="package://orne_or_description/meshes/sholder_pitch_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
-    <collision>
-      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.050 0.05 0.032"/>
-      </geometry>
-    </collision>
   </link>
   <gazebo reference="l_sholder_pitch_link">
     <material>Gazebo/Red</material>
@@ -125,30 +120,29 @@
   </transmission>
 
   <joint name="l_sholder_roll_joint" type="revolute">
-    <origin xyz="0 0.055 0" rpy="1.57 0 0"/>
+    <origin xyz="0.000 0.0563 0.000"/>
     <parent link="l_sholder_pitch_link"/>
     <child link="l_sholder_roll_link"/>
-    <axis xyz="1 0 0"/> 
+    <axis xyz="0 0 1"/> 
     <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="l_sholder_roll_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.207"/>
+      <origin xyz="0.000 0.180 0.000"/>
+      <inertia ixx="0.008446" ixy="0.0" ixz="0.0" iyy="0.000073" iyz="0.0" izz="0.008435"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/shoulder_roll.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/sholder_roll_link.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
     <collision>
-      <origin xyz="0.0 0.0 -0.035" rpy="0 0 0"/>
+      <origin xyz="0.000 0.135 0.000"/>
       <geometry>
-        <box size="0.042 0.042 0.200"/>
+        <box size="0.043 0.296 0.043"/>
       </geometry>
     </collision>
   </link>
@@ -167,31 +161,29 @@
   </transmission>
 
   <joint name="l_elbow_roll_joint" type="revolute">
-    <origin xyz="0 0 -0.271" rpy="0 0 0"/>
+    <origin xyz="0.000 0.2713 0.000"/>
     <parent link="l_sholder_roll_link"/>
     <child link="l_elbow_roll_link"/>
-    <axis xyz="1 0 0"/> 
+    <axis xyz="0 0 -1"/> 
     <limit lower="0.0" upper="3.14" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="l_elbow_roll_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.220"/>
+      <origin xyz="-0.040 0.170 0.000"/>
+      <inertia ixx="0.008452" ixy="0.0" ixz="0.0" iyy="0.000448" iyz="0.0" izz="0.008807"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/elbow_roll.stl" scale="0.01 0.01 0.01"/>
-        <!-- <box size="0.0330 0.0320 0.180"/> -->
+        <mesh filename="package://orne_or_description/meshes/elbow_roll_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision>
-      <origin xyz="0.0 -0.04 -0.09" rpy="0 0 0"/>
+      <origin xyz="-0.042 0.155 0.000"/>
       <geometry>
-        <box size="0.042 0.042 0.180"/>
+        <box size="0.043 0.256 0.043"/>
       </geometry>
     </collision>
   </link>
@@ -210,33 +202,25 @@
   </transmission>
 
   <joint name="l_wrist_roll_joint" type="revolute">
-    <origin xyz="0 -0.042 -0.271" rpy="0 0 0"/>
+    <origin xyz="-0.042 0.2713 0.000"/>
     <parent link="l_elbow_roll_link"/>
     <child link="l_wrist_roll_link"/>
-    <axis xyz="1 0 0"/> 
+    <axis xyz="0 0 1"/> 
     <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="l_wrist_roll_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.022"/>
+      <origin xyz="0.000 0.027 0.000"/>
+      <inertia ixx="0.000023" ixy="0.0" ixz="0.0" iyy="0.000009" iyz="0.0" izz="0.000023"/>
     </inertial>
     <visual>
-      <origin xyz=" 0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/wrist_roll.stl" scale="0.01 0.01 0.01"/>
-        <!-- <box size="0.0330 0.0320 0.0320"/> -->
+        <mesh filename="package://orne_or_description/meshes/wrist_roll_link.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
-    <collision>
-      <origin xyz="0.0 0.0 -0.016" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.0330 0.0320 0.0320"/>
-      </geometry>
-    </collision>
   </link>
   <gazebo reference="l_wrist_roll_link">
     <material>Gazebo/Blue</material>
@@ -253,31 +237,29 @@
   </transmission>
 
   <joint name="l_wrist_pitch_joint" type="revolute">
-    <origin xyz="0 0 -0.054" rpy="0 0 0"/>
+    <origin xyz="0.000 0.054 0.000"/>
     <parent link="l_wrist_roll_link"/>
     <child link="l_wrist_pitch_link"/>
-    <axis xyz="0 -1 0"/> 
+    <axis xyz="1 0 0"/> 
     <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="l_wrist_pitch_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.096"/>
+      <origin xyz="0.001 0.014 0.000"/>
+      <inertia ixx="0.000049" ixy="0.0" ixz="0.0" iyy="0.000019" iyz="0.0" izz="0.000053"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/wrist_pitch.stl" scale="0.01 0.01 0.01"/>
-        <!-- <box size="0.0330 0.0320 0.0320"/> -->
+        <mesh filename="package://orne_or_description/meshes/l_wrist_pitch_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision>
-      <origin xyz="0.0 0.0 -0.016" rpy="0 0 0"/>
+      <origin xyz="0.000 0.016 0.000"/>
       <geometry>
-        <box size="0.0330 0.0320 0.0320"/>
+        <box size="0.036 0.056 0.032"/>
       </geometry>
     </collision>
   </link>
@@ -296,30 +278,29 @@
   </transmission>
 
   <joint name="l_wrist_yaw_joint" type="revolute">
-    <origin xyz="0 0 -0.0443" rpy="0 0 0"/>
+    <origin xyz="0.000 0.0443 0.000"/>
     <parent link="l_wrist_pitch_link"/>
     <child link="l_wrist_yaw_link"/>
-    <axis xyz="0 0 1"/> 
+    <axis xyz="0 1 0"/> 
     <limit lower="-3.14" upper="3.14" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="l_wrist_yaw_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.219"/>
+      <origin xyz="0.013 0.049 -0.001"/>
+      <inertia ixx="0.000743" ixy="0.0" ixz="0.0" iyy="0.000113" iyz="0.0" izz="0.000802"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/wrist_yaw.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/l_wrist_yaw_link.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0.007 0.044 0.000"/>
       <geometry>
-        <box size="0.0330 0.0320 0.0320"/>
+        <box size="0.062 0.086 0.040"/>
       </geometry>
     </collision>
   </link>
@@ -338,30 +319,29 @@
   </transmission>
 
   <joint name="l_hand_left_joint" type="revolute">
-    <origin xyz="0 0.0225 -0.083" rpy="0 0 0"/>
+    <origin xyz="-0.0226 0.083 0.000" rpy="0 0 0"/>
     <parent link="l_wrist_yaw_link"/>
     <child link="l_hand_left_link"/>
-    <axis xyz="1 0 0"/> 
+    <axis xyz="0 0 1"/> 
     <limit lower="0" upper="1.57" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="l_hand_left_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.059"/>
+      <origin xyz="-0.001 0.046 0.007"/>
+      <inertia ixx="0.000263" ixy="0.0" ixz="0.0" iyy="0.000041" iyz="0.0" izz="0.000236"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/hand_left.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/l_hand_left_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/hand_left.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/l_hand_left_link.stl"/>
       </geometry>
     </collision>
   </link>
@@ -380,31 +360,30 @@
   </transmission>
   
    <joint name="l_hand_right_joint" type="revolute">
-    <origin xyz="0 -0.0225 -0.083" rpy="0 0 0"/>
+    <origin xyz="0.0225 0.083 0.000" rpy="0 0 0"/>
     <parent link="l_wrist_yaw_link"/>
     <child link="l_hand_right_link"/>
-    <axis xyz="-1 0 0"/>
+    <axis xyz="0 0 -1"/>
     <mimic joint="l_hand_left_joint" multiplier="1.0" offset="0.0" /> 
     <limit lower="-3.14" upper="3.14" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="l_hand_right_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.058"/>
+      <origin xyz="0.001 0.047 0.007"/>
+      <inertia ixx="0.000259" ixy="0.0" ixz="0.0" iyy="0.000039" iyz="0.0" izz="0.000234"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/hand_right.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/l_hand_right_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/hand_right.stl" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://orne_or_description/meshes/l_hand_right_link.stl"/>
       </geometry>
     </collision>
   </link>
@@ -425,32 +404,26 @@
   <!--right arm-->
 
   <joint name="r_sholder_pitch_joint" type="revolute">
-    <origin xyz="0 -0.14 0" rpy="0 1.57 0"/>
+    <origin xyz="0.000 -0.100 0.000"/>
     <parent link="sholder_link"/>
     <child link="r_sholder_pitch_link"/>
-    <axis xyz="0 1 0"/> 
+    <axis xyz="0 1 0"/>
     <limit lower="-1" upper="1" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="r_sholder_pitch_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.206"/>
+      <origin xyz="0.000 -0.022 -0.007"/>
+      <inertia ixx="0.000262" ixy="0.0" ixz="0.0" iyy="0.000117" iyz="0.0" izz="0.000252"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin rpy="0 0 3.14159"/>
       <geometry>
-        <box size="0.0330 0.050 0.0320"/>
+        <mesh filename="package://orne_or_description/meshes/sholder_pitch_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
-    <collision>
-      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.0330 0.05 0.0320"/>
-      </geometry>
-    </collision>
   </link>
   <gazebo reference="r_sholder_pitch_link">
     <material>Gazebo/Red</material>
@@ -467,30 +440,30 @@
   </transmission>
 
   <joint name="r_sholder_roll_joint" type="revolute">
-    <origin xyz="0 -0.05 0" rpy="-1.57 0 0"/>
+    <origin xyz="0.000 -0.0563 0.000"/>
     <parent link="r_sholder_pitch_link"/>
     <child link="r_sholder_roll_link"/>
-    <axis xyz="1 0 0"/> 
+    <axis xyz="0 0 1"/> 
     <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="r_sholder_roll_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+      <mass value="0.207"/>
+      <origin xyz="0.000 -0.180 0.000"/>
+      <inertia ixx="0.008446" ixy="0.0" ixz="0.0" iyy="0.000074" iyz="0.0" izz="0.008435" />
     </inertial>
     <visual>
-      <origin xyz="0 0 -0.09" rpy="0 0 0"/>
+      <origin rpy="0 0 3.14159"/>
       <geometry>
-        <box size="0.0330 0.0320 0.180"/>
+        <mesh filename="package://orne_or_description/meshes/sholder_roll_link.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
     <collision>
-      <origin xyz="0.0 0.0 -0.09" rpy="0 0 0"/>
+      <origin xyz="0.000 -0.135 0.000"/>
       <geometry>
-        <box size="0.0330 0.0320 0.180"/>
+        <box size="0.043 0.296 0.043"/>
       </geometry>
     </collision>
   </link>
@@ -509,30 +482,30 @@
   </transmission>
 
   <joint name="r_elbow_roll_joint" type="revolute">
-    <origin xyz="0 0 -0.180" rpy="0 0 0"/>
+    <origin xyz="0.000 -0.2713 0.000"/>
     <parent link="r_sholder_roll_link"/>
     <child link="r_elbow_roll_link"/>
-    <axis xyz="1 0 0"/> 
+    <axis xyz="0 0 1"/> 
     <limit lower="0.0" upper="3.14" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="r_elbow_roll_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.220"/>
+      <origin xyz="-0.040 -0.170 0.000"/>
+      <inertia ixx="0.008452" ixy="0.0" ixz="0.0" iyy="0.000448" iyz="0.0" izz="0.008807"/>
     </inertial>
     <visual>
-      <origin xyz="0 0.04 -0.09" rpy="0 0 0"/>
+      <origin rpy="0 3.14159 3.14159"/>
       <geometry>
-        <box size="0.0330 0.0320 0.180"/>
+        <mesh filename="package://orne_or_description/meshes/elbow_roll_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision>
-      <origin xyz="0.0 0.04 -0.09" rpy="0 0 0"/>
+      <origin xyz="-0.042 -0.155 0.000"/>
       <geometry>
-        <box size="0.0330 0.0320 0.180"/>
+        <box size="0.043 0.256 0.043"/>
       </geometry>
     </collision>
   </link>
@@ -551,32 +524,26 @@
   </transmission>
 
   <joint name="r_wrist_roll_joint" type="revolute">
-    <origin xyz="0 0.04 -0.20" rpy="0 0 0"/>
+    <origin xyz="-0.042 -0.2713 0.000"/>
     <parent link="r_elbow_roll_link"/>
     <child link="r_wrist_roll_link"/>
-    <axis xyz="1 0 0"/> 
+    <axis xyz="0 0 1"/> 
     <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="r_wrist_roll_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.022"/>
+      <origin xyz="0.000 -0.027 0.000"/>
+      <inertia ixx="0.000023" ixy="0.0" ixz="0.0" iyy="0.000009" iyz="0.0" izz="0.000023"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 -0.016" rpy="0 0 0"/>
+      <origin rpy="0 0 3.14159"/>
       <geometry>
-        <box size="0.0330 0.0320 0.0320"/>
+        <mesh filename="package://orne_or_description/meshes/wrist_roll_link.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
-    <collision>
-      <origin xyz="0.0 0.0 -0.016" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.0330 0.0320 0.0320"/>
-      </geometry>
-    </collision>
   </link>
   <gazebo reference="r_wrist_roll_link">
     <material>Gazebo/Blue</material>
@@ -593,30 +560,29 @@
   </transmission>
 
   <joint name="r_wrist_pitch_joint" type="revolute">
-    <origin xyz="0 0 -0.05" rpy="0 0 0"/>
+    <origin xyz="0.000 -0.054 0.000"/>
     <parent link="r_wrist_roll_link"/>
     <child link="r_wrist_pitch_link"/>
-    <axis xyz="0 1 0"/> 
+    <axis xyz="1 0 0"/> 
     <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="r_wrist_pitch_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.096"/>
+      <origin xyz="-0.001 -0.014 0.000"/>
+      <inertia ixx="0.000049" ixy="0.0" ixz="0.0" iyy="0.000019" iyz="0.0" izz="0.000053"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 -0.016" rpy="0 0 0"/>
       <geometry>
-        <box size="0.0330 0.0320 0.0320"/>
+        <mesh filename="package://orne_or_description/meshes/r_wrist_pitch_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision>
-      <origin xyz="0.0 0.0 -0.016" rpy="0 0 0"/>
+      <origin xyz="0.000 -0.016 0.000"/>
       <geometry>
-        <box size="0.0330 0.0320 0.0320"/>
+        <box size="0.036 0.056 0.032"/>
       </geometry>
     </collision>
   </link>
@@ -635,36 +601,31 @@
   </transmission>
 
   <joint name="r_wrist_yaw_joint" type="revolute">
-    <origin xyz="0 0 -0.05" rpy="0 0 0"/>
+    <origin xyz="0.000 -0.0443 0.000"/>
     <parent link="r_wrist_pitch_link"/>
     <child link="r_wrist_yaw_link"/>
-    <axis xyz="0 0 1"/> 
+    <axis xyz="0 1 0"/> 
     <limit lower="-3.14" upper="3.14" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="r_wrist_yaw_link">
     <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="0.262"/>
+      <origin xyz="-0.008 -0.075 0.012"/>
+      <inertia ixx="0.002194" ixy="0.0" ixz="0.0" iyy="0.000352" iyz="0.0" izz="0.002089"/>
     </inertial>
     <visual>
-      <origin xyz="0 0 -0.016" rpy="0 0 0"/>
       <geometry>
-        <box size="0.0330 0.0320 0.0320"/>
+        <mesh filename="package://orne_or_description/meshes/r_wrist_yaw_link.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
     <collision>
-      <origin xyz="0.0 0.0 -0.016" rpy="0 0 0"/>
       <geometry>
-        <box size="0.0330 0.0320 0.0320"/>
+        <mesh filename="package://orne_or_description/meshes/r_wrist_yaw_link.stl"/>
       </geometry>
     </collision>
   </link>
-  <gazebo reference="r_wrist_yaw_link">
-    <material>Gazebo/Blue</material>
-  </gazebo>
   <transmission name="trans_r_wrist_yaw">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="r_wrist_yaw_joint">
@@ -675,10 +636,42 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/manipulator</robotNamespace>
-    </plugin>
-  </gazebo>
+
+  <joint name="r_hand_joint" type="revolute">
+    <origin xyz="0.000 -0.119 0.0295"/>
+    <parent link="r_wrist_yaw_link"/>
+    <child link="r_hand_link"/>
+    <axis xyz="1 0 0"/> 
+    <limit lower="0" upper="1.57" effort="30" velocity="1.571"/>
+  </joint>
+
+  <link name="r_hand_link">
+    <inertial>
+      <mass value="0.059"/>
+      <origin xyz="-0.001 -0.008 -0.056"/>
+      <inertia ixx="0.000234" ixy="0.0" ixz="0.0" iyy="0.000300" iyz="0.0" izz="0.000082"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://orne_or_description/meshes/r_hand_link.stl"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://orne_or_description/meshes/r_hand_link.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <transmission name="trans_r_hand">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_hand_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_r_hand">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   </xacro:macro>
 </robot>

@@ -1,15 +1,11 @@
 <?xml version="1.0"?>
 <launch>
-
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find orne_or_bringup)/worlds/cit.world"/>
+  <include file="$(find icart_mini_gazebo)/launch/icart_mini.launch">
+    <arg name="gui" value="true"/>
+    <arg name="model" value="$(find xacro)/xacro '$(find orne_or_description)/urdf/orne_or.urdf.xacro'"/>
+    <arg name="world" value="$(find icart_mini_gazebo)/worlds/Tsudanuma_2-3.world"/>
   </include>
+  <include file="$(find orne_or_bringup)/launch/includes/base.launch.xml"/>
 
-	<arg name="model" default="$(find orne_or_description)/urdf/manipulator.urdf" />
-	<param name="robot_description" textfile="$(arg model)" />
-
-	<include file="$(find orne_or_manipulator_control)/launch/orne_or_manipulator_control.launch" />
-
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model manipulator" />
-
+  <node pkg="timed_roslaunch" type="timed_roslaunch.sh" name="timed_roslaunch" args="5 $(find orne_or_manipulator_control)/launch/orne_or_manipulator_control.launch" />
 </launch>

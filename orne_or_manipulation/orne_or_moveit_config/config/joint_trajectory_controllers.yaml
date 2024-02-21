@@ -12,6 +12,7 @@ joint_trajectory_action_node:
     - r_wrist_roll_joint
     - r_wrist_pitch_joint
     - r_wrist_yaw_joint
+    - r_hand_joint
 
   constraints:
     goal_time: &goal_time_constraints 2.0
@@ -38,4 +39,6 @@ joint_trajectory_action_node:
     r_wrist_pitch_joint:
       goal: *goal_pos_constraints
     r_wrist_yaw_joint:
+      goal: *goal_pos_constraints
+    r_hand_joint:
       goal: *goal_pos_constraints

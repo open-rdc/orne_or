@@ -30,16 +30,18 @@
         <link name="r_wrist_roll_link" />
         <link name="r_wrist_pitch_link" />
         <link name="r_wrist_yaw_link" />
+        <link name="r_hand_link" />
         <joint name="r_sholder_pitch_joint" />
         <joint name="r_sholder_roll_joint" />
         <joint name="r_elbow_roll_joint" />
         <joint name="r_wrist_roll_joint" />
         <joint name="r_wrist_pitch_joint" />
         <joint name="r_wrist_yaw_joint" />
+        <joint name="r_hand_joint" />
     </group>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="left_eef" parent_link="l_wrist_yaw_link" group="left_arm" />
-    <end_effector name="right" parent_link="r_wrist_yaw_link" group="right_arm" />
+    <end_effector name="right_eef" parent_link="r_wrist_yaw_link" group="right_arm" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="base_link" link2="l_elbow_roll_link" reason="Never" />
     <disable_collisions link1="base_link" link2="l_sholder_pitch_link" reason="Never" />
@@ -53,6 +55,7 @@
     <disable_collisions link1="base_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="base_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="base_link" link2="r_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="r_hand_link" reason="Never" />    
     <disable_collisions link1="base_link" link2="sholder_link" reason="Never" />
     <disable_collisions link1="base_link" link2="spine_link" reason="Adjacent" />
     <disable_collisions link1="l_elbow_roll_link" link2="l_sholder_pitch_link" reason="Never" />
@@ -66,6 +69,7 @@
     <disable_collisions link1="l_elbow_roll_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="r_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="l_elbow_roll_link" link2="r_hand_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="sholder_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="l_sholder_pitch_link" link2="l_sholder_roll_link" reason="Adjacent" />
@@ -76,6 +80,7 @@
     <disable_collisions link1="l_sholder_pitch_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="l_sholder_pitch_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="l_sholder_pitch_link" link2="r_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="l_sholder_pitch_link" link2="r_hand_link" reason="Never" />
     <disable_collisions link1="l_sholder_pitch_link" link2="sholder_link" reason="Adjacent" />
     <disable_collisions link1="l_sholder_pitch_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="l_sholder_roll_link" link2="l_wrist_pitch_link" reason="Never" />
@@ -87,6 +92,7 @@
     <disable_collisions link1="l_sholder_roll_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="l_sholder_roll_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="l_sholder_roll_link" link2="r_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="l_sholder_roll_link" link2="r_hand_link" reason="Never" />
     <disable_collisions link1="l_sholder_roll_link" link2="sholder_link" reason="Never" />
     <disable_collisions link1="l_sholder_roll_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="l_wrist_pitch_link" link2="l_wrist_roll_link" reason="Adjacent" />
@@ -97,6 +103,7 @@
     <disable_collisions link1="l_wrist_pitch_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="l_wrist_pitch_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="l_wrist_pitch_link" link2="r_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="l_wrist_pitch_link" link2="r_hand_link" reason="Never" />
     <disable_collisions link1="l_wrist_pitch_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="l_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="r_elbow_roll_link" reason="Never" />
@@ -105,6 +112,7 @@
     <disable_collisions link1="l_wrist_roll_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="r_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="l_wrist_roll_link" link2="r_hand_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="sholder_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="l_wrist_yaw_link" link2="r_elbow_roll_link" reason="Never" />
@@ -113,12 +121,14 @@
     <disable_collisions link1="l_wrist_yaw_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="l_wrist_yaw_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="l_wrist_yaw_link" link2="r_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="l_wrist_yaw_link" link2="r_hand_link" reason="Never" />
     <disable_collisions link1="l_wrist_yaw_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="r_elbow_roll_link" link2="r_sholder_pitch_link" reason="Never" />
     <disable_collisions link1="r_elbow_roll_link" link2="r_sholder_roll_link" reason="Adjacent" />
     <disable_collisions link1="r_elbow_roll_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="r_elbow_roll_link" link2="r_wrist_roll_link" reason="Adjacent" />
     <disable_collisions link1="r_elbow_roll_link" link2="r_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="r_elbow_roll_link" link2="r_hand_link" reason="Never" />
     <disable_collisions link1="r_elbow_roll_link" link2="sholder_link" reason="Never" />
     <disable_collisions link1="r_elbow_roll_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="r_sholder_pitch_link" link2="r_sholder_roll_link" reason="Adjacent" />
@@ -128,14 +138,19 @@
     <disable_collisions link1="r_sholder_roll_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="r_sholder_roll_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="r_sholder_roll_link" link2="r_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="r_sholder_roll_link" link2="r_hand_link" reason="Never" />
     <disable_collisions link1="r_sholder_roll_link" link2="sholder_link" reason="Never" />
     <disable_collisions link1="r_sholder_roll_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="r_wrist_pitch_link" link2="r_wrist_roll_link" reason="Adjacent" />
     <disable_collisions link1="r_wrist_pitch_link" link2="r_wrist_yaw_link" reason="Adjacent" />
+    <disable_collisions link1="r_wrist_pitch_link" link2="r_hand_link" reason="Adjacent" />
     <disable_collisions link1="r_wrist_pitch_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="r_wrist_roll_link" link2="r_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="r_wrist_roll_link" link2="r_hand_link" reason="Never" />
     <disable_collisions link1="r_wrist_roll_link" link2="sholder_link" reason="Never" />
     <disable_collisions link1="r_wrist_roll_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="r_wrist_yaw_link" link2="spine_link" reason="Never" />
+    <disable_collisions link1="r_hand_link" link2="spine_link" reason="Never" />
+    <disable_collisions link1="r_hand_link" link2="r_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="sholder_link" link2="spine_link" reason="Adjacent" />
 </robot>

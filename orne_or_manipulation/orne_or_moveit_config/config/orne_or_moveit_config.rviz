@@ -127,6 +127,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          r_hand_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           sholder_link:
             Alpha: 1
             Show Axes: false
@@ -245,6 +250,11 @@ Visualization Manager:
             Show Trail: false
             Value: true
           r_wrist_yaw_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          r_hand_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false

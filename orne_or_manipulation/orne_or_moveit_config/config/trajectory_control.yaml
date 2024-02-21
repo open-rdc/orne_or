@@ -19,6 +19,7 @@ manipulator:
       - r_wrist_roll_joint
       - r_wrist_pitch_joint
       - r_wrist_yaw_joint
+      - r_hand_joint
 
     gains:
       sholder_slider: {p: 100.0, i: 0.01, d: 100.0}
@@ -34,3 +35,4 @@ manipulator:
       r_wrist_roll_joint: {p: 100.0, i: 0.01, d: 100.0}
       r_wrist_pitch_joint: {p: 100.0, i: 0.01, d: 100.0}
       r_wrist_yaw_joint: {p: 100.0, i: 0.01, d: 100.0}
+      r_hand_joint: {p: 100.0, i: 0.01, d: 100.0}
