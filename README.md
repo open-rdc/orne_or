@@ -53,3 +53,7 @@ Real Robot
 roslaunch orne_or_bringup orne_or_manipulator.launch
 roslaunch orne_or_moveit_config moveit_planner.launch
 ```
+
+### Hardware
+
+<img src = "https://github.com/KiyoshiroKawanabe/OfficeRobot-Hardware/assets/71181654/4fefa60c-d3a5-4063-8a65-ef1827d892ab" width = "500" hight = "500">
