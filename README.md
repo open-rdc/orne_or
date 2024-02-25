@@ -56,4 +56,4 @@ roslaunch orne_or_moveit_config moveit_planner.launch
 
 ### Hardware
 
-<img src = "https://github.com/KiyoshiroKawanabe/OfficeRobot-Hardware/assets/71181654/4fefa60c-d3a5-4063-8a65-ef1827d892ab" width = "500" hight = "500">
+<img src = "https://github.com/open-rdc/orne_or/assets/71181654/0072ab36-581b-4f19-a733-2e6548adccbc" width = "500" hight = "500">
