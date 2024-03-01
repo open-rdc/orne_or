@@ -30,11 +30,11 @@ class ManipulatorControl:
         # self.gripper.set_joint_value_target([0.9, 0.9])
         # self.gripper.go()
 
-        self.left_arm.set_named_target("home")
-        self.left_arm.go()
+        # self.left_arm.set_named_target("home")
+        # self.left_arm.go()
 
-        self.right_arm.set_named_target("home")
-        self.right_arm.go()
+        # self.right_arm.set_named_target("home")
+        # self.right_arm.go()
 
         self.pose = self.arm.get_current_pose()
         self.pose.pose.orientation.x = math.sqrt(0.5)
@@ -47,7 +47,7 @@ class ManipulatorControl:
         self.hands = []
 
         joint_constraint = JointConstraint()
-        joint_constraint.joint_name = "manipulator"
+        joint_constraint.joint_name = "left_arm, right_arm"
         joint_constraint.position = 0
         joint_constraint.tolerance_above = 0.1
         joint_constraint.tolerance_below = 0.1
@@ -113,7 +113,7 @@ class ManipulatorControl:
             self.hand = copy.deepcopy(self.hands[-1])
 
 if __name__ == '__main__':
-    rospy.init_node("crane_x7_teaching_playback")
+    rospy.init_node("left_arm, rigth_arm")
     manipulator_control = ManipulatorControl()
     timer = rospy.Timer(rospy.Duration(0.1), teaching_playback.update)
     try:
