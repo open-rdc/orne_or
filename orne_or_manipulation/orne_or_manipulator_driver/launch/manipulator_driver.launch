@@ -9,8 +9,7 @@
   </node>
 
   <!-- Load URDF model -->
-	<arg name="model" default="$(find orne_or_description)/urdf/manipulator.urdf" />
-	<param name="robot_description" textfile="$(arg model)" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find orne_or_description)/urdf/orne_or.urdf.xacro'" />
 
   <!--node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" /-->
 
