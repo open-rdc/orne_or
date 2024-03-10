@@ -89,7 +89,7 @@
     <parent link="sholder_link"/>
     <child link="l_sholder_pitch_link"/>
     <axis xyz="0 -1 0"/> 
-    <limit lower="-1" upper="1" effort="30" velocity="1.571"/>
+    <limit lower="-5.58" upper="5.58" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="l_sholder_pitch_link">
@@ -165,7 +165,7 @@
     <parent link="l_sholder_roll_link"/>
     <child link="l_elbow_roll_link"/>
     <axis xyz="0 0 -1"/> 
-    <limit lower="0.0" upper="3.14" effort="30" velocity="1.571"/>
+    <limit lower="-0.69" upper="2.96" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="l_elbow_roll_link">
@@ -206,7 +206,7 @@
     <parent link="l_elbow_roll_link"/>
     <child link="l_wrist_roll_link"/>
     <axis xyz="0 0 -1"/> 
-    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+    <limit lower="-1.92" upper="1.92" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="l_wrist_roll_link">
@@ -241,7 +241,7 @@
     <parent link="l_wrist_roll_link"/>
     <child link="l_wrist_pitch_link"/>
     <axis xyz="1 0 0"/> 
-    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+    <limit lower="-1.92" upper="1.92" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="l_wrist_pitch_link">
@@ -282,7 +282,7 @@
     <parent link="l_wrist_pitch_link"/>
     <child link="l_wrist_yaw_link"/>
     <axis xyz="0 1 0"/> 
-    <limit lower="-3.14" upper="3.14" effort="30" velocity="1.571"/>
+    <limit lower="-5.58" upper="5.58" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="l_wrist_yaw_link">
@@ -408,7 +408,7 @@
     <parent link="sholder_link"/>
     <child link="r_sholder_pitch_link"/>
     <axis xyz="0 -1 0"/>
-    <limit lower="-1" upper="1" effort="30" velocity="1.571"/>
+    <limit lower="-5.58" upper="5.58" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="r_sholder_pitch_link">
@@ -486,7 +486,7 @@
     <parent link="r_sholder_roll_link"/>
     <child link="r_elbow_roll_link"/>
     <axis xyz="0 0 1"/> 
-    <limit lower="0.0" upper="3.14" effort="30" velocity="1.571"/>
+    <limit lower="-0.7" upper="2.97" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="r_elbow_roll_link">
@@ -528,7 +528,7 @@
     <parent link="r_elbow_roll_link"/>
     <child link="r_wrist_roll_link"/>
     <axis xyz="0 0 1"/> 
-    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+    <limit lower="-1.92" upper="1.92" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="r_wrist_roll_link">
@@ -564,7 +564,7 @@
     <parent link="r_wrist_roll_link"/>
     <child link="r_wrist_pitch_link"/>
     <axis xyz="-1 0 0"/> 
-    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+    <limit lower="-1.92" upper="1.92" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="r_wrist_pitch_link">
@@ -605,7 +605,7 @@
     <parent link="r_wrist_pitch_link"/>
     <child link="r_wrist_yaw_link"/>
     <axis xyz="0 -1 0"/> 
-    <limit lower="-3.14" upper="3.14" effort="30" velocity="1.571"/>
+    <limit lower="-5.58" upper="5.58" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="r_wrist_yaw_link">
@@ -642,7 +642,7 @@
     <parent link="r_wrist_yaw_link"/>
     <child link="r_hand_link"/>
     <axis xyz="1 0 0"/> 
-    <limit lower="0" upper="1.57" effort="30" velocity="1.571"/>
+    <limit lower="0" upper="1.74" effort="30" velocity="1.571"/>
   </joint>
 
   <link name="r_hand_link">
