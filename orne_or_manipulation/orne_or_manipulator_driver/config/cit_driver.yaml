@@ -60,8 +60,8 @@ l_wrist_yaw_driver:
   current_limit: 3000
   temprature_limit: 80
 
-l_hand_driver:
-  joint_name: l_hand_joint
+l_hand_left_driver:
+  joint_name: l_hand_left_joint
   id: 27
   min_angle: 0
   max_angle: 90

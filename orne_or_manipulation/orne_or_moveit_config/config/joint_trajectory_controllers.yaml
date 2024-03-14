@@ -6,6 +6,7 @@ joint_trajectory_action_node:
     - l_wrist_roll_joint
     - l_wrist_pitch_joint
     - l_wrist_yaw_joint
+    - l_hand_left_joint
     - r_sholder_pitch_joint
     - r_sholder_roll_joint
     - r_elbow_roll_joint
@@ -27,6 +28,8 @@ joint_trajectory_action_node:
     l_wrist_pitch_joint:
       goal: *goal_pos_constraints
     l_wrist_yaw_joint:
+      goal: *goal_pos_constraints
+    l_hand_left_joint:
       goal: *goal_pos_constraints
     r_sholder_pitch_joint:
       goal: *goal_pos_constraints

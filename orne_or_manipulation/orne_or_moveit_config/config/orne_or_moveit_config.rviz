@@ -97,6 +97,16 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          l_hand_left_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          l_hand_right_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           r_elbow_roll_link:
             Alpha: 1
             Show Axes: false

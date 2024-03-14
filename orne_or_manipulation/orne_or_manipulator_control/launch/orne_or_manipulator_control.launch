@@ -3,7 +3,7 @@
 	
 	<rosparam file="$(find orne_or_manipulator_control)/config/trajectory_control.yaml" command="load" />
 
-	<node name="arm_controller_manager" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/manipulator" args="/manipulator/left_arm_controller /manipulator/right_arm_controller /manipulator/joint_state_controller "/>
+	<node name="arm_controller_manager" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/manipulator" args="/manipulator/left_arm_controller /manipulator/right_arm_controller /manipulator/left_hand_controller /manipulator/right_hand_controller /manipulator/joint_state_controller "/>
 
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
