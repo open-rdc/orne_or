@@ -339,7 +339,7 @@ class IMDriver : public hardware_interface::RobotHW
             deg100[i] = kondo_vector[i]->get_deg100();
             const int right_shoulder_pitch_id = 11; // temporary begin
             const int left_shoulder_pitch_id = 21;
-            if id[i] == right_shoulder_pitch_id || id[i] == left_shoulder_pitch_id {
+            if (id[i] == right_shoulder_pitch_id || id[i] == left_shoulder_pitch_id) {
                 deg100[i] *= 4.0;
             }                                       // temporary end
             kondo_vector[i]->set_pos(deg100[i]);
