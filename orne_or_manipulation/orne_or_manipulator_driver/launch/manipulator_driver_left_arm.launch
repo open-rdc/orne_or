@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
   <!-- Load Kondo B3M parameters -->
-  <rosparam file="$(find orne_or_manipulator_driver)/config/cit_driver.yaml" command="load" ns="orne_or_manipulator_driver"/>
+  <rosparam file="$(find orne_or_manipulator_driver)/config/orne_or_manipulator_driver.yaml" command="load" ns="orne_or_manipulator_driver"/>
 
   <!-- Start Manipulator driver -->
   <node name="orne_or_manipulator_driver" pkg="orne_or_manipulator_driver" type="orne_or_manipulator_driver" args="fake:=true l_sholder_pitch_driver l_sholder_roll_driver l_elbow_roll_driver l_wrist_roll_driver l_wrist_pitch_driver l_wrist_yaw_driver" output="screen">
