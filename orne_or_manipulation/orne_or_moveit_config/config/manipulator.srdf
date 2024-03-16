@@ -39,7 +39,9 @@
     </group>
     <group name="left_hand">
         <link name="l_hand_left_link" />
+        <link name="l_hand_right_link" />
         <joint name="l_hand_left_joint" />
+        <joint name="l_hand_right_joint" />
     </group>
     <group name="right_hand">
         <link name="r_hand_link" />

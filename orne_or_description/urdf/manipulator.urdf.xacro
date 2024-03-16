@@ -400,6 +400,13 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  <gazebo>
+    <plugin name="gazebo_mimic_joint_control" filename="libroboticsgroup_upatras_gazebo_mimic_joint_plugin.so">
+      <robotNamespace>/manipulator</robotNamespace>
+      <joint>l_hand_left_joint</joint>
+      <mimicJoint>l_hand_right_joint</mimicJoint>
+    </plugin>
+  </gazebo>
 
   <!--right arm-->
 
