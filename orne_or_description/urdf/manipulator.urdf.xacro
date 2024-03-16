@@ -89,7 +89,7 @@
     <parent link="sholder_link"/>
     <child link="l_sholder_pitch_link"/>
     <axis xyz="0 -1 0"/> 
-    <limit lower="-5.58" upper="5.58" effort="4.0" velocity="1.571"/>
+    <limit lower="-1.39" upper="1.39" effort="4.0" velocity="1.571"/>
   </joint>
 
   <link name="l_sholder_pitch_link">
@@ -415,7 +415,7 @@
     <parent link="sholder_link"/>
     <child link="r_sholder_pitch_link"/>
     <axis xyz="0 -1 0"/>
-    <limit lower="-5.58" upper="5.58" effort="4.0" velocity="1.571"/>
+    <limit lower="-1.39" upper="1.39" effort="4.0" velocity="1.571"/>
   </joint>
 
   <link name="r_sholder_pitch_link">
@@ -493,7 +493,7 @@
     <parent link="r_sholder_roll_link"/>
     <child link="r_elbow_roll_link"/>
     <axis xyz="0 0 1"/> 
-    <limit lower="-0.7" upper="2.97" effort="2.5" velocity="1.571"/>
+    <limit lower="-0.69" upper="2.96" effort="2.5" velocity="1.571"/>
   </joint>
 
   <link name="r_elbow_roll_link">
