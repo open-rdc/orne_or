@@ -286,7 +286,7 @@ class IMDriver : public hardware_interface::RobotHW
         std::string controller;
         //open b3m serial port
         std::string serial_port;
-        nh.param<std::string>("serial_port", serial_port, "/dev/ttyUSB0");
+        nh.param<std::string>("serial_port", serial_port, "/dev/sensors/ttyUSBRS485");
         ROS_INFO("serial_port: %s", serial_port.c_str());
         loopback = false;
         if (nh.getParam("loopback", loopback)) {
