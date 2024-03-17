@@ -1,16 +1,15 @@
 <?xml version="1.0"?>
 <launch>
   <!-- Load Kondo B3M parameters -->
-  <rosparam file="$(find orne_or_manipulator_driver)/config/cit_driver.yaml" command="load" ns="orne_or_manipulator_driver"/>
+  <rosparam file="$(find orne_or_manipulator_driver)/config/orne_or_manipulator_driver.yaml" command="load" ns="orne_or_manipulator_driver"/>
 
   <!-- Start Manipulator driver -->
-  <node name="orne_or_manipulator_driver" pkg="orne_or_manipulator_driver" type="orne_or_manipulator_driver" args="fake:=true l_sholder_pitch_driver l_sholder_roll_driver l_elbow_roll_driver l_wrist_roll_driver l_wrist_pitch_driver l_wrist_yaw_driver r_sholder_pitch_driver r_sholder_roll_driver r_elbow_roll_driver r_wrist_roll_driver r_wrsit_pitch_driver r_wrist_yaw_driver r_hand_driver sholder_slider_driver" output="screen">
+  <node name="orne_or_manipulator_driver" pkg="orne_or_manipulator_driver" type="orne_or_manipulator_driver" args="fake:=true l_sholder_pitch_driver l_sholder_roll_driver l_elbow_roll_driver l_wrist_roll_driver l_wrist_pitch_driver l_wrist_yaw_driver l_hand_left_driver r_sholder_pitch_driver r_sholder_roll_driver r_elbow_roll_driver r_wrist_roll_driver r_wrsit_pitch_driver r_wrist_yaw_driver r_hand_driver sholder_slider_driver" output="screen">
     <remap from="/joint_states" to="/manipulator/joint_states" />
   </node>
 
   <!-- Load URDF model -->
-	<arg name="model" default="$(find orne_or_description)/urdf/manipulator.urdf" />
-	<param name="robot_description" textfile="$(arg model)" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find orne_or_description)/urdf/orne_or.urdf.xacro'" />
 
   <!--node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" /-->
 

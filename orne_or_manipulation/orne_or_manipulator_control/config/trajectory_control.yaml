@@ -34,7 +34,6 @@ manipulator:
       - r_wrist_roll_joint
       - r_wrist_pitch_joint
       - r_wrist_yaw_joint
-      - r_hand_joint
     gains:
       r_sholder_pitch_joint: {p: 100.0, i: 0.01, d: 100.0}
       r_sholder_roll_joint: {p: 100.0, i: 0.01, d: 100.0}
@@ -42,4 +41,16 @@ manipulator:
       r_wrist_roll_joint: {p: 100.0, i: 0.01, d: 100.0}
       r_wrist_pitch_joint: {p: 100.0, i: 0.01, d: 100.0}
       r_wrist_yaw_joint: {p: 100.0, i: 0.01, d: 100.0}
+  left_hand_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - l_hand_left_joint
+    gains:
+      l_hand_left_joint: {p: 100.0, i: 0.01, d: 100.0}
+  right_hand_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - r_hand_joint
+    gains:
       r_hand_joint: {p: 100.0, i: 0.01, d: 100.0}
+

@@ -22,7 +22,7 @@
     <inertial>
       <mass value="1.73"/>
       <origin xyz="-0.006 0.004 0.625"/>
-      <inertia ixx="0.904597" ixy="0.0" ixz="0.0" iyy="0.904502" iyz="0.0" izz="0.001093"/>
+      <inertia ixx="1.000" ixy="0.0" ixz="0.0" iyy="1.000" iyz="0.0" izz="0.001"/>
     </inertial>
     <visual>
       <geometry>
@@ -50,7 +50,7 @@
     <inertial>
       <mass value="0.488"/>
       <origin xyz="0.014 0.000 -0.014"/>
-      <inertia ixx="0.002721" ixy="0.0" ixz="0.0" iyy="0.000784" iyz="0.0" izz="0.002332"/>
+      <inertia ixx="0.010" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.010"/>
     </inertial>
     <visual>
       <geometry>
@@ -88,15 +88,15 @@
     <origin xyz="0.000 0.100 0.000"/>
     <parent link="sholder_link"/>
     <child link="l_sholder_pitch_link"/>
-    <axis xyz="0 1 0"/> 
-    <limit lower="-1" upper="1" effort="30" velocity="1.571"/>
+    <axis xyz="0 -1 0"/> 
+    <limit lower="-1.39" upper="1.39" effort="4.0" velocity="1.571"/>
   </joint>
 
   <link name="l_sholder_pitch_link">
     <inertial>
       <mass value="0.206"/>
       <origin xyz="0.000 0.022 -0.007"/>
-      <inertia ixx="0.000262" ixy="0.0" ixz="0.0" iyy="0.000117" iyz="0.0" izz="0.000252"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
     <visual>
       <geometry>
@@ -123,15 +123,15 @@
     <origin xyz="0.000 0.0563 0.000"/>
     <parent link="l_sholder_pitch_link"/>
     <child link="l_sholder_roll_link"/>
-    <axis xyz="0 0 1"/> 
-    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+    <axis xyz="0 0 -1"/> 
+    <limit lower="-1.57" upper="1.57" effort="4.0" velocity="1.571"/>
   </joint>
 
   <link name="l_sholder_roll_link">
     <inertial>
       <mass value="0.207"/>
       <origin xyz="0.000 0.180 0.000"/>
-      <inertia ixx="0.008446" ixy="0.0" ixz="0.0" iyy="0.000073" iyz="0.0" izz="0.008435"/>
+      <inertia ixx="0.010" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.010"/>
     </inertial>
     <visual>
       <geometry>
@@ -165,14 +165,14 @@
     <parent link="l_sholder_roll_link"/>
     <child link="l_elbow_roll_link"/>
     <axis xyz="0 0 -1"/> 
-    <limit lower="0.0" upper="3.14" effort="30" velocity="1.571"/>
+    <limit lower="-0.69" upper="2.96" effort="2.5" velocity="1.571"/>
   </joint>
 
   <link name="l_elbow_roll_link">
     <inertial>
       <mass value="0.220"/>
       <origin xyz="-0.040 0.170 0.000"/>
-      <inertia ixx="0.008452" ixy="0.0" ixz="0.0" iyy="0.000448" iyz="0.0" izz="0.008807"/>
+      <inertia ixx="0.010" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.010"/>
     </inertial>
     <visual>
       <geometry>
@@ -205,15 +205,15 @@
     <origin xyz="-0.042 0.2713 0.000"/>
     <parent link="l_elbow_roll_link"/>
     <child link="l_wrist_roll_link"/>
-    <axis xyz="0 0 1"/> 
-    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+    <axis xyz="0 0 -1"/> 
+    <limit lower="-1.92" upper="1.92" effort="2.5" velocity="1.571"/>
   </joint>
 
   <link name="l_wrist_roll_link">
     <inertial>
       <mass value="0.022"/>
       <origin xyz="0.000 0.027 0.000"/>
-      <inertia ixx="0.000023" ixy="0.0" ixz="0.0" iyy="0.000009" iyz="0.0" izz="0.000023"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
     <visual>
       <geometry>
@@ -241,14 +241,14 @@
     <parent link="l_wrist_roll_link"/>
     <child link="l_wrist_pitch_link"/>
     <axis xyz="1 0 0"/> 
-    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+    <limit lower="-1.92" upper="1.92" effort="2.5" velocity="1.571"/>
   </joint>
 
   <link name="l_wrist_pitch_link">
     <inertial>
       <mass value="0.096"/>
       <origin xyz="0.001 0.014 0.000"/>
-      <inertia ixx="0.000049" ixy="0.0" ixz="0.0" iyy="0.000019" iyz="0.0" izz="0.000053"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
     <visual>
       <geometry>
@@ -282,14 +282,14 @@
     <parent link="l_wrist_pitch_link"/>
     <child link="l_wrist_yaw_link"/>
     <axis xyz="0 1 0"/> 
-    <limit lower="-3.14" upper="3.14" effort="30" velocity="1.571"/>
+    <limit lower="-5.58" upper="5.58" effort="2.5" velocity="1.571"/>
   </joint>
 
   <link name="l_wrist_yaw_link">
     <inertial>
       <mass value="0.219"/>
       <origin xyz="0.013 0.049 -0.001"/>
-      <inertia ixx="0.000743" ixy="0.0" ixz="0.0" iyy="0.000113" iyz="0.0" izz="0.000802"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
     <visual>
       <geometry>
@@ -322,15 +322,15 @@
     <origin xyz="-0.0226 0.083 0.000" rpy="0 0 0"/>
     <parent link="l_wrist_yaw_link"/>
     <child link="l_hand_left_link"/>
-    <axis xyz="0 0 1"/> 
-    <limit lower="0" upper="1.57" effort="30" velocity="1.571"/>
+    <axis xyz="0 0 -1"/> 
+    <limit lower="-1.57" upper="0" effort="2.5" velocity="1.571"/>
   </joint>
 
   <link name="l_hand_left_link">
     <inertial>
       <mass value="0.059"/>
       <origin xyz="-0.001 0.046 0.007"/>
-      <inertia ixx="0.000263" ixy="0.0" ixz="0.0" iyy="0.000041" iyz="0.0" izz="0.000236"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
     <visual>
       <geometry>
@@ -363,16 +363,16 @@
     <origin xyz="0.0225 0.083 0.000" rpy="0 0 0"/>
     <parent link="l_wrist_yaw_link"/>
     <child link="l_hand_right_link"/>
-    <axis xyz="0 0 -1"/>
+    <axis xyz="0 0 1"/>
     <mimic joint="l_hand_left_joint" multiplier="1.0" offset="0.0" /> 
-    <limit lower="-3.14" upper="3.14" effort="30" velocity="1.571"/>
+    <limit lower="-1.57" upper="0.0" effort="2.5" velocity="1.571"/>
   </joint>
 
   <link name="l_hand_right_link">
     <inertial>
       <mass value="0.058"/>
       <origin xyz="0.001 0.047 0.007"/>
-      <inertia ixx="0.000259" ixy="0.0" ixz="0.0" iyy="0.000039" iyz="0.0" izz="0.000234"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
     <visual>
       <geometry>
@@ -400,6 +400,13 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  <gazebo>
+    <plugin name="gazebo_mimic_joint_control" filename="libroboticsgroup_upatras_gazebo_mimic_joint_plugin.so">
+      <robotNamespace>/manipulator</robotNamespace>
+      <joint>l_hand_left_joint</joint>
+      <mimicJoint>l_hand_right_joint</mimicJoint>
+    </plugin>
+  </gazebo>
 
   <!--right arm-->
 
@@ -407,15 +414,15 @@
     <origin xyz="0.000 -0.100 0.000"/>
     <parent link="sholder_link"/>
     <child link="r_sholder_pitch_link"/>
-    <axis xyz="0 1 0"/>
-    <limit lower="-1" upper="1" effort="30" velocity="1.571"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="-1.39" upper="1.39" effort="4.0" velocity="1.571"/>
   </joint>
 
   <link name="r_sholder_pitch_link">
     <inertial>
       <mass value="0.206"/>
       <origin xyz="0.000 -0.022 -0.007"/>
-      <inertia ixx="0.000262" ixy="0.0" ixz="0.0" iyy="0.000117" iyz="0.0" izz="0.000252"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
     <visual>
       <origin rpy="0 0 3.14159"/>
@@ -444,14 +451,14 @@
     <parent link="r_sholder_pitch_link"/>
     <child link="r_sholder_roll_link"/>
     <axis xyz="0 0 1"/> 
-    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+    <limit lower="-1.57" upper="1.57" effort="4.0" velocity="1.571"/>
   </joint>
 
   <link name="r_sholder_roll_link">
     <inertial>
       <mass value="0.207"/>
       <origin xyz="0.000 -0.180 0.000"/>
-      <inertia ixx="0.008446" ixy="0.0" ixz="0.0" iyy="0.000074" iyz="0.0" izz="0.008435" />
+      <inertia ixx="0.010" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.010" />
     </inertial>
     <visual>
       <origin rpy="0 0 3.14159"/>
@@ -486,14 +493,14 @@
     <parent link="r_sholder_roll_link"/>
     <child link="r_elbow_roll_link"/>
     <axis xyz="0 0 1"/> 
-    <limit lower="0.0" upper="3.14" effort="30" velocity="1.571"/>
+    <limit lower="-0.69" upper="2.96" effort="2.5" velocity="1.571"/>
   </joint>
 
   <link name="r_elbow_roll_link">
     <inertial>
       <mass value="0.220"/>
       <origin xyz="-0.040 -0.170 0.000"/>
-      <inertia ixx="0.008452" ixy="0.0" ixz="0.0" iyy="0.000448" iyz="0.0" izz="0.008807"/>
+      <inertia ixx="0.010" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.010"/>
     </inertial>
     <visual>
       <origin rpy="0 3.14159 3.14159"/>
@@ -528,14 +535,14 @@
     <parent link="r_elbow_roll_link"/>
     <child link="r_wrist_roll_link"/>
     <axis xyz="0 0 1"/> 
-    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+    <limit lower="-1.92" upper="1.92" effort="2.5" velocity="1.571"/>
   </joint>
 
   <link name="r_wrist_roll_link">
     <inertial>
       <mass value="0.022"/>
       <origin xyz="0.000 -0.027 0.000"/>
-      <inertia ixx="0.000023" ixy="0.0" ixz="0.0" iyy="0.000009" iyz="0.0" izz="0.000023"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
     <visual>
       <origin rpy="0 0 3.14159"/>
@@ -563,15 +570,15 @@
     <origin xyz="0.000 -0.054 0.000"/>
     <parent link="r_wrist_roll_link"/>
     <child link="r_wrist_pitch_link"/>
-    <axis xyz="1 0 0"/> 
-    <limit lower="-1.57" upper="1.57" effort="30" velocity="1.571"/>
+    <axis xyz="-1 0 0"/> 
+    <limit lower="-1.92" upper="1.92" effort="2.5" velocity="1.571"/>
   </joint>
 
   <link name="r_wrist_pitch_link">
     <inertial>
       <mass value="0.096"/>
       <origin xyz="-0.001 -0.014 0.000"/>
-      <inertia ixx="0.000049" ixy="0.0" ixz="0.0" iyy="0.000019" iyz="0.0" izz="0.000053"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
     <visual>
       <geometry>
@@ -604,15 +611,15 @@
     <origin xyz="0.000 -0.0443 0.000"/>
     <parent link="r_wrist_pitch_link"/>
     <child link="r_wrist_yaw_link"/>
-    <axis xyz="0 1 0"/> 
-    <limit lower="-3.14" upper="3.14" effort="30" velocity="1.571"/>
+    <axis xyz="0 -1 0"/> 
+    <limit lower="-5.58" upper="5.58" effort="2.5" velocity="1.571"/>
   </joint>
 
   <link name="r_wrist_yaw_link">
     <inertial>
       <mass value="0.262"/>
       <origin xyz="-0.008 -0.075 0.012"/>
-      <inertia ixx="0.002194" ixy="0.0" ixz="0.0" iyy="0.000352" iyz="0.0" izz="0.002089"/>
+      <inertia ixx="0.010" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.010"/>
     </inertial>
     <visual>
       <geometry>
@@ -642,14 +649,14 @@
     <parent link="r_wrist_yaw_link"/>
     <child link="r_hand_link"/>
     <axis xyz="1 0 0"/> 
-    <limit lower="0" upper="1.57" effort="30" velocity="1.571"/>
+    <limit lower="0" upper="1.74" effort="2.5" velocity="1.571"/>
   </joint>
 
   <link name="r_hand_link">
     <inertial>
       <mass value="0.059"/>
       <origin xyz="-0.001 -0.008 -0.056"/>
-      <inertia ixx="0.000234" ixy="0.0" ixz="0.0" iyy="0.000300" iyz="0.0" izz="0.000082"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
     <visual>
       <geometry>

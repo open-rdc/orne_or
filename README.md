@@ -53,3 +53,7 @@ Real Robot
 roslaunch orne_or_bringup orne_or_manipulator.launch
 roslaunch orne_or_moveit_config moveit_planner.launch
 ```
+
+### Hardware
+
+<img src = "https://github.com/open-rdc/orne_or/assets/71181654/0072ab36-581b-4f19-a733-2e6548adccbc" width = "500" hight = "500">

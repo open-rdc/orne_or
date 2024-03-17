@@ -22,4 +22,15 @@ controller_list:
       - r_wrist_roll_joint
       - r_wrist_pitch_joint
       - r_wrist_yaw_joint
+  - name: manipulator/left_hand_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - l_hand_left_joint
+  - name: manipulator/right_hand_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
       - r_hand_joint

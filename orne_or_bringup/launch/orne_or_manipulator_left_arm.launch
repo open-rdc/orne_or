@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <launch>
 	<include file="$(find orne_or_manipulator_driver)/launch/manipulator_driver_left_arm.launch" />
-	<include file="$(find orne_or_manipulator_driver)/launch/manipulator_controller_left_arm.launch" />
+	<include file="$(find orne_or_manipulator_control)/launch/manipulator_controller_left_arm.launch" />
 </launch>

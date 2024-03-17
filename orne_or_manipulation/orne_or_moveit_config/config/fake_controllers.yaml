@@ -15,4 +15,9 @@ controller_list:
       - r_wrist_roll_joint
       - r_wrist_pitch_joint
       - r_wrist_yaw_joint
+  - name: fake_left_hand_controller
+    joints:
+      - l_hand_left_joint
+  - name: fake_right_hand_controller
+    joints:
       - r_hand_joint
