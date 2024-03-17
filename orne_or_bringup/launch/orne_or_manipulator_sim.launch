@@ -7,5 +7,5 @@
   </include>
   <include file="$(find orne_or_bringup)/launch/includes/base.launch.xml"/>
 
-  <node pkg="timed_roslaunch" type="timed_roslaunch.sh" name="timed_roslaunch" args="5 $(find orne_or_manipulator_control)/launch/orne_or_manipulator_control.launch" />
+  <node pkg="timed_roslaunch" type="timed_roslaunch.sh" name="timed_roslaunch" args="5 $(find orne_or_manipulator_control)/launch/manipulator_controller_sim.launch" />
 </launch>

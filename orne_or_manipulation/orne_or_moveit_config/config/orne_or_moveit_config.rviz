@@ -4,9 +4,11 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /Global Options1
+        - /Status1
         - /MotionPlanning1
-      Splitter Ratio: 0.74256
-    Tree Height: 374
+      Splitter Ratio: 0.7425600290298462
+    Tree Height: 324
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -14,6 +16,10 @@ Panels:
       - /Current View1
     Name: Views
     Splitter Ratio: 0.5
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
 Visualization Manager:
   Class: ""
   Displays:
@@ -23,7 +29,7 @@ Visualization Manager:
       Color: 160; 160; 164
       Enabled: true
       Line Style:
-        Line Width: 0.03
+        Line Width: 0.029999999329447746
         Value: Lines
       Name: Grid
       Normal Cell Count: 0
@@ -35,15 +41,18 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Class: moveit_rviz_plugin/MotionPlanning
+    - Acceleration_Scaling_Factor: 0.1
+      Class: moveit_rviz_plugin/MotionPlanning
       Enabled: true
       Move Group Namespace: ""
-      MoveIt_Goal_Tolerance: 0
+      MoveIt_Allow_Approximate_IK: false
+      MoveIt_Allow_External_Program: false
+      MoveIt_Allow_Replanning: false
+      MoveIt_Allow_Sensor_Positioning: false
       MoveIt_Planning_Attempts: 10
       MoveIt_Planning_Time: 5
+      MoveIt_Use_Cartesian_Path: false
       MoveIt_Use_Constraint_Aware_IK: true
-      MoveIt_Warehouse_Host: 127.0.0.1
-      MoveIt_Warehouse_Port: 33829
       MoveIt_Workspace:
         Center:
           X: 0
@@ -55,6 +64,7 @@ Visualization Manager:
           Z: 2
       Name: MotionPlanning
       Planned Path:
+        Color Enabled: false
         Interrupt Display: false
         Links:
           All Links Enabled: true
@@ -67,7 +77,46 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          camera_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          caster_front_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          hokuyo_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          imu_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          kinect_pitch_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          kinect_yaw_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           l_elbow_roll_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          l_hand_left_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          l_hand_right_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -102,6 +151,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          r_hand_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           r_sholder_pitch_link:
             Alpha: 1
             Show Axes: false
@@ -127,11 +181,6 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           sholder_link:
             Alpha: 1
             Show Axes: false
@@ -142,24 +191,33 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          world:
+          wheel_left_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
+            Value: true
+          wheel_right_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
         Loop Animation: true
         Robot Alpha: 0.5
+        Robot Color: 150; 50; 150
         Show Robot Collision: false
         Show Robot Visual: true
         Show Trail: false
         State Display Time: 0.05 s
+        Trail Step Size: 1
         Trajectory Topic: move_group/display_planned_path
+        Use Sim Time: false
       Planning Metrics:
         Payload: 1
         Show Joint Torques: false
         Show Manipulability: false
         Show Manipulability Index: false
         Show Weight Limit: false
-        TextHeight: 0.08
+        TextHeight: 0.07999999821186066
       Planning Request:
         Colliding Link Color: 255; 0; 0
         Goal State Alpha: 1
@@ -177,7 +235,7 @@ Visualization Manager:
       Scene Geometry:
         Scene Alpha: 1
         Scene Color: 50; 230; 50
-        Scene Display Time: 0.2
+        Scene Display Time: 0.20000000298023224
         Show Scene Geometry: true
         Voxel Coloring: Z-Axis
         Voxel Rendering: Occupied Voxels
@@ -194,7 +252,46 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          camera_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          caster_front_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          hokuyo_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          imu_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          kinect_pitch_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          kinect_yaw_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           l_elbow_roll_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          l_hand_left_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          l_hand_right_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -229,6 +326,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          r_hand_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           r_sholder_pitch_link:
             Alpha: 1
             Show Axes: false
@@ -254,11 +356,6 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          r_hand_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           sholder_link:
             Alpha: 1
             Show Axes: false
@@ -269,18 +366,26 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          world:
+          wheel_left_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
+            Value: true
+          wheel_right_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
         Robot Alpha: 0.5
         Show Robot Collision: false
         Show Robot Visual: true
       Value: true
+      Velocity_Scaling_Factor: 0.1
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: world
+    Default Light: true
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -292,22 +397,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 2.9965
+      Distance: 2.996500015258789
       Enable Stereo Rendering:
-        Stereo Eye Separation: 0.06
+        Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
+      Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.113567
-        Y: 0.10592
-        Z: 2.23518e-07
+        X: 0.14556121826171875
+        Y: -0.12281174957752228
+        Z: 1.0430871100197692e-07
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
       Name: Current View
-      Near Clip Distance: 0.01
-      Pitch: 0.509797
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.5097969770431519
       Target Frame: world
-      Value: XYOrbit (rviz)
-      Yaw: 5.65995
+      Yaw: 5.659949779510498
     Saved: ~
 Window Geometry:
   Displays:
@@ -317,11 +425,13 @@ Window Geometry:
     collapsed: false
   Hide Left Dock: false
   Hide Right Dock: false
-  Motion Planning:
+  MotionPlanning:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002a2000003bdfc0200000005fb000000100044006900730070006c00610079007301000000280000020b000000dd00fffffffb0000000800480065006c00700000000342000000bb0000007600fffffffb0000000a0056006900650077007300000003b0000000b0000000b000fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000239000001ac000001a100ffffff000003bd000003bd00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  MotionPlanning - Trajectory Slider:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd0000000100000000000002a2000003acfc0200000007fb000000100044006900730070006c006100790073010000003b000001d3000000c700fffffffb0000000800480065006c00700000000342000000bb0000006e00fffffffb0000000a0056006900650077007300000003b0000000b0000000a000fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000239000001ac0000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000214000001d30000016900ffffff000003bd000003ac00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
   Width: 1637
-  X: 43
-  Y: 24
+  X: 1918
+  Y: 61
