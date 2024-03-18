@@ -8,9 +8,7 @@
 
     <!-- color.pyノードの実行 -->
     <node pkg="speech_recognition_node" name="color_node" type="color.py" launch-prefix="xterm -e python3" />
-    
-    <!-- final_listener.pyノードの実行 -->
-    <node pkg="speech_recognition_node" name="listener_node" type="final_listener.py" launch-prefix="xterm -e python3" />
+   
     
 </launch>
 
