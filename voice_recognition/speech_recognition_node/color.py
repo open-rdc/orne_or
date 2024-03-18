@@ -35,27 +35,20 @@ def update_colors(text):
             rospy.loginfo("ボールの色： %s", ball_color)
         i += 1
     
-    if ball_color == "赤":
-        pub.publish("/speaker/red")
-        publish_color_value("赤")  # メッセージをパブリッシュする
-    elif ball_color == "青":
-        pub.publish("/speaker/blue")
-        publish_color_value("青")  # メッセージをパブリッシュする
-    elif ball_color == "黄":
-        pub.publish("/speaker/yellow")
-        publish_color_value("黄")  # メッセージをパブリッシュする
+    # 色の値をパブリッシュする
+    publish_color_value(ball_color)
 
 def publish_color_value(color):
-    pub = rospy.Publisher('/color_values', String, queue_size=10)
-    rospy.loginfo("Publishing color value: %s", color)
-    pub.publish(color)
+    # ボールの色に応じて適切なトピックに色の情報をパブリッシュする
+    if color == "赤":
+        pub = rospy.Publisher('/speaker/red', String, queue_size=10)
+    elif color == "青":
+        pub = rospy.Publisher('/speaker/blue', String, queue_size=10)
+    elif color == "黄":
+        pub = rospy.Publisher('/speaker/yellow', String, queue_size=10)
 
 def color_detector():
     rospy.init_node('color_detector', anonymous=True)
-    
-    # パブリッシャーをグローバル変数として定義
-    global pub
-    pub = rospy.Publisher('/speaker', String, queue_size=10)
     
     # start.pyからのトピックを受信するコールバック関数を登録
     rospy.Subscriber("/start_flag", String, start_callback)
@@ -63,11 +56,7 @@ def color_detector():
     # 色を受信するトピックのコールバック関数を登録
     rospy.Subscriber("/speech_recog_result", String, color_callback)
     
-    # ループの周期を設定
-    rate = rospy.Rate(10)  # 10Hz
-    
-    while not rospy.is_shutdown():
-        rate.sleep()
+    rospy.spin()
 
 if __name__ == '__main__':
     color_detector()
