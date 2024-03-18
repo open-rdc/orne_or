@@ -3,7 +3,8 @@
   <include file="$(find icart_mini_gazebo)/launch/icart_mini.launch">
     <arg name="gui" value="true"/>
     <arg name="model" value="$(find xacro)/xacro '$(find orne_or_description)/urdf/orne_or.urdf.xacro'"/>
-    <arg name="world" value="$(find icart_mini_gazebo)/worlds/Tsudanuma_2-3.world"/>
+    <!--arg name="world" value="$(find icart_mini_gazebo)/worlds/Tsudanuma_2-3.world"/-->
+    <arg name="world" value="$(find orne_or_bringup)/worlds/308room_table.world"/>
   </include>
   <include file="$(find orne_or_bringup)/launch/includes/base.launch.xml"/>
 
