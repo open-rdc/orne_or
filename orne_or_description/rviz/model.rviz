@@ -111,12 +111,12 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        l_sholder_pitch_link:
+        l_shoulder_pitch_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        l_sholder_roll_link:
+        l_shoulder_roll_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -146,12 +146,12 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        r_sholder_pitch_link:
+        r_shoulder_pitch_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        r_sholder_roll_link:
+        r_shoulder_roll_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -171,7 +171,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        sholder_link:
+        shoulder_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -224,9 +224,9 @@ Visualization Manager:
           Value: true
         l_hand_right_link:
           Value: true
-        l_sholder_pitch_link:
+        l_shoulder_pitch_link:
           Value: true
-        l_sholder_roll_link:
+        l_shoulder_roll_link:
           Value: true
         l_wrist_pitch_link:
           Value: true
@@ -238,9 +238,9 @@ Visualization Manager:
           Value: true
         r_hand_link:
           Value: true
-        r_sholder_pitch_link:
+        r_shoulder_pitch_link:
           Value: true
-        r_sholder_roll_link:
+        r_shoulder_roll_link:
           Value: true
         r_wrist_pitch_link:
           Value: true
@@ -248,7 +248,7 @@ Visualization Manager:
           Value: true
         r_wrist_yaw_link:
           Value: true
-        sholder_link:
+        shoulder_link:
           Value: true
         spine_link:
           Value: true
@@ -275,9 +275,9 @@ Visualization Manager:
               head_pitch_link:
                 camera_link:
                   {}
-            sholder_link:
-              l_sholder_pitch_link:
-                l_sholder_roll_link:
+            shoulder_link:
+              l_shoulder_pitch_link:
+                l_shoulder_roll_link:
                   l_elbow_roll_link:
                     l_wrist_roll_link:
                       l_wrist_pitch_link:
@@ -286,8 +286,8 @@ Visualization Manager:
                             {}
                           l_hand_right_link:
                             {}
-              r_sholder_pitch_link:
-                r_sholder_roll_link:
+              r_shoulder_pitch_link:
+                r_shoulder_roll_link:
                   r_elbow_roll_link:
                     r_wrist_roll_link:
                       r_wrist_pitch_link:

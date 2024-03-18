@@ -3,24 +3,24 @@ manipulator:
     type: joint_state_controller/JointStateController
     publish_rate: 10
   
-  sholder_slider_controller:
+  shoulder_slider_controller:
     type: position_controllers/JointTrajectoryController
     joints: 
-      - sholder_slider
+      - shoulder_slider
     gains:
-      sholder_slider: {p: 100.0, i: 0.01, d: 100.0}
+      shoulder_slider: {p: 100.0, i: 0.01, d: 100.0}
   left_arm_controller:
     type: position_controllers/JointTrajectoryController
     joints:
-      - l_sholder_pitch_joint
-      - l_sholder_roll_joint
+      - l_shoulder_pitch_joint
+      - l_shoulder_roll_joint
       - l_elbow_roll_joint
       - l_wrist_roll_joint
       - l_wrist_pitch_joint
       - l_wrist_yaw_joint
     gains:
-      l_sholder_pitch_joint: {p: 100.0, i: 0.01, d: 100.0}
-      l_sholder_roll_joint: {p: 100.0, i: 0.01, d: 100.0}
+      l_shoulder_pitch_joint: {p: 100.0, i: 0.01, d: 100.0}
+      l_shoulder_roll_joint: {p: 100.0, i: 0.01, d: 100.0}
       l_elbow_roll_joint: {p: 100.0, i: 0.01, d: 100.0}
       l_wrist_roll_joint: {p: 100.0, i: 0.01, d: 100.0}
       l_wrist_pitch_joint: {p: 100.0, i: 0.01, d: 100.0}
@@ -28,15 +28,15 @@ manipulator:
   right_arm_controller:
     type: position_controllers/JointTrajectoryController
     joints:
-      - r_sholder_pitch_joint
-      - r_sholder_roll_joint
+      - r_shoulder_pitch_joint
+      - r_shoulder_roll_joint
       - r_elbow_roll_joint
       - r_wrist_roll_joint
       - r_wrist_pitch_joint
       - r_wrist_yaw_joint
     gains:
-      r_sholder_pitch_joint: {p: 100.0, i: 0.01, d: 100.0}
-      r_sholder_roll_joint: {p: 100.0, i: 0.01, d: 100.0}
+      r_shoulder_pitch_joint: {p: 100.0, i: 0.01, d: 100.0}
+      r_shoulder_roll_joint: {p: 100.0, i: 0.01, d: 100.0}
       r_elbow_roll_joint: {p: 100.0, i: 0.01, d: 100.0}
       r_wrist_roll_joint: {p: 100.0, i: 0.01, d: 100.0}
       r_wrist_pitch_joint: {p: 100.0, i: 0.01, d: 100.0}
@@ -53,4 +53,10 @@ manipulator:
       - r_hand_joint
     gains:
       r_hand_joint: {p: 100.0, i: 0.01, d: 100.0}
+  shoulder_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - shoulder_joint
+    gains:
+      shoulder_joint: {p: 100.0, i: 0.01, d: 100.0}
 

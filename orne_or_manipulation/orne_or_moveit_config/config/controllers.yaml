@@ -5,8 +5,8 @@ controller_list:
     type: FollowJointTrajectory
     default: true
     joints:
-      - l_sholder_pitch_joint
-      - l_sholder_roll_joint
+      - l_shoulder_pitch_joint
+      - l_shoulder_roll_joint
       - l_elbow_roll_joint
       - l_wrist_roll_joint
       - l_wrist_pitch_joint
@@ -16,8 +16,8 @@ controller_list:
     type: FollowJointTrajectory
     default: true
     joints:
-      - r_sholder_pitch_joint
-      - r_sholder_roll_joint
+      - r_shoulder_pitch_joint
+      - r_shoulder_roll_joint
       - r_elbow_roll_joint
       - r_wrist_roll_joint
       - r_wrist_pitch_joint

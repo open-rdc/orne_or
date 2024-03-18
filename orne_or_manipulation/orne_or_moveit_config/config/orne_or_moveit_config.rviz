@@ -121,12 +121,12 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          l_sholder_pitch_link:
+          l_shoulder_pitch_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          l_sholder_roll_link:
+          l_shoulder_roll_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -156,12 +156,12 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          r_sholder_pitch_link:
+          r_shoulder_pitch_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_sholder_roll_link:
+          r_shoulder_roll_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -181,7 +181,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          sholder_link:
+          shoulder_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -296,12 +296,12 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          l_sholder_pitch_link:
+          l_shoulder_pitch_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          l_sholder_roll_link:
+          l_shoulder_roll_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -331,12 +331,12 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          r_sholder_pitch_link:
+          r_shoulder_pitch_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          r_sholder_roll_link:
+          r_shoulder_roll_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -356,7 +356,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          sholder_link:
+          shoulder_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false

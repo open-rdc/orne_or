@@ -32,15 +32,15 @@
     </collision>
   </link>
 
-  <joint name="sholder_slider" type="prismatic">
+  <joint name="shoulder_slider" type="prismatic">
     <origin xyz="0 0 0.4"/>
     <parent link="spine_link"/>
-    <child link="sholder_link"/>
+    <child link="shoulder_link"/>
     <axis xyz="0 0 1"/>
     <limit effort="1000" lower="-0.2" upper="1.4" velocity="1.0"/>
   </joint>
 
-  <link name="sholder_link">
+  <link name="shoulder_link">
     <inertial>
       <mass value="0.488"/>
       <origin xyz="0.014 0.000 -0.014"/>
@@ -62,15 +62,15 @@
     </collision>
   </link>
 
-  <gazebo reference="sholder_link">
+  <gazebo reference="shoulder_link">
     <material>Gazebo/Blue</material>
   </gazebo>
-  <transmission name="trans_sholder_slider">
+  <transmission name="trans_shoulder_slider">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="sholder_slider">
+    <joint name="shoulder_slider">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="motor_sholder_slider">
+    <actuator name="motor_shoulder_slider">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
@@ -78,15 +78,15 @@
 
 
   <!--left arm-->
-  <joint name="l_sholder_pitch_joint" type="revolute">
+  <joint name="l_shoulder_pitch_joint" type="revolute">
     <origin xyz="0.000 0.100 0.000"/>
-    <parent link="sholder_link"/>
-    <child link="l_sholder_pitch_link"/>
+    <parent link="shoulder_link"/>
+    <child link="l_shoulder_pitch_link"/>
     <axis xyz="0 -1 0"/> 
     <limit lower="-1.39" upper="1.39" effort="4.0" velocity="1.571"/>
   </joint>
 
-  <link name="l_sholder_pitch_link">
+  <link name="l_shoulder_pitch_link">
     <inertial>
       <mass value="0.206"/>
       <origin xyz="0.000 0.022 -0.007"/>
@@ -94,34 +94,34 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/sholder_pitch_link.stl"/>
+        <mesh filename="package://orne_or_description/meshes/shoulder_pitch_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
   </link>
-  <gazebo reference="l_sholder_pitch_link">
+  <gazebo reference="l_shoulder_pitch_link">
     <material>Gazebo/Red</material>
   </gazebo>
-  <transmission name="trans_l_sholder_pitch">
+  <transmission name="trans_l_shoulder_pitch">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="l_sholder_pitch_joint">
+    <joint name="l_shoulder_pitch_joint">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="motor_l_sholder_pitch">
+    <actuator name="motor_l_shoulder_pitch">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <joint name="l_sholder_roll_joint" type="revolute">
+  <joint name="l_shoulder_roll_joint" type="revolute">
     <origin xyz="0.000 0.0563 0.000"/>
-    <parent link="l_sholder_pitch_link"/>
-    <child link="l_sholder_roll_link"/>
+    <parent link="l_shoulder_pitch_link"/>
+    <child link="l_shoulder_roll_link"/>
     <axis xyz="0 0 -1"/> 
     <limit lower="-1.57" upper="1.57" effort="4.0" velocity="1.571"/>
   </joint>
 
-  <link name="l_sholder_roll_link">
+  <link name="l_shoulder_roll_link">
     <inertial>
       <mass value="0.207"/>
       <origin xyz="0.000 0.180 0.000"/>
@@ -129,7 +129,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/sholder_roll_link.stl"/>
+        <mesh filename="package://orne_or_description/meshes/shoulder_roll_link.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
@@ -140,15 +140,15 @@
       </geometry>
     </collision>
   </link>
-  <gazebo reference="l_sholder_roll_link">
+  <gazebo reference="l_shoulder_roll_link">
     <material>Gazebo/Blue</material>
   </gazebo>
-  <transmission name="trans_l_sholder_roll">
+  <transmission name="trans_l_shoulder_roll">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="l_sholder_roll_joint">
+    <joint name="l_shoulder_roll_joint">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="motor_l_sholder_roll">
+    <actuator name="motor_l_shoulder_roll">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
@@ -156,7 +156,7 @@
 
   <joint name="l_elbow_roll_joint" type="revolute">
     <origin xyz="0.000 0.2713 0.000"/>
-    <parent link="l_sholder_roll_link"/>
+    <parent link="l_shoulder_roll_link"/>
     <child link="l_elbow_roll_link"/>
     <axis xyz="0 0 -1"/> 
     <limit lower="-0.69" upper="2.96" effort="2.5" velocity="1.571"/>
@@ -404,15 +404,15 @@
 
   <!--right arm-->
 
-  <joint name="r_sholder_pitch_joint" type="revolute">
+  <joint name="r_shoulder_pitch_joint" type="revolute">
     <origin xyz="0.000 -0.100 0.000"/>
-    <parent link="sholder_link"/>
-    <child link="r_sholder_pitch_link"/>
+    <parent link="shoulder_link"/>
+    <child link="r_shoulder_pitch_link"/>
     <axis xyz="0 -1 0"/>
     <limit lower="-1.39" upper="1.39" effort="4.0" velocity="1.571"/>
   </joint>
 
-  <link name="r_sholder_pitch_link">
+  <link name="r_shoulder_pitch_link">
     <inertial>
       <mass value="0.206"/>
       <origin xyz="0.000 -0.022 -0.007"/>
@@ -421,34 +421,34 @@
     <visual>
       <origin rpy="0 0 3.14159"/>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/sholder_pitch_link.stl"/>
+        <mesh filename="package://orne_or_description/meshes/shoulder_pitch_link.stl"/>
       </geometry>
       <material name="red"/>
     </visual>
   </link>
-  <gazebo reference="r_sholder_pitch_link">
+  <gazebo reference="r_shoulder_pitch_link">
     <material>Gazebo/Red</material>
   </gazebo>
-  <transmission name="trans_r_sholder_pitch">
+  <transmission name="trans_r_shoulder_pitch">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="r_sholder_pitch_joint">
+    <joint name="r_shoulder_pitch_joint">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="motor_r_sholder_pitch">
+    <actuator name="motor_r_shoulder_pitch">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <joint name="r_sholder_roll_joint" type="revolute">
+  <joint name="r_shoulder_roll_joint" type="revolute">
     <origin xyz="0.000 -0.0563 0.000"/>
-    <parent link="r_sholder_pitch_link"/>
-    <child link="r_sholder_roll_link"/>
+    <parent link="r_shoulder_pitch_link"/>
+    <child link="r_shoulder_roll_link"/>
     <axis xyz="0 0 1"/> 
     <limit lower="-1.57" upper="1.57" effort="4.0" velocity="1.571"/>
   </joint>
 
-  <link name="r_sholder_roll_link">
+  <link name="r_shoulder_roll_link">
     <inertial>
       <mass value="0.207"/>
       <origin xyz="0.000 -0.180 0.000"/>
@@ -457,7 +457,7 @@
     <visual>
       <origin rpy="0 0 3.14159"/>
       <geometry>
-        <mesh filename="package://orne_or_description/meshes/sholder_roll_link.stl"/>
+        <mesh filename="package://orne_or_description/meshes/shoulder_roll_link.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
@@ -468,15 +468,15 @@
       </geometry>
     </collision>
   </link>
-  <gazebo reference="r_sholder_roll_link">
+  <gazebo reference="r_shoulder_roll_link">
     <material>Gazebo/Blue</material>
   </gazebo>
-  <transmission name="trans_r_sholder_roll">
+  <transmission name="trans_r_shoulder_roll">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="r_sholder_roll_joint">
+    <joint name="r_shoulder_roll_joint">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="motor_r_sholder_roll">
+    <actuator name="motor_r_shoulder_roll">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
@@ -484,7 +484,7 @@
 
   <joint name="r_elbow_roll_joint" type="revolute">
     <origin xyz="0.000 -0.2713 0.000"/>
-    <parent link="r_sholder_roll_link"/>
+    <parent link="r_shoulder_roll_link"/>
     <child link="r_elbow_roll_link"/>
     <axis xyz="0 0 1"/> 
     <limit lower="-0.69" upper="2.96" effort="2.5" velocity="1.571"/>

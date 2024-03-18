@@ -10,28 +10,28 @@
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="left_arm">
-        <link name="l_sholder_pitch_link" />
-        <link name="l_sholder_roll_link" />
+        <link name="l_shoulder_pitch_link" />
+        <link name="l_shoulder_roll_link" />
         <link name="l_elbow_roll_link" />
         <link name="l_wrist_roll_link" />
         <link name="l_wrist_pitch_link" />
         <link name="l_wrist_yaw_link" />
-        <joint name="l_sholder_pitch_joint" />
-        <joint name="l_sholder_roll_joint" />
+        <joint name="l_shoulder_pitch_joint" />
+        <joint name="l_shoulder_roll_joint" />
         <joint name="l_elbow_roll_joint" />
         <joint name="l_wrist_roll_joint" />
         <joint name="l_wrist_pitch_joint" />
         <joint name="l_wrist_yaw_joint" />
     </group>
     <group name="right_arm">
-        <link name="r_sholder_pitch_link" />
-        <link name="r_sholder_roll_link" />
+        <link name="r_shoulder_pitch_link" />
+        <link name="r_shoulder_roll_link" />
         <link name="r_elbow_roll_link" />
         <link name="r_wrist_roll_link" />
         <link name="r_wrist_pitch_link" />
         <link name="r_wrist_yaw_link" />
-        <joint name="r_sholder_pitch_joint" />
-        <joint name="r_sholder_roll_joint" />
+        <joint name="r_shoulder_pitch_joint" />
+        <joint name="r_shoulder_roll_joint" />
         <joint name="r_elbow_roll_joint" />
         <joint name="r_wrist_roll_joint" />
         <joint name="r_wrist_pitch_joint" />
@@ -52,156 +52,156 @@
     <end_effector name="right_eef" parent_link="r_wrist_yaw_link" group="right_arm" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="base_link" link2="l_elbow_roll_link" reason="Never" />
-    <disable_collisions link1="base_link" link2="l_sholder_pitch_link" reason="Never" />
-    <disable_collisions link1="base_link" link2="l_sholder_roll_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="l_shoulder_pitch_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="l_shoulder_roll_link" reason="Never" />
     <disable_collisions link1="base_link" link2="l_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="base_link" link2="l_wrist_roll_link" reason="Never" />
     <disable_collisions link1="base_link" link2="l_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="base_link" link2="l_hand_left_link" reason="Never" />
     <disable_collisions link1="base_link" link2="l_hand_right_link" reason="Never" />
     <disable_collisions link1="base_link" link2="r_elbow_roll_link" reason="Never" />
-    <disable_collisions link1="base_link" link2="r_sholder_pitch_link" reason="Never" />
-    <disable_collisions link1="base_link" link2="r_sholder_roll_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="r_shoulder_pitch_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="r_shoulder_roll_link" reason="Never" />
     <disable_collisions link1="base_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="base_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="base_link" link2="r_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="base_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="base_link" link2="sholder_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="shoulder_link" reason="Never" />
     <disable_collisions link1="base_link" link2="spine_link" reason="Never" />
-    <disable_collisions link1="l_elbow_roll_link" link2="l_sholder_pitch_link" reason="Never" />
-    <disable_collisions link1="l_elbow_roll_link" link2="l_sholder_roll_link" reason="Never" />
+    <disable_collisions link1="l_elbow_roll_link" link2="l_shoulder_pitch_link" reason="Never" />
+    <disable_collisions link1="l_elbow_roll_link" link2="l_shoulder_roll_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="l_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="l_wrist_roll_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="l_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="l_hand_left_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="l_hand_right_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="r_elbow_roll_link" reason="Never" />
-    <disable_collisions link1="l_elbow_roll_link" link2="r_sholder_pitch_link" reason="Never" />
-    <disable_collisions link1="l_elbow_roll_link" link2="r_sholder_roll_link" reason="Never" />
+    <disable_collisions link1="l_elbow_roll_link" link2="r_shoulder_pitch_link" reason="Never" />
+    <disable_collisions link1="l_elbow_roll_link" link2="r_shoulder_roll_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="r_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="l_elbow_roll_link" link2="sholder_link" reason="Never" />
+    <disable_collisions link1="l_elbow_roll_link" link2="shoulder_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="spine_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="l_sholder_roll_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="l_wrist_pitch_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="l_wrist_roll_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="l_wrist_yaw_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="l_hand_left_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="l_hand_right_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="r_elbow_roll_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="r_sholder_pitch_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="r_sholder_roll_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="r_wrist_pitch_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="r_wrist_roll_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="r_wrist_yaw_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="sholder_link" reason="Never" />
-    <disable_collisions link1="l_sholder_pitch_link" link2="spine_link" reason="Never" />
-    <disable_collisions link1="l_sholder_roll_link" link2="l_wrist_pitch_link" reason="Never" />
-    <disable_collisions link1="l_sholder_roll_link" link2="l_wrist_roll_link" reason="Never" />
-    <disable_collisions link1="l_sholder_roll_link" link2="l_wrist_yaw_link" reason="Never" />
-    <disable_collisions link1="l_sholder_roll_link" link2="l_hand_left_link" reason="Never" />
-    <disable_collisions link1="l_sholder_roll_link" link2="l_hand_right_link" reason="Never" />
-    <disable_collisions link1="l_sholder_roll_link" link2="r_elbow_roll_link" reason="Never" />
-    <disable_collisions link1="l_sholder_roll_link" link2="r_sholder_pitch_link" reason="Never" />
-    <disable_collisions link1="l_sholder_roll_link" link2="r_sholder_roll_link" reason="Never" />
-    <disable_collisions link1="l_sholder_roll_link" link2="r_wrist_pitch_link" reason="Never" />
-    <disable_collisions link1="l_sholder_roll_link" link2="r_wrist_roll_link" reason="Never" />
-    <disable_collisions link1="l_sholder_roll_link" link2="r_wrist_yaw_link" reason="Never" />
-    <disable_collisions link1="l_sholder_roll_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="l_sholder_roll_link" link2="sholder_link" reason="Never" />
-    <disable_collisions link1="l_sholder_roll_link" link2="spine_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="l_shoulder_roll_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="l_wrist_pitch_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="l_wrist_roll_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="l_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="l_hand_left_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="l_hand_right_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="r_elbow_roll_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="r_shoulder_pitch_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="r_shoulder_roll_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="r_wrist_pitch_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="r_wrist_roll_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="r_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="r_hand_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="shoulder_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_pitch_link" link2="spine_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_roll_link" link2="l_wrist_pitch_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_roll_link" link2="l_wrist_roll_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_roll_link" link2="l_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_roll_link" link2="l_hand_left_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_roll_link" link2="l_hand_right_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_roll_link" link2="r_elbow_roll_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_roll_link" link2="r_shoulder_pitch_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_roll_link" link2="r_shoulder_roll_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_roll_link" link2="r_wrist_pitch_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_roll_link" link2="r_wrist_roll_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_roll_link" link2="r_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_roll_link" link2="r_hand_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_roll_link" link2="shoulder_link" reason="Never" />
+    <disable_collisions link1="l_shoulder_roll_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="l_wrist_pitch_link" link2="l_wrist_roll_link" reason="Never" />
     <disable_collisions link1="l_wrist_pitch_link" link2="l_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="l_wrist_pitch_link" link2="l_hand_left_link" reason="Never" />
     <disable_collisions link1="l_wrist_pitch_link" link2="l_hand_right_link" reason="Never" />
     <disable_collisions link1="l_wrist_pitch_link" link2="r_elbow_roll_link" reason="Never" />
-    <disable_collisions link1="l_wrist_pitch_link" link2="r_sholder_pitch_link" reason="Never" />
-    <disable_collisions link1="l_wrist_pitch_link" link2="r_sholder_roll_link" reason="Never" />
+    <disable_collisions link1="l_wrist_pitch_link" link2="r_shoulder_pitch_link" reason="Never" />
+    <disable_collisions link1="l_wrist_pitch_link" link2="r_shoulder_roll_link" reason="Never" />
     <disable_collisions link1="l_wrist_pitch_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="l_wrist_pitch_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="l_wrist_pitch_link" link2="r_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="l_wrist_pitch_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="l_wrist_pitch_link" link2="sholder_link" reason="Never" />
+    <disable_collisions link1="l_wrist_pitch_link" link2="shoulder_link" reason="Never" />
     <disable_collisions link1="l_wrist_pitch_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="l_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="l_hand_left_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="l_hand_right_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="r_elbow_roll_link" reason="Never" />
-    <disable_collisions link1="l_wrist_roll_link" link2="r_sholder_pitch_link" reason="Never" />
-    <disable_collisions link1="l_wrist_roll_link" link2="r_sholder_roll_link" reason="Never" />
+    <disable_collisions link1="l_wrist_roll_link" link2="r_shoulder_pitch_link" reason="Never" />
+    <disable_collisions link1="l_wrist_roll_link" link2="r_shoulder_roll_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="r_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="l_wrist_roll_link" link2="sholder_link" reason="Never" />
+    <disable_collisions link1="l_wrist_roll_link" link2="shoulder_link" reason="Never" />
     <disable_collisions link1="l_wrist_roll_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="l_wrist_yaw_link" link2="l_hand_left_link" reason="Never" />
     <disable_collisions link1="l_wrist_yaw_link" link2="l_hand_right_link" reason="Never" />
     <disable_collisions link1="l_wrist_yaw_link" link2="r_elbow_roll_link" reason="Never" />
-    <disable_collisions link1="l_wrist_yaw_link" link2="r_sholder_pitch_link" reason="Never" />
-    <disable_collisions link1="l_wrist_yaw_link" link2="r_sholder_roll_link" reason="Never" />
+    <disable_collisions link1="l_wrist_yaw_link" link2="r_shoulder_pitch_link" reason="Never" />
+    <disable_collisions link1="l_wrist_yaw_link" link2="r_shoulder_roll_link" reason="Never" />
     <disable_collisions link1="l_wrist_yaw_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="l_wrist_yaw_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="l_wrist_yaw_link" link2="r_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="l_wrist_yaw_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="l_wrist_yaw_link" link2="sholder_link" reason="Never" />    
+    <disable_collisions link1="l_wrist_yaw_link" link2="shoulder_link" reason="Never" />    
     <disable_collisions link1="l_wrist_yaw_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="l_hand_left_link" link2="l_hand_right_link" reason="Never" />
     <disable_collisions link1="l_hand_left_link" link2="r_elbow_roll_link" reason="Never" />
-    <disable_collisions link1="l_hand_left_link" link2="r_sholder_pitch_link" reason="Never" />
-    <disable_collisions link1="l_hand_left_link" link2="r_sholder_roll_link" reason="Never" />
+    <disable_collisions link1="l_hand_left_link" link2="r_shoulder_pitch_link" reason="Never" />
+    <disable_collisions link1="l_hand_left_link" link2="r_shoulder_roll_link" reason="Never" />
     <disable_collisions link1="l_hand_left_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="l_hand_left_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="l_hand_left_link" link2="r_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="l_hand_left_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="l_hand_left_link" link2="sholder_link" reason="Never" />
+    <disable_collisions link1="l_hand_left_link" link2="shoulder_link" reason="Never" />
     <disable_collisions link1="l_hand_left_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="l_hand_right_link" link2="r_elbow_roll_link" reason="Never" />
-    <disable_collisions link1="l_hand_right_link" link2="r_sholder_pitch_link" reason="Never" />
-    <disable_collisions link1="l_hand_right_link" link2="r_sholder_roll_link" reason="Never" />
+    <disable_collisions link1="l_hand_right_link" link2="r_shoulder_pitch_link" reason="Never" />
+    <disable_collisions link1="l_hand_right_link" link2="r_shoulder_roll_link" reason="Never" />
     <disable_collisions link1="l_hand_right_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="l_hand_right_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="l_hand_right_link" link2="r_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="l_hand_right_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="l_hand_right_link" link2="sholder_link" reason="Never" />
+    <disable_collisions link1="l_hand_right_link" link2="shoulder_link" reason="Never" />
     <disable_collisions link1="l_hand_right_link" link2="spine_link" reason="Never" />
-    <disable_collisions link1="r_elbow_roll_link" link2="r_sholder_pitch_link" reason="Never" />
-    <disable_collisions link1="r_elbow_roll_link" link2="r_sholder_roll_link" reason="Never" />
+    <disable_collisions link1="r_elbow_roll_link" link2="r_shoulder_pitch_link" reason="Never" />
+    <disable_collisions link1="r_elbow_roll_link" link2="r_shoulder_roll_link" reason="Never" />
     <disable_collisions link1="r_elbow_roll_link" link2="r_wrist_pitch_link" reason="Never" />
     <disable_collisions link1="r_elbow_roll_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="r_elbow_roll_link" link2="r_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="r_elbow_roll_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="r_elbow_roll_link" link2="sholder_link" reason="Never" />
+    <disable_collisions link1="r_elbow_roll_link" link2="shoulder_link" reason="Never" />
     <disable_collisions link1="r_elbow_roll_link" link2="spine_link" reason="Never" />
-    <disable_collisions link1="r_sholder_pitch_link" link2="r_sholder_roll_link" reason="Never" />
-    <disable_collisions link1="r_sholder_pitch_link" link2="r_wrist_pitch_link" reason="Never" />
-    <disable_collisions link1="r_sholder_pitch_link" link2="r_wrist_roll_link" reason="Never" />
-    <disable_collisions link1="r_sholder_pitch_link" link2="sholder_link" reason="Never" />
-    <disable_collisions link1="r_sholder_pitch_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="r_sholder_pitch_link" link2="sholder_link" reason="Never" />
-    <disable_collisions link1="r_sholder_pitch_link" link2="spine_link" reason="Never" />
-    <disable_collisions link1="r_sholder_roll_link" link2="r_wrist_pitch_link" reason="Never" />
-    <disable_collisions link1="r_sholder_roll_link" link2="r_wrist_roll_link" reason="Never" />
-    <disable_collisions link1="r_sholder_roll_link" link2="r_wrist_yaw_link" reason="Never" />
-    <disable_collisions link1="r_sholder_roll_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="r_sholder_roll_link" link2="sholder_link" reason="Never" />
-    <disable_collisions link1="r_sholder_roll_link" link2="spine_link" reason="Never" />
+    <disable_collisions link1="r_shoulder_pitch_link" link2="r_shoulder_roll_link" reason="Never" />
+    <disable_collisions link1="r_shoulder_pitch_link" link2="r_wrist_pitch_link" reason="Never" />
+    <disable_collisions link1="r_shoulder_pitch_link" link2="r_wrist_roll_link" reason="Never" />
+    <disable_collisions link1="r_shoulder_pitch_link" link2="shoulder_link" reason="Never" />
+    <disable_collisions link1="r_shoulder_pitch_link" link2="r_hand_link" reason="Never" />
+    <disable_collisions link1="r_shoulder_pitch_link" link2="shoulder_link" reason="Never" />
+    <disable_collisions link1="r_shoulder_pitch_link" link2="spine_link" reason="Never" />
+    <disable_collisions link1="r_shoulder_roll_link" link2="r_wrist_pitch_link" reason="Never" />
+    <disable_collisions link1="r_shoulder_roll_link" link2="r_wrist_roll_link" reason="Never" />
+    <disable_collisions link1="r_shoulder_roll_link" link2="r_wrist_yaw_link" reason="Never" />
+    <disable_collisions link1="r_shoulder_roll_link" link2="r_hand_link" reason="Never" />
+    <disable_collisions link1="r_shoulder_roll_link" link2="shoulder_link" reason="Never" />
+    <disable_collisions link1="r_shoulder_roll_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="r_wrist_pitch_link" link2="r_wrist_roll_link" reason="Never" />
     <disable_collisions link1="r_wrist_pitch_link" link2="r_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="r_wrist_pitch_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="r_wrist_pitch_link" link2="sholder_link" reason="Never" />
+    <disable_collisions link1="r_wrist_pitch_link" link2="shoulder_link" reason="Never" />
     <disable_collisions link1="r_wrist_pitch_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="r_wrist_roll_link" link2="r_wrist_yaw_link" reason="Never" />
     <disable_collisions link1="r_wrist_roll_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="r_wrist_roll_link" link2="sholder_link" reason="Never" />
+    <disable_collisions link1="r_wrist_roll_link" link2="shoulder_link" reason="Never" />
     <disable_collisions link1="r_wrist_roll_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="r_wrist_yaw_link" link2="r_hand_link" reason="Never" />
-    <disable_collisions link1="r_wrist_yaw_link" link2="sholder_link" reason="Never" />
+    <disable_collisions link1="r_wrist_yaw_link" link2="shoulder_link" reason="Never" />
     <disable_collisions link1="r_wrist_yaw_link" link2="spine_link" reason="Never" />
-    <disable_collisions link1="r_hand_link" link2="sholder_link" reason="Never" />
+    <disable_collisions link1="r_hand_link" link2="shoulder_link" reason="Never" />
     <disable_collisions link1="r_hand_link" link2="spine_link" reason="Never" />
-    <disable_collisions link1="sholder_link" link2="spine_link" reason="Never" />
+    <disable_collisions link1="shoulder_link" link2="spine_link" reason="Never" />
 </robot>

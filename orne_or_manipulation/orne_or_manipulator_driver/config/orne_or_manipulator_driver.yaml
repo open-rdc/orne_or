@@ -1,7 +1,7 @@
 product_id: 0x0009
 
-l_sholder_pitch_driver:
-  joint_name: l_sholder_pitch_joint
+l_shoulder_pitch_driver:
+  joint_name: l_shoulder_pitch_joint
   id: 21
   min_angle: -320
   max_angle: 320
@@ -10,8 +10,8 @@ l_sholder_pitch_driver:
   current_limit: 3000
   temprature_limit: 80
 
-l_sholder_roll_driver:
-  joint_name: l_sholder_roll_joint
+l_shoulder_roll_driver:
+  joint_name: l_shoulder_roll_joint
   id: 22
   min_angle: -90
   max_angle: 90
@@ -70,8 +70,8 @@ l_hand_left_driver:
   current_limit: 3000
   temperature_limit: 80
 
-r_sholder_pitch_driver:
-  joint_name: r_sholder_pitch_joint
+r_shoulder_pitch_driver:
+  joint_name: r_shoulder_pitch_joint
   id: 11
   min_angle: -320
   max_angle: 320
@@ -80,8 +80,8 @@ r_sholder_pitch_driver:
   current_limit: 3000
   temprature_limit: 80
 
-r_sholder_roll_driver:
-  joint_name: r_sholder_roll_joint
+r_shoulder_roll_driver:
+  joint_name: r_shoulder_roll_joint
   id: 12
   min_angle: -90
   max_angle: 90
@@ -140,8 +140,8 @@ r_hand_driver:
   current_limit: 3000
   temperature_limit: 80
 
-sholder_slider_driver:
-  joint_name: sholder_slider
+shoulder_slider_driver:
+  joint_name: shoulder_slider
   id: 3
   min_angle: -320
   max_angle: 320
