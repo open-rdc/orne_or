@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-  <rosparam file="$(find orne_or_manipulator_driver)/config/trajectory_control.yaml" command="load" />
-  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="--shutdown-timeout 0.1 /manipulator/joint_state_controller /manipulator/left_arm_controller /manipulator/right_arm_controller"/>
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
-</launch>

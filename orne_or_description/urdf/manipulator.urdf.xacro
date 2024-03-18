@@ -365,7 +365,7 @@
     <child link="l_hand_right_link"/>
     <axis xyz="0 0 1"/>
     <mimic joint="l_hand_left_joint" multiplier="1.0" offset="0.0" /> 
-    <limit lower="-3.14" upper="3.14" effort="2.5" velocity="1.571"/>
+    <limit lower="-1.57" upper="0.0" effort="2.5" velocity="1.571"/>
   </joint>
 
   <link name="l_hand_right_link">
@@ -400,6 +400,13 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  <gazebo>
+    <plugin name="gazebo_mimic_joint_control" filename="libroboticsgroup_upatras_gazebo_mimic_joint_plugin.so">
+      <robotNamespace>/manipulator</robotNamespace>
+      <joint>l_hand_left_joint</joint>
+      <mimicJoint>l_hand_right_joint</mimicJoint>
+    </plugin>
+  </gazebo>
 
   <!--right arm-->
 
