@@ -14,3 +14,9 @@ catkin_package()
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )
+
+catkin_install_python(PROGRAMS
+  scripts/face_object.py
+  scripts/depth.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
