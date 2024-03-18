@@ -125,12 +125,12 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          head_mount_kinect_ir_link:
+          head_mount_head_ir_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          head_mount_kinect_rgb_link:
+          head_mount_head_rgb_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -442,12 +442,12 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          head_mount_kinect_ir_link:
+          head_mount_head_ir_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          head_mount_kinect_rgb_link:
+          head_mount_head_rgb_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false

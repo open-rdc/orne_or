@@ -5,21 +5,21 @@
     xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" 
     xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor">
 
-    <xacro:include filename="$(find orne_or_description)/urdf/kinect.gazebo" />
+    <xacro:include filename="$(find orne_or_description)/urdf/head.gazebo" />
 
     <xacro:macro name="sensor_kinect" params="name parent *origin">
 
-        <joint name="kinect_yaw_joint" type="revolute">
+        <joint name="head_yaw_joint" type="revolute">
             <xacro:insert_block  name="origin"/>
             <parent link="${parent}"/>
-            <child link="kinect_yaw_link"/>
+            <child link="head_yaw_link"/>
             <axis xyz="0 0 1"/>
             <limit lower="-1.57" upper="1.57" effort="0.5" velocity="6.0"/>
             <friction friction="0.01" />
             <dynamics damping="0.4" />
         </joint>
 
-        <link name="kinect_yaw_link">
+        <link name="head_yaw_link">
             <inertial>
                 <mass value="0.107" />
                 <origin xyz="0.053 0.000 0.000" />
@@ -27,7 +27,7 @@
             </inertial>
             <visual>
                 <geometry>
-                    <mesh filename="package://orne_or_description/meshes/kinect_yaw_link.stl"/>
+                    <mesh filename="package://orne_or_description/meshes/head_yaw_link.stl"/>
                 </geometry>
             </visual>
             <collision>
@@ -37,15 +37,15 @@
             </collision>
         </link>
 
-        <joint name="kinect_pitch_joint" type="revolute">
+        <joint name="head_pitch_joint" type="revolute">
             <origin xyz="0.0713 0 0"/>
-            <parent link="kinect_yaw_link"/>
-            <child link="kinect_pitch_link"/>
+            <parent link="head_yaw_link"/>
+            <child link="head_pitch_link"/>
             <axis xyz="0 1 0"/>
             <limit lower="-1.57" upper="1.57" effort="0.5" velocity="6.0"/>
         </joint>
 
-        <link name="kinect_pitch_link">
+        <link name="head_pitch_link">
             <inertial>
                 <mass value="0.611" />
                 <origin xyz="-0.005 0.000 0.045" />
@@ -54,7 +54,7 @@
             <visual>
                 <origin xyz=" 0 0 0 " rpy="0 0 0" />
                 <geometry>
-                    <mesh filename="package://orne_or_description/meshes/kinect_pitch_link.stl"/>
+                    <mesh filename="package://orne_or_description/meshes/head_pitch_link.stl"/>
                 </geometry>
             </visual>
             <collision>
@@ -67,7 +67,7 @@
 
         <joint name="camera_joint" type="fixed">
             <origin xyz="0.03 0 0" rpy="0 0 0"/>
-            <parent link="kinect_pitch_link"/>
+            <parent link="head_pitch_link"/>
             <child link="camera_link"/>
         </joint>
 
@@ -80,13 +80,13 @@
         </link>
 
 <!--
-        <joint name="kinect_joint" type="fixed">
+        <joint name="head_joint" type="fixed">
             <origin xyz="0 0 0" rpy="-1.5707 0 -1.5707" />
             <parent link="camera_link" />
-            <child link="kinect_link" />
+            <child link="head_link" />
         </joint>
 
-        <link name="kinect_link">
+        <link name="head_link">
             <inertial>
                 <mass value="0.001" />
                 <origin xyz="0 0 0" />
@@ -108,10 +108,10 @@
 -->
         <transmission name="tran3">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="kinect_yaw_joint">
+            <joint name="head_yaw_joint">
                 <hardwareInterface>PositionJointInterface</hardwareInterface>
             </joint>   
-            <actuator name="kinect_yaw_motor">
+            <actuator name="head_yaw_motor">
                 <hardwareInterface>PositionJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
@@ -119,10 +119,10 @@
 
         <transmission name="tran4">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="kinect_pitch_joint">
+            <joint name="head_pitch_joint">
                 <hardwareInterface>PositionJointInterface</hardwareInterface>
             </joint>  
-            <actuator name="kinect_pitch_motor">
+            <actuator name="head_pitch_motor">
                 <hardwareInterface>PositionJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>

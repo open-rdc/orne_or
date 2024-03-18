@@ -5,8 +5,8 @@
     xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" 
     xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor">
 
-  <xacro:include filename="$(find orne_or_description)/urdf/kinect.urdf.xacro"/>
-  <xacro:include filename="$(find orne_or_description)/urdf/manipulator.gazebo" />
+  <xacro:include filename="$(find orne_or_description)/urdf/head.urdf.xacro"/>
+  <xacro:include filename="$(find orne_or_description)/urdf/head.gazebo" />
   <xacro:macro name="manipulator" params="name parent *origin">
   <joint name="spine_joint" type="fixed">
     <xacro:insert_block  name="origin"/>

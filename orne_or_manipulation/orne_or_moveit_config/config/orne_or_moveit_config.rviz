@@ -96,12 +96,12 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          kinect_pitch_link:
+          head_pitch_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          kinect_yaw_link:
+          head_yaw_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -271,12 +271,12 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          kinect_pitch_link:
+          head_pitch_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          kinect_yaw_link:
+          head_yaw_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false

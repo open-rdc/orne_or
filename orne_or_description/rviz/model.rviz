@@ -86,12 +86,12 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        kinect_pitch_link:
+        head_pitch_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        kinect_yaw_link:
+        head_yaw_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -214,9 +214,9 @@ Visualization Manager:
           Value: true
         imu_link:
           Value: true
-        kinect_pitch_link:
+        head_pitch_link:
           Value: true
-        kinect_yaw_link:
+        head_yaw_link:
           Value: true
         l_elbow_roll_link:
           Value: true
@@ -271,8 +271,8 @@ Visualization Manager:
           imu_link:
             {}
           spine_link:
-            kinect_yaw_link:
-              kinect_pitch_link:
+            head_yaw_link:
+              head_pitch_link:
                 camera_link:
                   {}
             sholder_link:

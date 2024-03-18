@@ -2,7 +2,7 @@
 <robot>
 
 <!-- camera_link -->
-<gazebo reference="kinect_link">
+<gazebo reference="head_link">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
     <material>Gazebo/Red</material>
@@ -32,7 +32,7 @@
             <alwaysOn>true</alwaysOn>
             <updateRate>10.0</updateRate>
             <cameraName>camera</cameraName>
-            <frameName>kinect_link</frameName>
+            <frameName>head_link</frameName>
             <imageTopicName>rgb/image_raw</imageTopicName>
             <depthImageTopicName>depth/image_raw</depthImageTopicName>
             <pointCloudTopicName>depth/points</pointCloudTopicName>

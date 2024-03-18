@@ -10,7 +10,7 @@
 </xacro:manipulator>
 
 <!--
-<xacro:include filename="$(find orne_or_description)/urdf/kinect.urdf.xacro"/>
+<xacro:include filename="$(find orne_or_description)/urdf/head.xacro"/>
 <xacro:sensor_kinect name="kinect" parent="base_link">
     <origin xyz="0.27 0 1.22" rpy="0 0 0"/>
 </xacro:sensor_kinect>
