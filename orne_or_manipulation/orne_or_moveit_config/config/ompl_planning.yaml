@@ -67,6 +67,19 @@ left_arm:
     - PRMstarkConfigDefault
   projection_evaluator: joints(l_sholder_pitch_joint,l_sholder_roll_joint)
   longest_valid_segment_fraction: 0.05
+left_hand:  
+  planner_configs:
+    - SBLkConfigDefault
+    - ESTkConfigDefault
+    - LBKPIECEkConfigDefault
+    - BKPIECEkConfigDefault
+    - KPIECEkConfigDefault
+    - RRTkConfigDefault
+    - RRTConnectkConfigDefault
+    - RRTstarkConfigDefault
+    - TRRTkConfigDefault
+    - PRMkConfigDefault
+    - PRMstarkConfigDefault
 right_arm:
   planner_configs:
     - SBLkConfigDefault
@@ -82,3 +95,16 @@ right_arm:
     - PRMstarkConfigDefault
   projection_evaluator: joints(r_sholder_pitch_joint,r_sholder_roll_joint)
   longest_valid_segment_fraction: 0.05
+right_hand:  
+  planner_configs:
+    - SBLkConfigDefault
+    - ESTkConfigDefault
+    - LBKPIECEkConfigDefault
+    - BKPIECEkConfigDefault
+    - KPIECEkConfigDefault
+    - RRTkConfigDefault
+    - RRTConnectkConfigDefault
+    - RRTstarkConfigDefault
+    - TRRTkConfigDefault
+    - PRMkConfigDefault
+    - PRMstarkConfigDefault
