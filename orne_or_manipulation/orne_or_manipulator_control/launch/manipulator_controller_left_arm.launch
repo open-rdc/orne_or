@@ -2,7 +2,4 @@
 <launch>
   <rosparam file="$(find orne_or_manipulator_control)/config/trajectory_control.yaml" command="load" />
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/manipulator" args="/manipulator/joint_state_controller /manipulator/left_arm_controller /manipulator/left_hand_controller"/>
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-    <remap from="/joint_states" to="/manipulator/joint_states" />
-  </node>
 </launch>
