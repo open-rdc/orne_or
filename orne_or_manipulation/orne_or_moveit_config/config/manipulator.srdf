@@ -47,6 +47,16 @@
         <link name="r_hand_link" />
         <joint name="r_hand_joint" />
     </group>
+    <group name="shoulder">
+        <link name="shoulder_link" />
+        <joint name="shoulder_slider" />
+    </group>
+    <group name="head">
+        <link name="head_yaw_link" />
+        <link name="head_pitch_link" />
+        <joint name="head_yaw_joint" />
+        <joint name="head_pitch_joint" />
+    </group>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="left_eef" parent_link="l_wrist_yaw_link" group="left_arm" />
     <end_effector name="right_eef" parent_link="r_wrist_yaw_link" group="right_arm" />
@@ -204,4 +214,7 @@
     <disable_collisions link1="r_hand_link" link2="shoulder_link" reason="Never" />
     <disable_collisions link1="r_hand_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="shoulder_link" link2="spine_link" reason="Never" />
+    <disable_collisions link1="spine_link" link2="head_yaw_link" reason="Never" />
+    <disable_collisions link1="spine_link" link2="head_pitch_link" reason="Never" />
+    <disable_collisions link1="head_yaw_link" link2="head_pitch_link" reason="Never" />
 </robot>
