@@ -21,3 +21,10 @@ controller_list:
   - name: fake_right_hand_controller
     joints:
       - r_hand_joint
+  - name: fake_shoulder_slider_controller
+    joints:
+      - shoulder_slider
+  - name: fake_head_controller
+    joints:
+      - head_yaw_joint
+      - head_pitch_joint

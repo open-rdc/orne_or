@@ -76,7 +76,6 @@
     </actuator>
   </transmission>
 
-
   <!--left arm-->
   <joint name="l_shoulder_pitch_joint" type="revolute">
     <origin xyz="0.000 0.100 0.000"/>

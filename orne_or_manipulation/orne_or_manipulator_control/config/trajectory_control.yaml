@@ -3,12 +3,6 @@ manipulator:
     type: joint_state_controller/JointStateController
     publish_rate: 10
   
-  shoulder_slider_controller:
-    type: position_controllers/JointTrajectoryController
-    joints: 
-      - shoulder_slider
-    gains:
-      shoulder_slider: {p: 100.0, i: 0.01, d: 100.0}
   left_arm_controller:
     type: position_controllers/JointTrajectoryController
     joints:
@@ -53,10 +47,17 @@ manipulator:
       - r_hand_joint
     gains:
       r_hand_joint: {p: 100.0, i: 0.01, d: 100.0}
-  shoulder_controller:
+  shoulder_slider_controller:
     type: position_controllers/JointTrajectoryController
     joints:
-      - shoulder_joint
+      - shoulder_slider
     gains:
-      shoulder_joint: {p: 100.0, i: 0.01, d: 100.0}
-
+      shoulder_slider: {p: 100.0, i: 0.01, d: 100.0}
+  head_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - head_yaw_joint
+      - head_pitch_joint
+    gains:
+      head_yaw_joint: {p: 100.0, i: 0.01, d: 100.0}
+      head_pitch_joint: {p: 100.0, i: 0.01, d: 100.0}

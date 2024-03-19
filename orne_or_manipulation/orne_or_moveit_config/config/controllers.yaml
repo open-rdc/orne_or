@@ -34,3 +34,16 @@ controller_list:
     default: true
     joints:
       - r_hand_joint
+  - name: manipulator/shoulder_slider_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - shoulder_slider
+  - name: manipulator/head_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - head_yaw_joint
+      - head_pitch_joint
