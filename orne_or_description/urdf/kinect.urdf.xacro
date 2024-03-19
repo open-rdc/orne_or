@@ -109,10 +109,10 @@
         <transmission name="tran3">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="kinect_yaw_joint">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             </joint>   
             <actuator name="kinect_yaw_motor">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -120,10 +120,10 @@
         <transmission name="tran4">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="kinect_pitch_joint">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             </joint>  
             <actuator name="kinect_pitch_motor">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
