@@ -53,7 +53,7 @@
     </group>
     <group name="head">
         <link name="head_yaw_link" />
-        <link name="head_pitch_link" />
+        <link name="head_link" />
         <joint name="head_yaw_joint" />
         <joint name="head_pitch_joint" />
     </group>
@@ -215,6 +215,6 @@
     <disable_collisions link1="r_hand_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="shoulder_link" link2="spine_link" reason="Never" />
     <disable_collisions link1="spine_link" link2="head_yaw_link" reason="Never" />
-    <disable_collisions link1="spine_link" link2="head_pitch_link" reason="Never" />
-    <disable_collisions link1="head_yaw_link" link2="head_pitch_link" reason="Never" />
+    <disable_collisions link1="spine_link" link2="head_link" reason="Never" />
+    <disable_collisions link1="head_yaw_link" link2="head_link" reason="Never" />
 </robot>

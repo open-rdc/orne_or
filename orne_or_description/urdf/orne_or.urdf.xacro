@@ -10,7 +10,7 @@
     <origin xyz="0.040 0.000 0.137" rpy="0 0 0"/>
 </xacro:manipulator>
 
-<xacro:sensor_kinect name="kinect" parent="base_link">
+<xacro:sensor_kinect name="head" parent="base_link">
     <origin xyz="0.068 0.0 1.36" rpy="0 0 0"/>
 </xacro:sensor_kinect>
 
