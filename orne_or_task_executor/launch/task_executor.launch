@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="task_executor_node" pkg="orne_or_task_executor" type="manipulator_pose_planner.py" output="screen"/>
+</launch>
