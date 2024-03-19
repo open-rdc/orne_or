@@ -39,7 +39,7 @@ class RobotController:
         
         # 速度の設定を確認
         twist_msg = Twist()
-        twist_msg.angular.x = -error_x * 0.005
+        twist_msg.angular.z = -error_x * 0.005
         rospy.loginfo(f"Publishing to /cmd_vel with angular.z = {twist_msg.angular.z}")
         self.cmd_vel_pub.publish(twist_msg)
 
