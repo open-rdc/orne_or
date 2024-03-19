@@ -30,22 +30,23 @@ def update_colors(text):
     characters = [char for char in text]
     i = 0
     while characters[i:i+3] != ["ボ", "ー", "ル"]:
-        if characters[i] in ["赤", "青", "黄"]:
-            ball_color = characters[i]
-            rospy.loginfo("ボールの色： %s", ball_color)
+        if characters[i] == "赤":
+            ball_color = "red"
+        elif characters[i] == "青":
+            ball_color = "blue"
+        elif characters[i] == "黄":
+            ball_color = "yellow"
         i += 1
     
+    rospy.loginfo("ボールの色： %s", ball_color)
     # 色の値をパブリッシュする
     publish_color_value(ball_color)
 
 def publish_color_value(color):
-    # ボールの色に応じて適切なトピックに色の情報をパブリッシュする
-    if color == "赤":
-        pub = rospy.Publisher('/speaker/red', String, queue_size=10)
-    elif color == "青":
-        pub = rospy.Publisher('/speaker/blue', String, queue_size=10)
-    elif color == "黄":
-        pub = rospy.Publisher('/speaker/yellow', String, queue_size=10)
+    # ボールの色を/ball_colorトピックにパブリッシュする
+    pub = rospy.Publisher('/ball_color', String, queue_size=10)
+    rospy.sleep(1)  # パブリッシャがセットアップされるのを待つ
+    pub.publish(color)
 
 def color_detector():
     rospy.init_node('color_detector', anonymous=True)
@@ -60,4 +61,3 @@ def color_detector():
 
 if __name__ == '__main__':
     color_detector()
-
