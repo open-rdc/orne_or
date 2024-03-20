@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <launch>
+  <rosparam file="$(find orne_or_manipulator_control)/config/gazebo_ros_control.yaml" command="load" />
   <include file="$(find icart_mini_gazebo)/launch/icart_mini.launch">
     <arg name="gui" value="true"/>
     <arg name="model" value="$(find xacro)/xacro '$(find orne_or_description)/urdf/orne_or.urdf.xacro'"/>

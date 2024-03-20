@@ -81,10 +81,10 @@
         <transmission name="tran3">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="head_yaw_joint">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             </joint>   
             <actuator name="head_yaw_motor">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -92,10 +92,10 @@
         <transmission name="tran4">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="head_pitch_joint">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             </joint>  
             <actuator name="head_pitch_motor">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
