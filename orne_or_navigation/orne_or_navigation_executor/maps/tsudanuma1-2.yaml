@@ -1,4 +1,4 @@
-image: /home/officerobot/rosbag/tsudanuma2-3.bag_map.pgm
+image: tsudanuma1-2.pgm
 resolution: 0.1
 origin: [-35.4, -39.8, 0.0]
 negate: 0
