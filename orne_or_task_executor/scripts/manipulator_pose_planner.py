@@ -18,7 +18,6 @@ def main():
     left_arm = moveit_commander.MoveGroupCommander("left_arm")
     right_arm = moveit_commander.MoveGroupCommander("right_arm")
 
-    # 左右のアームの目標姿勢を設定
     left_pose_goal = PoseStamped()
     left_pose_goal.header.frame_id = "world"
     left_pose_goal.pose.position = Vector3(0.23, 0.27, 0.54)
@@ -29,11 +28,9 @@ def main():
     right_pose_goal.pose.position = Vector3(0.12, -0.26, 0.54)
     right_pose_goal.pose.orientation = Quaternion(*tf.transformations.quaternion_from_euler(0, 0, pi))
 
-    # 左右のアームに対して目標姿勢を設定
     left_arm.set_pose_target(left_pose_goal)
     right_arm.set_pose_target(right_pose_goal)
 
-    # 左右のアームを同時に移動
     left_arm.go(wait=True)
     right_arm.go(wait=True)
 
