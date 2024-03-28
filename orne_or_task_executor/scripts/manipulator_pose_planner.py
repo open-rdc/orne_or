@@ -5,11 +5,10 @@ import sys
 from math import pi
 
 import geometry_msgs.msg
-from geometry_msgs.msg import Pose
 import moveit_commander
 import rospy
 import tf
-from geometry_msgs.msg import Quaternion, Vector3
+from geometry_msgs.msg import PoseStamped, Quaternion, Vector3
 
 def main():
     moveit_commander.roscpp_initialize(sys.argv)
@@ -20,15 +19,15 @@ def main():
     right_arm = moveit_commander.MoveGroupCommander("right_arm")
 
     # 左右のアームの目標姿勢を設定
-    left_pose_goal = geometry_msgs.msg.Pose()
-    left_pose_goal.position = Vector3(0.23, 0.27, 0.54)
-    left_q = tf.transformations.quaternion_from_euler(pi, 0, 0)
-    left_pose_goal.orientation = Quaternion(x=left_q[0], y=left_q[1], z=left_q[2], w=left_q[3])
+    left_pose_goal = PoseStamped()
+    left_pose_goal.header.frame_id = "world"
+    left_pose_goal.pose.position = Vector3(0.23, 0.27, 0.54)
+    left_pose_goal.pose.orientation = Quaternion(*tf.transformations.quaternion_from_euler(0, 0, pi))
 
-    right_pose_goal = geometry_msgs.msg.Pose()
-    right_pose_goal.position = Vector3(0.12, -0.26, 0.54)
-    right_q = tf.transformations.quaternion_from_euler(pi, 0, 0)
-    right_pose_goal.orientation = Quaternion(x=right_q[0], y=right_q[1], z=right_q[2], w=right_q[3])
+    right_pose_goal = PoseStamped()
+    right_pose_goal.header.frame_id = "world"
+    right_pose_goal.pose.position = Vector3(0.12, -0.26, 0.54)
+    right_pose_goal.pose.orientation = Quaternion(*tf.transformations.quaternion_from_euler(0, 0, pi))
 
     # 左右のアームに対して目標姿勢を設定
     left_arm.set_pose_target(left_pose_goal)
