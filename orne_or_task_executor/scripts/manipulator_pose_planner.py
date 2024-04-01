@@ -34,6 +34,16 @@ def main():
     left_arm.go(wait=True)
     right_arm.go(wait=True)
 
+    left_gripper_command = left_arm.get_current_joint_values()
+    left_gripper_command[0] = 0.1  
+    left_arm.set_joint_value_target(left_gripper_command)
+    left_arm.go(wait=True)
+
+    right_gripper_command = right_arm.get_current_joint_values()
+    right_gripper_command[0] = 0.1  
+    right_arm.set_joint_value_target(right_gripper_command)
+    right_arm.go(wait=True)
+
     left_arm.stop()
     left_arm.clear_pose_targets()
 
