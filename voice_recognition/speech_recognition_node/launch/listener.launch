@@ -1,0 +1,14 @@
+<launch>
+
+    <!-- リアルタイムノードの実行 -->
+    <node pkg="speech_recognition_node" name="realtime_node" type="realtime.py" launch-prefix="xterm -e python3" />
+
+    <!-- start.pyノードの実行 -->
+    <node pkg="speech_recognition_node" name="start_node" type="start.py" launch-prefix="xterm -e python3" />
+
+    <!-- color.pyノードの実行 -->
+    <node pkg="speech_recognition_node" name="color_node" type="color.py" launch-prefix="xterm -e python3" />
+   
+    
+</launch>
+
