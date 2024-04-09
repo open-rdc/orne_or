@@ -12,11 +12,13 @@ from geometry_msgs.msg import PoseStamped, Quaternion, Vector3
 def main():
     # ROSの初期化
     moveit_commander.roscpp_initialize(sys.argv)
-    rospy.init_node("dual_manipulator_pose_planner")
+    rospy.init_node("dual_manipulator_pose_and_hand_control")
 
     # 左右のアームの初期化
     left_arm = moveit_commander.MoveGroupCommander("left_arm")
     right_arm = moveit_commander.MoveGroupCommander("right_arm")
+    right_hand = moveit_commander.MoveGroupCommander("right_hand")
+    #right_wrist_yaw = moveit_commander.MoveGroupCommander("r_wrist_yaw_joint")
 
     # 左右のアームの目標ポーズの設定
     left_pose_goal = PoseStamped()
@@ -37,26 +39,34 @@ def main():
     left_arm.go(wait=True)
     right_arm.go(wait=True)
 
+    target_joint_positions = [10 * (3.14159 / 180)]
+    right_hand.set_joint_value_target(target_joint_positions)
+    right_hand.go(wait=True)
+
     # 左手のハンドを開く
-    left_hand_command = left_arm.get_current_joint_values()
-    left_hand_command[-1] = 0.1  # 最後の関節がハンドを制御
-    left_arm.set_joint_value_target(left_hand_command)
+    left_hand_open_command = left_arm.get_current_joint_values()
+    left_hand_open_command[-1] = 0.1  # 最後の関節がハンドを制御
+    left_arm.set_joint_value_target(left_hand_open_command)
     left_arm.go(wait=True)
 
     # 右手のハンドを開く
-    right_hand_command = right_arm.get_current_joint_values()
-    right_hand_command[-1] = 0.1  # 最後の関節がハンドを制御
-    right_arm.set_joint_value_target(right_hand_command)
+    right_hand_open_command = right_arm.get_current_joint_values()
+    right_hand_open_command[-1] = 0.1  # 最後の関節がハンドを制御
+    right_arm.set_joint_value_target(right_hand_open_command)
     right_arm.go(wait=True)
 
+    rospy.sleep(rospy.Duration(1.0))  # 1秒待つ
+
     # 左手のハンドを閉じる
-    left_hand_command[-1] = 0.0  # ハンドを閉じる
-    left_arm.set_joint_value_target(left_hand_command)
+    left_hand_close_command = left_arm.get_current_joint_values()
+    left_hand_close_command[-1] = 0.0  # ハンドを閉じる
+    left_arm.set_joint_value_target(left_hand_close_command)
     left_arm.go(wait=True)
 
     # 右手のハンドを閉じる
-    right_hand_command[-1] = 0.0  # ハンドを閉じる
-    right_arm.set_joint_value_target(right_hand_command)
+    right_hand_close_command = right_arm.get_current_joint_values()
+    right_hand_close_command[-1] = 0.0  # ハンドを閉じる
+    right_arm.set_joint_value_target(right_hand_close_command)
     right_arm.go(wait=True)
 
     # 左右のアームを停止し、ターゲットをクリア
@@ -64,6 +74,13 @@ def main():
     left_arm.clear_pose_targets()
     right_arm.stop()
     right_arm.clear_pose_targets()
+
+    #target_joint_positions = [90 * (3.14159 / 180)]
+    #right_wrist_yaw.set_joint_value_target(target_joint_positions)
+    #right_wrist_yaw.go(wait=True)
+
+
+
 
 if __name__ == "__main__":
     main()
