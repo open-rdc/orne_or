@@ -20,6 +20,7 @@ git clone https://github.com/open-rdc/orne_or
 wstool init
 wstool merge orne_or/orne_or_pkgs.install
 wstool up
+rosdep update
 rosdep install --from-paths . --ignore-src --rosdistro $ROS_DISTRO -y
 cd ~/catkin_ws
 catkin build
