@@ -1,0 +1,16 @@
+<launch>
+    <!--カメラとyoloの起動-->
+    <include file="$(find freenect_launch)/launch/freenect.launch" />
+    <include file="$(find yolov5_pytorch_ros)/launch/detector.launch" />
+
+    <!--ロボットフレームとカメラフレームの座標系を/tfにブロードキャスト-->
+    <param name="robot_description" command="$(find xacro)/xacro '$(find orne_or_description)/urdf/orne_or.urdf.xacro'"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+
+    <!-- Kinectからbase_linkへの静的変換 -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_camera_link_broadcaster" args="0.028 0 1.223 0 0.267 0 0.964 base_link camera_depth_frame" />
+
+    <!--ボールの座標検出とtf変換-->
+    <node name="object_position" pkg="orne_or_strategy" type="object_position.py"/>
+    <node name="tf_object_position" pkg="orne_or_strategy" type="tf_object_position.py" output="screen"/>
+</launch>
