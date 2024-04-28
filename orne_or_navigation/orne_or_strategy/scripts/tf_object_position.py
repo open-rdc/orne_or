@@ -17,10 +17,10 @@ def callback(point_stamped):
         pub.publish(transformed_point)
 
         # 変換後の座標を表示
-        rospy.loginfo("Transformed Point: x=%.2f y=%.2f z=%.2f" %
-                      (transformed_point.point.x,
-                       transformed_point.point.y,
-                       transformed_point.point.z))
+        # rospy.loginfo("Transformed Point: x=%.2f y=%.2f z=%.2f" %
+                      # (transformed_point.point.x,
+                      # transformed_point.point.y,
+                      # transformed_point.point.z))
     except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException) as e:
         rospy.logerr('TF2 transform error: %s' % str(e))
 
