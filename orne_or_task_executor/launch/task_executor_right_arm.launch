@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="task_executor_right_node" pkg="orne_or_task_executor_right" type="manipulator_right.py" output="screen"/>
+</launch>
