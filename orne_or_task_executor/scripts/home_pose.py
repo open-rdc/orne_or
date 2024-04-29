@@ -25,8 +25,8 @@ def main():
 
     # 左腕のジョイント値を設定
     left_joint_goal = {
-        'l_sholder_roll_joint': -pi / 2.001,  # 例: 仮の値です
-        'l_elbow_roll_joint': pi * 16.95 / 18     # 例: 仮の値です
+        'l_sholder_roll_joint': -pi / 2.001,
+        'l_elbow_roll_joint': pi * 16.95 / 18
     }
     left_arm.set_joint_value_target(left_joint_goal)
     left_arm.go(wait=True)
