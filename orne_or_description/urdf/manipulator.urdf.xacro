@@ -39,7 +39,7 @@
   </link>
 
   <joint name="sholder_slider" type="prismatic">
-    <origin xyz="0 0 0.4"/>
+    <origin xyz="0 0 0.66"/>
     <parent link="spine_link"/>
     <child link="sholder_link"/>
     <axis xyz="0 0 1"/>
