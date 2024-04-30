@@ -20,14 +20,14 @@ def main():
     joint_goal[left_hand.get_active_joints().index('l_hand_left_joint')] = -pi / 4
     left_hand.go(joint_goal, wait=True)
 
-    left_hand_goal = PoseStamped()
-    left_hand_goal.header.frame_id = "world"
-    left_hand_goal.pose.position.x = 0.686265
-    left_hand_goal.pose.position.y = 0.406123
-    left_hand_goal.pose.position.z = 0.796995
-    left_hand_goal.pose.orientation = Quaternion(*tf.transformations.quaternion_from_euler(0, -(pi / 2), pi))
+    left_arm_goal = PoseStamped()
+    left_arm_goal.header.frame_id = "world"
+    left_arm_goal.pose.position.x = 0.686265
+    left_arm_goal.pose.position.y = 0.406123
+    left_arm_goal.pose.position.z = 0.796995
+    left_arm_goal.pose.orientation = Quaternion(*tf.transformations.quaternion_from_euler(0, 0, pi))
     
-    left_arm.set_pose_target(left_hand_goal)
+    left_arm.set_pose_target(left_arm_goal)
 
     left_arm.go(wait=True)
 
