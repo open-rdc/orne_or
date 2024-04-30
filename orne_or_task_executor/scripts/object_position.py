@@ -11,14 +11,9 @@ from yolov5_pytorch_ros.msg import BoundingBoxes
 class DepthProcessor:
     def __init__(self):
         self.bridge = CvBridge()
-        # Depth image subscriber
         self.depth_sub = rospy.Subscriber('/camera/depth/image', Image, self.depth_callback)
-        # Bounding boxes subscriber
         self.bbox_sub = rospy.Subscriber('/detected_objects_in_image', BoundingBoxes, self.bbox_callback)
-        # Ball color subscriber
         # self.color_sub = rospy.Subscriber('/ball_color', String, self.color_callback)
-        
-        # Object position publisher
         self.position_pub = rospy.Publisher('/object_position', PointStamped, queue_size=10)
         
         self.latest_depth_image = None

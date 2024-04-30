@@ -22,9 +22,9 @@ def main():
 
     left_arm_goal = PoseStamped()
     left_arm_goal.header.frame_id = "world"
-    left_arm_goal.pose.position.x = 0.686265
-    left_arm_goal.pose.position.y = 0.406123
-    left_arm_goal.pose.position.z = 0.796995
+    left_arm_goal.pose.position.x = 0.3940
+    left_arm_goal.pose.position.y = 0.1298
+    left_arm_goal.pose.position.z = 0.7405
     left_arm_goal.pose.orientation = Quaternion(*tf.transformations.quaternion_from_euler(0, 0, pi))
     
     left_arm.set_pose_target(left_arm_goal)
