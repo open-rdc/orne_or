@@ -8,7 +8,7 @@
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 
     <!-- Kinectからbase_linkへの静的変換 -->
-    <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_camera_link_broadcaster" args="0.115 0 1.165 0 -0.2756 0 base_link camera_depth_frame" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_camera_link_broadcaster" args="0.084 0 1.165 0 -0.558 0 base_link camera_depth_frame" />
 
     <!--ボールの座標検出とtf変換-->
     <node name="object_position" pkg="orne_or_task_executor" type="object_position.py"/>
