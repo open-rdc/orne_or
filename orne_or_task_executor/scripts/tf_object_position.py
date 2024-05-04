@@ -16,6 +16,10 @@ class PointTransformer:
             self.listener.waitForTransform('/base_link', point_msg.header.frame_id, rospy.Time(0), rospy.Duration(4.0))
             # 座標変換を実行
             transformed_point = self.listener.transformPoint('/base_link', point_msg)
+            transformed_point.point.x /= 1000
+            transformed_point.point.y /= 1000
+            transformed_point.point.z += 1100
+            transformed_point.point.z /= 1000
             rospy.loginfo("Transformed Point: %s", transformed_point.point)
             # 変換されたポイントをパブリッシュ
             self.publisher.publish(transformed_point)
