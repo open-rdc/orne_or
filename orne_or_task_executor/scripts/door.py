@@ -46,7 +46,7 @@ def main():
     right_wrist_goal.header.frame_id = "world"
     right_wrist_goal.pose.position.x = 0.26
     right_wrist_goal.pose.position.y = 0
-    right_wrist_goal.pose.position.z = 1
+    right_wrist_goal.pose.position.z = 0.85
     right_wrist_goal.pose.orientation = Quaternion(*tf.transformations.quaternion_from_euler(-pi/2, 0, pi/2))
     
     right_arm.set_pose_target(right_wrist_goal)
@@ -62,7 +62,7 @@ def main():
     right_wrist_goal.header.frame_id = "world"
     right_wrist_goal.pose.position.x = 0.45
     right_wrist_goal.pose.position.y = 0.11
-    right_wrist_goal.pose.position.z = 0.9
+    right_wrist_goal.pose.position.z = 0.85
     right_wrist_goal.pose.orientation = Quaternion(*tf.transformations.quaternion_from_euler(0, 0, pi/2))
     
     right_arm.set_pose_target(right_wrist_goal)
