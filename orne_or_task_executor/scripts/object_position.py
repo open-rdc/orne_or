@@ -1,60 +1,71 @@
-#!/usr/bin/env python3
-
-import rospy
+#!/usr/bin/env python
 import numpy as np
-from cv_bridge import CvBridge, CvBridgeError
-from sensor_msgs.msg import Image
+import rospy
+from sensor_msgs.msg import Image, CameraInfo
 from geometry_msgs.msg import PointStamped
-from std_msgs.msg import Header, String
+import message_filters
+from cv_bridge import CvBridge, CvBridgeError
+from image_geometry import PinholeCameraModel
 from yolov5_pytorch_ros.msg import BoundingBoxes
 
-class DepthProcessor:
+class Object3DPositionPublisher:
     def __init__(self):
-        self.bridge = CvBridge()
-        self.depth_sub = rospy.Subscriber('/camera/depth/image', Image, self.depth_callback)
-        self.bbox_sub = rospy.Subscriber('/detected_objects_in_image', BoundingBoxes, self.bbox_callback)
-        # self.color_sub = rospy.Subscriber('/ball_color', String, self.color_callback)
+        rospy.init_node('object_3d_position_publisher', anonymous=True)
+        
+        # カメラモデル
+        self.camera_model = PinholeCameraModel()
+        
+        # サブスクライバーとパブリッシャーの設定
+        self.depth_sub = message_filters.Subscriber('/camera/depth/image_raw', Image)
+        self.info_sub = message_filters.Subscriber('/camera/depth/camera_info', CameraInfo)
+        self.bbox_sub = message_filters.Subscriber('/bounding_boxes', BoundingBoxes)
         self.position_pub = rospy.Publisher('/object_position', PointStamped, queue_size=10)
         
-        self.latest_depth_image = None
-        self.latest_bboxes = None
-        # self.selected_color = None  # 追加: 選択された色を保持
+        # 同期処理
+        ts = message_filters.ApproximateTimeSynchronizer([self.bbox_sub, self.depth_sub, self.info_sub], 10, 0.5)
+        ts.registerCallback(self.callback)
 
-    # def color_callback(self, msg):
-        # self.selected_color = msg.data
-        # rospy.loginfo(f"Selected color: {self.selected_color}")
+        # CvBridge
+        self.bridge = CvBridge()
 
-    def bbox_callback(self, data):
-        self.latest_bboxes = data.bounding_boxes
-
-    def depth_callback(self, depth_data):
+    def callback(self, bbox_msg, depth_msg, info_msg):
+        # カメラモデルの更新
+        self.camera_model.fromCameraInfo(info_msg)
+        
+        # 深度画像を取得
         try:
-            self.latest_depth_image = self.bridge.imgmsg_to_cv2(depth_data, desired_encoding='passthrough')
+            depth_image = self.bridge.imgmsg_to_cv2(depth_msg)
         except CvBridgeError as e:
-            rospy.logerr(f"CV Bridge Error: {e}")
+            rospy.logerr(e)
+            return
 
-        if self.latest_depth_image is not None and self.latest_bboxes is not None:
-            self.process_depth_data()
+        # 最初に検出された物体の中心座標を使用
+        if bbox_msg.bounding_boxes:
+            bbox = bbox_msg.bounding_boxes[0]
+            x = int((bbox.xmin + bbox.xmax) / 2.0)
+            y = int((bbox.ymin + bbox.ymax) / 2.0)
 
-    def process_depth_data(self):
-        for bbox in self.latest_bboxes:
-            # if bbox.Class == f"ball_{self.selected_color}":  # 選択された色に対応するバウンディングボックスのみ処理
-            xmin, ymin, xmax, ymax = bbox.xmin, bbox.ymin, bbox.xmax, bbox.ymax
-            depth_values = self.latest_depth_image[ymin:ymax, xmin:xmax]
-            depth_values = depth_values[np.logical_and(depth_values != 0, ~np.isnan(depth_values))]
-            if depth_values.size > 0:
-                average_depth = np.nanmean(depth_values)
-                x_center = (xmin + xmax) / 2
-                y_center = (ymin + ymax) / 2
-                position = PointStamped()
-                position.header = Header(frame_id="camera_depth_frame", stamp=rospy.Time.now())
-                position.point.x = x_center
-                position.point.y = y_center
-                position.point.z = average_depth
-                self.position_pub.publish(position)
-                rospy.loginfo(f"Object Class: {bbox.Class}, Position: {position.point}")
+            # 深度値を取得
+            depth = depth_image[y, x]
+
+            # 3D点を計算
+            ray = self.camera_model.projectPixelTo3dRay((x, y))
+            normalized_ray = np.array(ray) / np.linalg.norm(ray)  # 単位ベクトルに正規化
+            point = depth * normalized_ray  # 実際の座標を計算
+
+            # 座標をパブリッシュ
+            point_stamped = PointStamped()
+            point_stamped.header.stamp = rospy.Time.now()
+            point_stamped.header.frame_id = depth_msg.header.frame_id
+            point_stamped.point.x = point[0]
+            point_stamped.point.y = point[1]
+            point_stamped.point.z = point[2]
+            self.position_pub.publish(point_stamped)
+            rospy.loginfo(f"Published 3D object position: {point_stamped}")
 
 if __name__ == '__main__':
-    rospy.init_node('depth_processor')
-    dp = DepthProcessor()
-    rospy.spin()
+    try:
+        node = Object3DPositionPublisher()
+        rospy.spin()
+    except rospy.ROSInterruptException:
+        pass
