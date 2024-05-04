@@ -66,6 +66,16 @@ def main():
     right_wrist_goal.header.frame_id = "world"
     right_wrist_goal.pose.position.x = 0.45
     right_wrist_goal.pose.position.y = 0.03
+    right_wrist_goal.pose.position.z = 0.71
+    right_wrist_goal.pose.orientation = Quaternion(*tf.transformations.quaternion_from_euler(0, 0, pi))
+    
+    right_arm.set_pose_target(right_wrist_goal)
+
+    right_arm.go(wait=True)
+    right_wrist_goal = PoseStamped()
+    right_wrist_goal.header.frame_id = "world"
+    right_wrist_goal.pose.position.x = 0.45
+    right_wrist_goal.pose.position.y = 0.03
     right_wrist_goal.pose.position.z = 0.61
     right_wrist_goal.pose.orientation = Quaternion(*tf.transformations.quaternion_from_euler(0, 0,pi))
 
@@ -77,6 +87,16 @@ def main():
     right_hand.set_joint_value_target(target_joint_positions)
     right_hand.go(wait=True)
     
+    right_wrist_goal = PoseStamped()
+    right_wrist_goal.header.frame_id = "world"
+    right_wrist_goal.pose.position.x = 0.45
+    right_wrist_goal.pose.position.y = 0.03
+    right_wrist_goal.pose.position.z = 0.71
+    right_wrist_goal.pose.orientation = Quaternion(*tf.transformations.quaternion_from_euler(0, 0, pi))
+    
+    right_arm.set_pose_target(right_wrist_goal)
+
+    right_arm.go(wait=True)
     right_wrist_goal = PoseStamped()
     right_wrist_goal.header.frame_id = "world"
     right_wrist_goal.pose.position.x = 0.45
