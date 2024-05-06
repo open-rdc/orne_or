@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="libuvc_camera" type="camera_node" name="right_camera">
+    <param name="vendor" value="0x0c45"/>
+    <param name="product" value="0x6360"/>
+
+    <param name="width" value="1280"/>
+    <param name="height" value="720"/>
+    <param name="video_mode" value="mjpeg"/>
+    <param name="frame_rate" value="30"/>
+  </node>
+</launch>
