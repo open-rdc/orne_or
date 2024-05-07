@@ -49,7 +49,7 @@ def main():
     right_arm.go(wait=True)
     #right_hand
     joint_goal = right_hand.get_current_joint_values()
-    joint_goal[right_hand.get_active_joints().index('r_hand_joint')] = pi / 6 
+    joint_goal[right_hand.get_active_joints().index('r_hand_joint')] = pi / 11.25
 
     right_hand.go(joint_goal, wait=True)
     right_hand.stop()
