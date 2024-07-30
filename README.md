@@ -5,12 +5,12 @@ office robot control software in Robot Design and Control Lab.
 
 Precondition:  
 1) Install ROS noetic (Ubuntu20.04/docker)  
-2) Install python3-catkin-tools
+2) Install catkin-tools & ros-control
 ```
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
 wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
 sudo apt update
-sudo apt install python3-catkin-tools
+sudo apt install python3-catkin-tools ros-noetic-ros-control ros-noetic-ros-controllers
 ```
 
 Install
