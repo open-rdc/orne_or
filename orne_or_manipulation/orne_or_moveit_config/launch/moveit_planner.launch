@@ -6,6 +6,6 @@
 	</include>
 
 	<!-- Start Rviz -->
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find orne_or_moveit_config)/config/orne_or_moveit_config.rviz" />
+	<node name="moveit_rviz" pkg="rviz" type="rviz" args="-d $(find orne_or_moveit_config)/config/orne_or_moveit_config.rviz" />
 	
 </launch>

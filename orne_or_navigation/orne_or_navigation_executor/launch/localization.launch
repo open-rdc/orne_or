@@ -19,7 +19,7 @@
 
   <!-- EMCL -->
   <group if="$(arg emcl)">
-    <node pkg="emcl" type="emcl_node" name="emcl_node" output="screen">
+    <node pkg="emcl" type="emcl_node" name="emcl_node">
       <rosparam file="$(find orne_or_navigation_executor)/param/emcl_params.yaml" command="load"/>
       <rosparam file="$(arg init_pos_file)" command="load"/>
     </node>
