@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 	<include file="$(find freenect_launch)/launch/freenect.launch" ns="kinect"/>
-	<node pkg="kinect_v1_detection_distance" type="first_sample_kinect.py" name="first_kinect"/>
+	<node pkg="kinect_v1_detection_distance" type="first_sample_kinect.py" name="first_kinect" output="screen"/>
 </launch>
