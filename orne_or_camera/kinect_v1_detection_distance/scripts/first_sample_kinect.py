@@ -9,8 +9,8 @@ import cv2
 class KinectNode:
     def __init__(self):
         self.bridge = CvBridge()
-        self.image_sub = rospy.Subscriber("/camera/rgb/image_color", Image, self.RGBImageCallback)
-        self.depth_sub = rospy.Subscriber("/camera/depth/image", Image, self.depthCallback)
+        self.image_sub = rospy.Subscriber("/kinect/camera/rgb/image_color", Image, self.RGBImageCallback)
+        self.depth_sub = rospy.Subscriber("/kinect/camera/depth/image", Image, self.depthCallback)
 
     def RGBImageCallback(self, rgb_image):
         try:
