@@ -8,7 +8,7 @@ import cv2
 #class KinectV1DetectDistance:
 class KinectNode:
     def __init__(self):
-        self.bridge = CvBridge
+        self.bridge = CvBridge()
         self.image_sub = rospy.Subscriber("/camera/rgb/image_color", Image, self.RGBImageCallback)
         self.depth_sub = rospy.Subscriber("/camera/depth/image", Image, self.depthCallback)
 
