@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 	<include file="$(find realsense2_camera)/launch/rs_camera.launch" ns="realsense"/>
-	<node pkg="realsense_detection_distance" type="first_sample_realsense.py" name="first_realsense"/>
+	<node pkg="realsense_detection_distance" type="first_sample_realsense.py" name="first_realsense" output="screen"/>
 </launch>
