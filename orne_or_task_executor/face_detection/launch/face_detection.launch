@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen">
+        <param name="video_device" value="/dev/video0" />
+        <param name="image_width" value="640" />
+        <param name="image_height" value="480" />
+        <param name="pixel_format" value="yuyv" />
+    </node>
+    <node name="face_detection" pkg="orne_or_task_executor" type="face_detection.py" output="screen">
+        <param name="image_topic" value="/usb_cam/image_raw" />
+    </node>
+</launch>
