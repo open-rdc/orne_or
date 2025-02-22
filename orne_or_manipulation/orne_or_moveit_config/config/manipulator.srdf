@@ -47,6 +47,14 @@
         <link name="r_hand_link" />
         <joint name="r_hand_joint" />
     </group>
+    <group name="kinect">
+        <link name="kinect_yaw_link" />
+        <link name="kinect_pitch_link" />
+        <link name="camera_link" />
+        <joint name="kinect_yaw_joint" />
+        <joint name="kinect_pitch_joint" />
+        <joint name="camera_joint" />
+    </group>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="left_eef" parent_link="l_wrist_yaw_link" group="left_arm" />
     <end_effector name="right_eef" parent_link="r_wrist_yaw_link" group="right_arm" />
@@ -68,6 +76,9 @@
     <disable_collisions link1="base_link" link2="r_hand_link" reason="Never" />
     <disable_collisions link1="base_link" link2="sholder_link" reason="Never" />
     <disable_collisions link1="base_link" link2="spine_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="kinect_yaw_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="kinect_pitch_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="camera_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="l_sholder_pitch_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="l_sholder_roll_link" reason="Never" />
     <disable_collisions link1="l_elbow_roll_link" link2="l_wrist_pitch_link" reason="Never" />

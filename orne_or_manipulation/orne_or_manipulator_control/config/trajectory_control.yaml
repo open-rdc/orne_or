@@ -3,6 +3,15 @@ manipulator:
     type: joint_state_controller/JointStateController
     publish_rate: 10
   
+  kinect_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - kinect_yaw_joint
+      - kinect_pitch_joint
+    gains:
+      kinect_yaw_joint: {p: 100.0, i: 0.01, d: 100.0}
+      kinect_pitch_joint: {p: 100.0, i: 0.01, d: 100.0}
+
   sholder_slider_controller:
     type: position_controllers/JointTrajectoryController
     joints: 

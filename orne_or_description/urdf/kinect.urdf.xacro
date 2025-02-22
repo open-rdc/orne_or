@@ -37,6 +37,20 @@
             </collision>
         </link>
 
+        <gazebo reference="kinect_yaw_link">
+            <material>Gazebo/Blue</material>
+        </gazebo>
+        <transmission name="tran_kinect_yaw_joint"> 
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="kinect_yaw_joint">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>   
+            <actuator name="motor_kinect_yaw">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+
         <joint name="kinect_pitch_joint" type="revolute">
             <origin xyz="0.0713 0 0"/>
             <parent link="kinect_yaw_link"/>
@@ -64,6 +78,19 @@
                 </geometry>
             </collision>
         </link>
+        <gazebo reference="kinect_pitch_link">
+            <material>Gazebo/Red</material>
+        </gazebo>
+        <transmission name="tran_kinect_pitch_joint"> 
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="kinect_pitch_joint">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>   
+            <actuator name="motor_kinect_pitch">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
 
         <joint name="camera_joint" type="fixed">
             <origin xyz="0.03 0 0" rpy="0 0 0"/>
@@ -79,7 +106,7 @@
             </inertial>
         </link>
 
-<!--
+        <!--
         <joint name="kinect_joint" type="fixed">
             <origin xyz="0 0 0" rpy="-1.5707 0 -1.5707" />
             <parent link="camera_link" />
@@ -105,28 +132,7 @@
                 </geometry>
             </collision>
         </link>
--->
-        <transmission name="tran3">
-            <type>transmission_interface/SimpleTransmission</type>
-            <joint name="kinect_yaw_joint">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
-            </joint>   
-            <actuator name="kinect_yaw_motor">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
-                <mechanicalReduction>1</mechanicalReduction>
-            </actuator>
-        </transmission>
-
-        <transmission name="tran4">
-            <type>transmission_interface/SimpleTransmission</type>
-            <joint name="kinect_pitch_joint">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
-            </joint>  
-            <actuator name="kinect_pitch_motor">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
-                <mechanicalReduction>1</mechanicalReduction>
-            </actuator>
-        </transmission>
+        -->
 
     </xacro:macro>
 </robot>

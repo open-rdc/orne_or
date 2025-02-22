@@ -34,3 +34,10 @@ controller_list:
     default: true
     joints:
       - r_hand_joint
+  - name: manipulator/kinect_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - kinect_yaw_joint
+      - kinect_pitch_joint
