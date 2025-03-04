@@ -15,10 +15,10 @@ from insightface.data import get_image as ins_get_image
 
 
 def get_bbox(bbox):
-    center_x = bbox[0] + bbox[2] / 2
-    center_y = bbox[1] + bbox[3] / 2
     size_x = bbox[2] - bbox[0]
     size_y = bbox[3] - bbox[1]
+    center_x = bbox[0] + size_x / 2
+    center_y = bbox[1] + size_y / 2
     return center_x, center_y, size_x, size_y
 
 class FaceDetectionNode:

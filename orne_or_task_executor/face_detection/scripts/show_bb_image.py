@@ -67,10 +67,10 @@ class BoundingBoxViewer:
             score = detection.results[0].score
             
             # バウンディングボックスを描画
-            cv2.rectangle(display_image, (np.clip(center_x-width/2, draw_min_width, draw_max_width), np.clip(center_y-height/2, draw_min_height, draw_max_height)), (np.clip(center_x + width/2, draw_min_width, draw_max_width), np.clip(center_y + height/2, draw_min_height, draw_max_height)), (0, 255, 0), 2)
+            cv2.rectangle(display_image, (int(center_x-width/2), int(center_y-height/2)), (int(center_x + width/2), int(center_y + height/2)), (0, 255, 0), 2)
             
             # 信頼度を描画
-            cv2.putText(display_image, f"{score:.2f}", (np.clip(center_x-width/2, draw_min_width, draw_max_width), np.clip(center_y-height/2, draw_min_height, draw_max_height)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+            cv2.putText(display_image, f"{score:.2f}", (int(center_x-width/2), int(center_y-height/2)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
         
         # 画像を表示
         self.image_pub.publish(self.bridge.cv2_to_imgmsg(display_image, "bgr8"))
