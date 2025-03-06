@@ -43,10 +43,10 @@
         <transmission name="tran_kinect_yaw_joint">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="kinect_yaw_joint">
-                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             </joint>
             <actuator name="motor_kinect_yaw">
-                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -84,10 +84,10 @@
         <transmission name="tran_kinect_pitch_joint">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="kinect_pitch_joint">
-                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             </joint>
             <actuator name="motor_kinect_pitch">
-                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
