@@ -3,10 +3,12 @@
   <xacro:property name="PI" value="3.1415926535897931"/>
   <xacro:arg name="laser_visual" default="true"/>
   <!--xacro:arg name="imu_visual"   default="false"/-->
-  
+
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotSimType>icart_mini_gazebo/ICartMiniHWSim</robotSimType>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
     </plugin>
   </gazebo>
 

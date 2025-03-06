@@ -9,11 +9,4 @@
     <origin xyz="0.040 0.000 0.137" rpy="0 0 0"/>
 </xacro:manipulator>
 
-<!--
-<xacro:include filename="$(find orne_or_description)/urdf/kinect.urdf.xacro"/>
-<xacro:sensor_kinect name="kinect" parent="base_link">
-    <origin xyz="0.27 0 1.22" rpy="0 0 0"/>
-</xacro:sensor_kinect>
--->
-
 </robot>

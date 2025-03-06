@@ -1,6 +1,14 @@
 <?xml version="1.0"?>
 <robot>
 
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotSimType>sensor_kinect</robotSimType>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
+
 <!-- camera_link -->
 <gazebo reference="kinect_link">
     <mu1>0.2</mu1>
