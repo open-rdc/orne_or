@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<robot name="sensor_kinect" 
-    xmlns:xacro="http://ros.org/wiki/xacro" 
-    xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller" 
-    xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" 
+<robot name="sensor_kinect"
+    xmlns:xacro="http://ros.org/wiki/xacro"
+    xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+    xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
     xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor">
 
-    <xacro:include filename="$(find orne_or_description)/urdf/kinect.gazebo" />
+    <xacro:include filename="$(find orne_or_description)/urdf/sensor/kinect.gazebo" />
 
     <xacro:macro name="sensor_kinect" params="name parent *origin">
 
@@ -40,11 +40,11 @@
         <gazebo reference="kinect_yaw_link">
             <material>Gazebo/Blue</material>
         </gazebo>
-        <transmission name="tran_kinect_yaw_joint"> 
+        <transmission name="tran_kinect_yaw_joint">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="kinect_yaw_joint">
                 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-            </joint>   
+            </joint>
             <actuator name="motor_kinect_yaw">
                 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
@@ -81,11 +81,11 @@
         <gazebo reference="kinect_pitch_link">
             <material>Gazebo/Red</material>
         </gazebo>
-        <transmission name="tran_kinect_pitch_joint"> 
+        <transmission name="tran_kinect_pitch_joint">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="kinect_pitch_joint">
                 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-            </joint>   
+            </joint>
             <actuator name="motor_kinect_pitch">
                 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>

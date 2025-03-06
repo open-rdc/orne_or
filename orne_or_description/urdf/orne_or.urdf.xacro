@@ -2,8 +2,8 @@
 
 <robot name="orne_or" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:include filename="$(find orne_or_description)/urdf/orne_or_cart.urdf.xacro"/>
-<xacro:include filename="$(find orne_or_description)/urdf/manipulator.urdf.xacro"/>
+<xacro:include filename="$(find orne_or_description)/urdf/cart/orne_or_cart.urdf.xacro"/>
+<xacro:include filename="$(find orne_or_description)/urdf/arm/manipulator.urdf.xacro"/>
 
 <xacro:manipulator name="manipulator" parent="base_link">
     <origin xyz="0.040 0.000 0.137" rpy="0 0 0"/>

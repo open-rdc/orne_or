@@ -1,12 +1,12 @@
 <?xml version="1.0" ?>
 <robot name="manipulator"
-    xmlns:xacro="http://ros.org/wiki/xacro" 
-    xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller" 
-    xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" 
+    xmlns:xacro="http://ros.org/wiki/xacro"
+    xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+    xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
     xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor">
 
-  <xacro:include filename="$(find orne_or_description)/urdf/kinect.urdf.xacro"/>
-  <xacro:include filename="$(find orne_or_description)/urdf/manipulator.gazebo" />
+  <xacro:include filename="$(find orne_or_description)/urdf/sensor/kinect.urdf.xacro"/>
+  <xacro:include filename="$(find orne_or_description)/urdf/arm/manipulator.gazebo" />
   <xacro:macro name="manipulator" params="name parent *origin">
   <joint name="spine_joint" type="fixed">
     <xacro:insert_block  name="origin"/>
@@ -88,7 +88,7 @@
     <origin xyz="0.000 0.100 0.000"/>
     <parent link="sholder_link"/>
     <child link="l_sholder_pitch_link"/>
-    <axis xyz="0 -1 0"/> 
+    <axis xyz="0 -1 0"/>
     <limit lower="-1.39" upper="1.39" effort="4.0" velocity="1.571"/>
   </joint>
 
@@ -123,7 +123,7 @@
     <origin xyz="0.000 0.0563 0.000"/>
     <parent link="l_sholder_pitch_link"/>
     <child link="l_sholder_roll_link"/>
-    <axis xyz="0 0 -1"/> 
+    <axis xyz="0 0 -1"/>
     <limit lower="-1.57" upper="1.57" effort="4.0" velocity="1.571"/>
   </joint>
 
@@ -164,7 +164,7 @@
     <origin xyz="0.000 0.2713 0.000"/>
     <parent link="l_sholder_roll_link"/>
     <child link="l_elbow_roll_link"/>
-    <axis xyz="0 0 -1"/> 
+    <axis xyz="0 0 -1"/>
     <limit lower="-0.69" upper="2.96" effort="2.5" velocity="1.571"/>
   </joint>
 
@@ -205,7 +205,7 @@
     <origin xyz="-0.042 0.2713 0.000"/>
     <parent link="l_elbow_roll_link"/>
     <child link="l_wrist_roll_link"/>
-    <axis xyz="0 0 -1"/> 
+    <axis xyz="0 0 -1"/>
     <limit lower="-1.92" upper="1.92" effort="2.5" velocity="1.571"/>
   </joint>
 
@@ -240,7 +240,7 @@
     <origin xyz="0.000 0.054 0.000"/>
     <parent link="l_wrist_roll_link"/>
     <child link="l_wrist_pitch_link"/>
-    <axis xyz="1 0 0"/> 
+    <axis xyz="1 0 0"/>
     <limit lower="-1.92" upper="1.92" effort="2.5" velocity="1.571"/>
   </joint>
 
@@ -281,7 +281,7 @@
     <origin xyz="0.000 0.0443 0.000"/>
     <parent link="l_wrist_pitch_link"/>
     <child link="l_wrist_yaw_link"/>
-    <axis xyz="0 1 0"/> 
+    <axis xyz="0 1 0"/>
     <limit lower="-5.58" upper="5.58" effort="2.5" velocity="1.571"/>
   </joint>
 
@@ -322,7 +322,7 @@
     <origin xyz="-0.0226 0.083 0.000" rpy="0 0 0"/>
     <parent link="l_wrist_yaw_link"/>
     <child link="l_hand_left_link"/>
-    <axis xyz="0 0 -1"/> 
+    <axis xyz="0 0 -1"/>
     <limit lower="-1.57" upper="0" effort="2.5" velocity="1.571"/>
   </joint>
 
@@ -358,13 +358,13 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  
+
    <joint name="l_hand_right_joint" type="revolute">
     <origin xyz="0.0225 0.083 0.000" rpy="0 0 0"/>
     <parent link="l_wrist_yaw_link"/>
     <child link="l_hand_right_link"/>
     <axis xyz="0 0 1"/>
-    <mimic joint="l_hand_left_joint" multiplier="1.0" offset="0.0" /> 
+    <mimic joint="l_hand_left_joint" multiplier="1.0" offset="0.0" />
     <limit lower="-1.57" upper="0.0" effort="2.5" velocity="1.571"/>
   </joint>
 
@@ -450,7 +450,7 @@
     <origin xyz="0.000 -0.0563 0.000"/>
     <parent link="r_sholder_pitch_link"/>
     <child link="r_sholder_roll_link"/>
-    <axis xyz="0 0 1"/> 
+    <axis xyz="0 0 1"/>
     <limit lower="-1.57" upper="1.57" effort="4.0" velocity="1.571"/>
   </joint>
 
@@ -534,7 +534,7 @@
     <origin xyz="-0.042 -0.2713 0.000"/>
     <parent link="r_elbow_roll_link"/>
     <child link="r_wrist_roll_link"/>
-    <axis xyz="0 0 1"/> 
+    <axis xyz="0 0 1"/>
     <limit lower="-1.92" upper="1.92" effort="2.5" velocity="1.571"/>
   </joint>
 
@@ -570,7 +570,7 @@
     <origin xyz="0.000 -0.054 0.000"/>
     <parent link="r_wrist_roll_link"/>
     <child link="r_wrist_pitch_link"/>
-    <axis xyz="-1 0 0"/> 
+    <axis xyz="-1 0 0"/>
     <limit lower="-1.92" upper="1.92" effort="2.5" velocity="1.571"/>
   </joint>
 
@@ -611,7 +611,7 @@
     <origin xyz="0.000 -0.0443 0.000"/>
     <parent link="r_wrist_pitch_link"/>
     <child link="r_wrist_yaw_link"/>
-    <axis xyz="0 -1 0"/> 
+    <axis xyz="0 -1 0"/>
     <limit lower="-5.58" upper="5.58" effort="2.5" velocity="1.571"/>
   </joint>
 
@@ -648,7 +648,7 @@
     <origin xyz="0.000 -0.119 0.0295"/>
     <parent link="r_wrist_yaw_link"/>
     <child link="r_hand_link"/>
-    <axis xyz="1 0 0"/> 
+    <axis xyz="1 0 0"/>
     <limit lower="0" upper="1.74" effort="2.5" velocity="1.571"/>
   </joint>
 

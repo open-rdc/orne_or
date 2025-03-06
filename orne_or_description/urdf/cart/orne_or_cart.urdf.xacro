@@ -2,7 +2,7 @@
 <robot name="orne_or_cart" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:property name="PI" value="3.1415926535897931"/>
   <xacro:include filename="$(find icart_mini_description)/urdf/materials.xacro" />
-  <xacro:include filename="$(find orne_or_description)/urdf/orne_or_cart.gazebo.xacro"/>
+  <xacro:include filename="$(find orne_or_description)/urdf/cart/orne_or_cart.gazebo.xacro"/>
 
   <link name="base_link">
     <visual>
@@ -140,7 +140,7 @@
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="left_wheel_hinge">
       <hardwareInterface>VelocityJointInterface</hardwareInterface>
-    </joint>   
+    </joint>
   <actuator name="left_motor">
       <hardwareInterface>VelocityJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
@@ -151,7 +151,7 @@
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="right_wheel_hinge">
       <hardwareInterface>VelocityJointInterface</hardwareInterface>
-    </joint>  
+    </joint>
   <actuator name="right_motor">
       <hardwareInterface>VelocityJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
