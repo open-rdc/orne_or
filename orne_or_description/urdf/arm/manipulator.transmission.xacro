@@ -5,7 +5,7 @@
 
     <!-- sholder -->
 
-    <transmission name="trans_sholder_slider">
+    <transmission name="transmission_sholder_slider">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="sholder_slider">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -18,7 +18,7 @@
 
     <!--left arm-->
 
-    <transmission name="trans_l_sholder_pitch">
+    <transmission name="transmission_l_sholder_pitch">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="l_sholder_pitch_joint">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -29,7 +29,7 @@
       </actuator>
     </transmission>
 
-    <transmission name="trans_l_sholder_roll">
+    <transmission name="transmission_l_sholder_roll">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="l_sholder_roll_joint">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -40,7 +40,7 @@
       </actuator>
     </transmission>
 
-    <transmission name="trans_l_elbow_roll">
+    <transmission name="transmission_l_elbow_roll">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="l_elbow_roll_joint">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -51,7 +51,7 @@
       </actuator>
     </transmission>
 
-    <transmission name="trans_l_wrist_roll">
+    <transmission name="transmission_l_wrist_roll">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="l_wrist_roll_joint">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -62,7 +62,7 @@
       </actuator>
     </transmission>
 
-    <transmission name="trans_l_wrist_pitch">
+    <transmission name="transmission_l_wrist_pitch">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="l_wrist_pitch_joint">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -73,7 +73,7 @@
       </actuator>
     </transmission>
 
-    <transmission name="trans_l_wrist_yaw">
+    <transmission name="transmission_l_wrist_yaw">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="l_wrist_yaw_joint">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -84,7 +84,7 @@
       </actuator>
     </transmission>
 
-    <transmission name="trans_l_hand_left">
+    <transmission name="transmission_l_hand_left">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="l_hand_left_joint">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -95,7 +95,7 @@
       </actuator>
     </transmission>
 
-    <transmission name="trans_l_right_hand">
+    <transmission name="transmission_l_right_hand">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="l_hand_right_joint">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -108,7 +108,7 @@
 
     <!--right arm-->
 
-    <transmission name="trans_r_sholder_pitch">
+    <transmission name="transmission_r_sholder_pitch">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="r_sholder_pitch_joint">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -119,7 +119,7 @@
       </actuator>
     </transmission>
 
-    <transmission name="trans_r_sholder_roll">
+    <transmission name="transmission_r_sholder_roll">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="r_sholder_roll_joint">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -130,7 +130,7 @@
       </actuator>
     </transmission>
 
-    <transmission name="trans_r_elbow_roll">
+    <transmission name="transmission_r_elbow_roll">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="r_elbow_roll_joint">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -141,7 +141,7 @@
       </actuator>
     </transmission>
 
-    <transmission name="trans_r_wrist_roll">
+    <transmission name="transmission_r_wrist_roll">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="r_wrist_roll_joint">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -152,7 +152,7 @@
       </actuator>
     </transmission>
 
-    <transmission name="trans_r_wrist_pitch">
+    <transmission name="transmission_r_wrist_pitch">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="r_wrist_pitch_joint">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -163,7 +163,7 @@
       </actuator>
     </transmission>
 
-    <transmission name="trans_r_wrist_yaw">
+    <transmission name="transmission_r_wrist_yaw">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="r_wrist_yaw_joint">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -174,7 +174,7 @@
       </actuator>
     </transmission>
 
-    <transmission name="trans_r_hand">
+    <transmission name="transmission_r_hand">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="r_hand_joint">
         <hardwareInterface>${interface}</hardwareInterface>
