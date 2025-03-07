@@ -6,20 +6,29 @@
   <xacro:include filename="$(find orne_or_description)/urdf/cart/orne_or_cart.gazebo.xacro"/>
   <xacro:include filename="$(find orne_or_description)/urdf/cart/orne_or_cart.transmission.xacro"/>
 
+  <!-- Base -->
+
   <link name="base_link">
-    <visual>
-      <origin xyz="0.090 0 0.1715" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.400 0.404 0.202"/>
-      </geometry>
-      <material name="orange"/>
-    </visual>
     <inertial>
       <origin xyz="0.030 0 0.0" rpy="0 0 0"/>
       <mass value="25.0"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="0.1" />
     </inertial>
+    <visual>
+        <geometry>
+          <mesh filename="package://orne_or_description/meshes/bases/base_link.stl"/>
+        </geometry>
+        <material name="orange"/>
+    </visual>
+    <collision>
+      <origin xyz="0.090 0 0.1715" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.400 0.404 0.202"/>
+      </geometry>
+    </collision>
   </link>
+
+  <!-- Left Wheel -->
 
   <joint name="left_wheel_hinge" type="revolute">
     <parent link="base_link"/>
@@ -53,6 +62,8 @@
 
   </link>
 
+  <!-- Right Wheel -->
+
   <joint name="right_wheel_hinge" type="revolute">
     <parent link="base_link"/>
     <child link="wheel_right_link"/>
@@ -85,10 +96,12 @@
 
   </link>
 
+  <!-- Caster -->
+
   <joint name="caster_front_joint" type="fixed">
     <parent link="base_link"/>
     <child link="caster_front_link"/>
-    <origin xyz="0.362 0 0.050" rpy="0 0 0"/>
+    <origin xyz="-0.3 0 0.050" rpy="0 0 0"/>
   </joint>
 
   <link name="caster_front_link">
@@ -106,7 +119,6 @@
       </geometry>
       <material name="red"/>
     </visual>
-
     <collision>
       <origin xyz="0 0.150 0" rpy="${PI/2} 0 0"/>
       <geometry>
@@ -127,14 +139,10 @@
     </inertial>
   </link>
 
-  <!-- Setting for imu -->
-  <xacro:sensor_imu name="imu" parent="base_link" size="0.05 0.05 0.05">
-    <origin xyz="0.3 0 0.2445" rpy="0 0 ${-PI/2}"/>
-  </xacro:sensor_imu>
-
+  <!-- LiDAR -->
   <xacro:include filename="$(find icart_mini_description)/urdf/sensors/hokuyo.urdf.xacro"/>
   <xacro:sensor_hokuyo name="hokuyo" parent="base_link">
-    <origin xyz="0.374295 0 0.2185" rpy="0 0 0"/>
+    <origin xyz="0.12 0 0.3" rpy="0 0 0"/>
   </xacro:sensor_hokuyo>
 
 </robot>
