@@ -3,7 +3,7 @@
 
   <xacro:macro name="orne_or_cart_transmission" params="interface">
 
-    <transmission name="tran1">
+    <transmission name="trnsmission_left_wheel">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="left_wheel_hinge">
         <hardwareInterface>${interface}</hardwareInterface>
@@ -14,7 +14,7 @@
       </actuator>
     </transmission>
 
-    <transmission name="tran2">
+    <transmission name="transmission_right_wheel">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="right_wheel_hinge">
         <hardwareInterface>${interface}</hardwareInterface>
