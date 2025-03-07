@@ -7,7 +7,6 @@
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotSimType>icart_mini_gazebo/ICartMiniHWSim</robotSimType>
-      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
       <legacyModeNS>true</legacyModeNS>
     </plugin>
   </gazebo>
@@ -41,15 +40,7 @@
     <mu2>0.0</mu2>
     <material>Gazebo/Red</material>
   </gazebo>
-<!--
-  <gazebo reference="imu_link">
-    <sensor type="imu" name="imu">
-      <always_on>true</always_on>
-      <visualize>$(arg imu_visual)</visualize>
-    </sensor>
-    <material>Gazebo/FlatBlack</material>
-  </gazebo>
--->
+
   <!-- hokuyo -->
   <gazebo reference="hokuyo_link">
     <sensor type="ray" name="head_hokuyo_sensor">
