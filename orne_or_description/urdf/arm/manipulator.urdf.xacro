@@ -58,7 +58,7 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/shoulder_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/shoulder_link.stl"/>
         </geometry>
         <material name="blue">
           <color rgba="0 0 .8 1"/>
@@ -93,7 +93,7 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/sholder_pitch_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/sholder_pitch_link.stl"/>
         </geometry>
         <material name="red"/>
       </visual>
@@ -118,7 +118,7 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/sholder_roll_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/sholder_roll_link.stl"/>
         </geometry>
         <material name="blue"/>
       </visual>
@@ -149,7 +149,7 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/elbow_roll_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/elbow_roll_link.stl"/>
         </geometry>
         <material name="red"/>
       </visual>
@@ -180,7 +180,7 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/wrist_roll_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/wrist_roll_link.stl"/>
         </geometry>
         <material name="blue"/>
       </visual>
@@ -205,7 +205,7 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/l_wrist_pitch_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/l_wrist_pitch_link.stl"/>
         </geometry>
         <material name="red"/>
       </visual>
@@ -236,7 +236,7 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/l_wrist_yaw_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/l_wrist_yaw_link.stl"/>
         </geometry>
         <material name="blue"/>
       </visual>
@@ -267,14 +267,14 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/l_hand_left_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/l_hand_left_link.stl"/>
         </geometry>
         <material name="red"/>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/l_hand_left_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/l_hand_left_link.stl"/>
         </geometry>
       </collision>
     </link>
@@ -299,14 +299,14 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/l_hand_right_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/l_hand_right_link.stl"/>
         </geometry>
         <material name="red"/>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/l_hand_right_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/l_hand_right_link.stl"/>
         </geometry>
       </collision>
     </link>
@@ -340,7 +340,7 @@
       <visual>
         <origin rpy="0 0 3.14159"/>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/sholder_pitch_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/sholder_pitch_link.stl"/>
         </geometry>
         <material name="red"/>
       </visual>
@@ -366,7 +366,7 @@
       <visual>
         <origin rpy="0 0 3.14159"/>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/sholder_roll_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/sholder_roll_link.stl"/>
         </geometry>
         <material name="blue"/>
       </visual>
@@ -398,7 +398,7 @@
       <visual>
         <origin rpy="0 3.14159 3.14159"/>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/elbow_roll_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/elbow_roll_link.stl"/>
         </geometry>
         <material name="red"/>
       </visual>
@@ -430,7 +430,7 @@
       <visual>
         <origin rpy="0 0 3.14159"/>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/wrist_roll_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/wrist_roll_link.stl"/>
         </geometry>
         <material name="blue"/>
       </visual>
@@ -455,7 +455,7 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/r_wrist_pitch_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/r_wrist_pitch_link.stl"/>
         </geometry>
         <material name="red"/>
       </visual>
@@ -486,13 +486,13 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/r_wrist_yaw_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/r_wrist_yaw_link.stl"/>
         </geometry>
         <material name="blue"/>
       </visual>
       <collision>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/r_wrist_yaw_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/r_wrist_yaw_link.stl"/>
         </geometry>
       </collision>
     </link>
@@ -513,13 +513,13 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/r_hand_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/r_hand_link.stl"/>
         </geometry>
         <material name="red"/>
       </visual>
       <collision>
         <geometry>
-          <mesh filename="package://orne_or_description/meshes/r_hand_link.stl"/>
+          <mesh filename="package://orne_or_description/meshes/arm/r_hand_link.stl"/>
         </geometry>
       </collision>
     </link>
