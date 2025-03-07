@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<robot name="orne_or_cart" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="orne_or_cart_transmission" params="interface">
+
+    <transmission name="tran1">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="left_wheel_hinge">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+    <actuator name="left_motor">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="tran2">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="right_wheel_hinge">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+    <actuator name="right_motor">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+  </xacro:macro>
+
+</robot>

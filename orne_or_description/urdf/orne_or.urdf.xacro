@@ -10,5 +10,6 @@
 </xacro:manipulator>
 
 <xacro:manipulator_transmission interface="hardware_interface/PositionJointInterface"/>
+<xacro:orne_or_cart_transmission interface="hardware_interface/VelocityJointInterface"/>
 
 </robot>
