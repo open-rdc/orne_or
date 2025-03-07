@@ -21,7 +21,7 @@ controller_list:
   - name: fake_right_hand_controller
     joints:
       - r_hand_joint
-  - name: manipulator/kinect_controller
+  - name: fake_kinect_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     default: true
