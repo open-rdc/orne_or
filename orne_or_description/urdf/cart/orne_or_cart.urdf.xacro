@@ -10,7 +10,7 @@
 
   <link name="base_link">
     <inertial>
-      <origin xyz="0.030 0 0.0" rpy="0 0 0"/>
+      <origin xyz="-0.3 0 0.2" rpy="0 0 0"/>
       <mass value="25.0"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="0.1" />
     </inertial>
@@ -112,6 +112,13 @@
       </geometry>
       <material name="red"/>
     </visual>
+        <collision>
+      <origin xyz="0 0.150 0" rpy="${PI/2} 0 0"/>
+      <geometry>
+        <cylinder length="0.025" radius="0.050"/>
+      </geometry>
+    </collision>
+
     <visual>
       <origin xyz="0 -0.150 0" rpy="${PI/2} 0 0"/>
       <geometry>
@@ -119,12 +126,6 @@
       </geometry>
       <material name="red"/>
     </visual>
-    <collision>
-      <origin xyz="0 0.150 0" rpy="${PI/2} 0 0"/>
-      <geometry>
-        <cylinder length="0.025" radius="0.050"/>
-      </geometry>
-    </collision>
     <collision>
       <origin xyz="0 -0.150 0" rpy="${PI/2} 0 0"/>
       <geometry>
