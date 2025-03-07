@@ -2,7 +2,7 @@ manipulator:
   joint_state_controller:
     type: joint_state_controller/JointStateController
     publish_rate: 10
-  
+
   kinect_controller:
     type: position_controllers/JointTrajectoryController
     joints:
@@ -14,10 +14,11 @@ manipulator:
 
   sholder_slider_controller:
     type: position_controllers/JointTrajectoryController
-    joints: 
+    joints:
       - sholder_slider
     gains:
       sholder_slider: {p: 100.0, i: 0.01, d: 100.0}
+
   left_arm_controller:
     type: position_controllers/JointTrajectoryController
     joints:
@@ -34,6 +35,7 @@ manipulator:
       l_wrist_roll_joint: {p: 100.0, i: 0.01, d: 100.0}
       l_wrist_pitch_joint: {p: 100.0, i: 0.01, d: 100.0}
       l_wrist_yaw_joint: {p: 100.0, i: 0.01, d: 100.0}
+
   right_arm_controller:
     type: position_controllers/JointTrajectoryController
     joints:
@@ -50,12 +52,14 @@ manipulator:
       r_wrist_roll_joint: {p: 100.0, i: 0.01, d: 100.0}
       r_wrist_pitch_joint: {p: 100.0, i: 0.01, d: 100.0}
       r_wrist_yaw_joint: {p: 100.0, i: 0.01, d: 100.0}
+
   left_hand_controller:
     type: position_controllers/JointTrajectoryController
     joints:
       - l_hand_left_joint
     gains:
       l_hand_left_joint: {p: 100.0, i: 0.01, d: 100.0}
+
   right_hand_controller:
     type: position_controllers/JointTrajectoryController
     joints:
