@@ -1,0 +1,188 @@
+<?xml version="1.0" ?>
+<robot name="manipulator"
+    xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="manipulator_transmission" params="interface">
+
+    <!-- sholder -->
+
+    <transmission name="trans_sholder_slider">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="sholder_slider">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_sholder_slider">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <!--left arm-->
+
+    <transmission name="trans_l_sholder_pitch">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="l_sholder_pitch_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_l_sholder_pitch">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="trans_l_sholder_roll">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="l_sholder_roll_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_l_sholder_roll">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="trans_l_elbow_roll">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="l_elbow_roll_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_l_elbow_roll">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="trans_l_wrist_roll">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="l_wrist_roll_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_l_wrist_roll">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="trans_l_wrist_pitch">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="l_wrist_pitch_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_l_wrist_pitch">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="trans_l_wrist_yaw">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="l_wrist_yaw_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_l_wrist_yaw">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="trans_l_hand_left">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="l_hand_left_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_l_hand_left">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="trans_l_right_hand">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="l_hand_right_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_l_hand_right">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <!--right arm-->
+
+    <transmission name="trans_r_sholder_pitch">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="r_sholder_pitch_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_r_sholder_pitch">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="trans_r_sholder_roll">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="r_sholder_roll_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_r_sholder_roll">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="trans_r_elbow_roll">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="r_elbow_roll_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_r_elbow_roll">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="trans_r_wrist_roll">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="r_wrist_roll_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_r_wrist_roll">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="trans_r_wrist_pitch">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="r_wrist_pitch_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_r_wrist_pitch">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="trans_r_wrist_yaw">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="r_wrist_yaw_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_r_wrist_yaw">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="trans_r_hand">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="r_hand_joint">
+        <hardwareInterface>${interface}</hardwareInterface>
+      </joint>
+      <actuator name="motor_r_hand">
+        <hardwareInterface>${interface}</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+</robot>

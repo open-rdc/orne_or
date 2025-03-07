@@ -9,4 +9,6 @@
     <origin xyz="0.040 0.000 0.137" rpy="0 0 0"/>
 </xacro:manipulator>
 
+<xacro:manipulator_transmission interface="hardware_interface/PositionJointInterface"/>
+
 </robot>
