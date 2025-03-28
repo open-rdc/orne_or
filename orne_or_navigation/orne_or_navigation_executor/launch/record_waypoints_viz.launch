@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <launch>
-  <arg name="map_file" default="$(find orne_or_navigation_executor)/maps/mymap.yaml"/>
+  <arg name="map_file" default="$(find orne_or_navigation_executor)/maps/250323_tsudanuma.yaml"/>
   <arg name="filename" default="$(find orne_or_navigation_executor)/waypoints_cfg/waypoints.yaml"/>
 
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/>
