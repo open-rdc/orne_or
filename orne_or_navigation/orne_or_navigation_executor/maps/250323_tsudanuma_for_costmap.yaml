@@ -1,0 +1,8 @@
+image: 250323_tsudanuma_mibu_for_costmap.pgm
+resolution: 0.10000
+origin: [-8.000000, -92.000000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+
+
